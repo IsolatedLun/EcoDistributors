@@ -20,6 +20,7 @@
 	const _class = createCubeCSSClass(cubeClass, {
 		compostClass: 'input'
 	});
+
 	let _this: HTMLInputElement;
 	let errors: string[] = [];
 </script>

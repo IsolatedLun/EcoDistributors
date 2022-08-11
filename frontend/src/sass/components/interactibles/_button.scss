@@ -5,6 +5,17 @@
 	@include createButton($color: white);
 }
 
+.button:is([data-variant='hoverable']) {
+	@include createButton(
+		$padding: 0.75em,
+		$color: var(--clr-accent-400),
+		$color-on-hov: var(--clr-accent-400),
+		$background-color: transparent,
+		$border-radius: $border-radius-cubed,
+		$background-color-on-hov: hsl(0 0% 50% / 0.26)
+	);
+}
+
 // ========================
 // Fixing issues
 // =========================

@@ -1,0 +1,47 @@
+@use '../../abstracts/' as *;
+
+.select:is([data-variant='box-select']) {
+	& li {
+		padding: 0.95em 1.5em;
+		background-color: transparent;
+		color: var(--clr-text-accent);
+
+		&:is([data-selected='true']) {
+			color: white;
+
+			background-color: $select-box-background-on-select;
+			border-color: $select-box-background-on-select;
+		}
+
+		&:not([data-selected='true']):is(:focus-visible, :hover) {
+			background-color: $select-box-background-on-hov;
+			border-color: $select-box-border-color-on-hov;
+
+			// Selects the left border of the next li
+			& + li {
+				border-inline-start-color: $select-box-border-color-on-hov;
+			}
+		}
+	}
+
+	& li:where(:first-child) {
+		border-block: $select-box-border;
+		border-inline-start: $select-box-border;
+
+		border-start-start-radius: 9px;
+		border-end-start-radius: 9px;
+	}
+
+	& li:where(:last-child) {
+		border-block: $select-box-border;
+		border-inline-end: $select-box-border;
+
+		border-start-end-radius: 9px;
+		border-end-end-radius: 9px;
+	}
+
+	& li:where(:not(:first-child)) {
+		border-block: $select-box-border;
+		border-inline-start: $select-box-border;
+	}
+}

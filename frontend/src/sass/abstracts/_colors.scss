@@ -4,14 +4,20 @@ $colors-dark: (
 	),
 	input: (
 		'background': hsl(0 0% 8%),
-		'border': hsl(217 71% 35%),
+		'border': hsl(0 0% 28%),
 		'border-shadow': hsl(217 71% 35% / 0.56),
-		'border-on-hov': hsl(217 71% 15%)
+		'border-on-hov': hsl(217 71% 35%)
 	),
 	text: (
 		'400': white,
+		'accent': white,
 		'muted': hsl(0 0% 90%),
 		'light-muted': hsl(0 0% 85%)
+	),
+	select-box: (
+		'background-on-select': hsl(217 71% 35%),
+		'background-on-hov': hsl(217 71% 35% / 0.56),
+		'border-color-on-hov': hsl(217 71% 35%)
 	),
 	primary: (
 		'400': hsl(220 97% 60%),
@@ -30,8 +36,14 @@ $colors-light: (
 		'border-shadow': hsl(0 0% 65% / 0.56),
 		'border-on-hov': hsl(0 0% 65%)
 	),
+	select-box: (
+		'background-on-select': hsl(217 71% 35%),
+		'background-on-hov': hsl(217 71% 95% / 0.16),
+		'border-color-on-hov': hsl(217 71% 85%)
+	),
 	text: (
 		'400': black,
+		'accent': #212b40,
 		'muted': hsl(0 0% 46%),
 		'light-muted': hsl(0 0% 85%)
 	),
