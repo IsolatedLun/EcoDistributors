@@ -1,0 +1,53 @@
+$colors-dark: (
+	background: (
+		'body': hsl(0 0% 11%)
+	),
+	input: (
+		'background': hsl(0 0% 8%),
+		'border': hsl(217 71% 35%),
+		'border-shadow': hsl(217 71% 35% / 0.56),
+		'border-on-hov': hsl(217 71% 15%)
+	),
+	text: (
+		'400': white,
+		'muted': hsl(0 0% 90%),
+		'light-muted': hsl(0 0% 85%)
+	),
+	primary: (
+		'400': hsl(220 97% 60%),
+		'500': hsl(220 97% 65%),
+		'shadow': hsl(220 97% 65% / 0.67)
+	)
+);
+
+$colors-light: (
+	background: (
+		'body': white
+	),
+	input: (
+		'background': hsl(0 0% 95%),
+		'border': hsl(0 0% 65%),
+		'border-shadow': hsl(0 0% 65% / 0.56),
+		'border-on-hov': hsl(0 0% 65%)
+	),
+	text: (
+		'400': black,
+		'muted': hsl(0 0% 46%),
+		'light-muted': hsl(0 0% 85%)
+	),
+	primary: (
+		'400': hsl(215 97% 60%),
+		'500': hsl(215 97% 65%),
+		'shadow': hsl(220 97% 65% / 0.67)
+	)
+);
+
+$active-theme: $colors-light;
+
+@each $keyName, $key in $active-theme {
+	@each $valKey, $val in $key {
+		.clr-#{$keyName}-#{$valKey} {
+			color: $val;
+		}
+	}
+}

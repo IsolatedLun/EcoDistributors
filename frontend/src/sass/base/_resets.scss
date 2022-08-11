@@ -1,0 +1,135 @@
+@use '../abstracts/' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 10rem;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: var(--fs-400);
+
+	color: var(--clr-text-400);
+	background-color: var(--clr-background-body);
+
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.3;
+}
+
+p {
+	line-height: 1.4;
+}
+
+a {
+	text-decoration: none;
+	color: var(--clr-text-muted);
+
+	&:hover {
+		color: var(--clr-primary-400);
+	}
+}
+
+:focus:not([data-variant], [data-secondary-variant]) {
+	outline: 3px solid var(--clr-primary-shadow);
+	border-radius: 2px;
+	outline-offset: 9px;
+}
+
+td[title] {
+	cursor: crosshair;
+}
+
+ul[role='list'] {
+	list-style: none;
+}
+
+input,
+textarea,
+button,
+*.button {
+	font-size: calc(var(--fs-350) * 1.05);
+	font-family: 'Poppins', sans-serif;
+
+	color: var(--clr-text-400);
+}
+
+button {
+	border: 0;
+	background-color: transparent;
+}
+
+img,
+video {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+img[data-small='true'] {
+	width: auto;
+	object-fit: contain;
+}
+
+:focus {
+	outline: 1px solid var(--clr-text-400);
+	outline-offset: 4px;
+}
+
+:target {
+	animation: highlight_element 0.75s ease forwards;
+}
+
+:is(.button, .input, body):focus {
+	outline: 0;
+}
+
+// Misc
+[class*='flex'] {
+	display: flex;
+}
+
+[class*='grid'] {
+	display: grid;
+}
+
+[data-mobile] {
+	display: none !important;
+}
+
+[data-hide] {
+	display: none !important;
+}
+
+[data-dropdown-state='false'] {
+	display: none !important;
+}
+
+[data-work-condition='false'] {
+	opacity: 0.75;
+	pointer-events: none;
+}
+
+:where(.flow > * + *) {
+	margin-block-start: $flow-spacing;
+}

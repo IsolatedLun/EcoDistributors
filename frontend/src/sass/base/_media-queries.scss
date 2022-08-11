@@ -1,0 +1,41 @@
+@use '../abstracts/' as *;
+
+@media screen and (max-width: #{$breakpoint-medium}) {
+	:root {
+		@each $font, $size in $font-sizes-medium {
+			--fs-#{$font}: #{$size};
+		}
+	}
+}
+
+@media screen and (max-width: #{$breakpoint-small}) {
+	:root {
+		// Classes
+		*[data-flex-collapse] {
+			flex-direction: column !important;
+		}
+
+		*[data-grid-collapse] {
+			grid-template-columns: 1fr !important;
+		}
+
+		*[data-desktop] {
+			display: none !important;
+		}
+
+		*[data-mobile] {
+			display: block !important;
+		}
+
+		// Loops
+		@each $name, $size in $sizes-mobile {
+			@each $size-key, $size-val in $size {
+				--size-#{$name}-#{$size-key}: #{$size-val};
+			}
+		}
+
+		@each $font, $size in $font-sizes-mobile {
+			--fs-#{$font}: #{$size};
+		}
+	}
+}

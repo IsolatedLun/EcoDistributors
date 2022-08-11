@@ -1,0 +1,17 @@
+@use '../../abstracts/' as *;
+@use '../mixins' as *;
+
+.button:is([data-variant='default']) {
+	@include createButton($color: white);
+}
+
+// ========================
+// Fixing issues
+// =========================
+.button {
+	display: grid;
+
+	& .icon {
+		place-self: center;
+	}
+}

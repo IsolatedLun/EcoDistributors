@@ -1,0 +1,16 @@
+@use '../../abstracts/' as *;
+@use '../mixins' as *;
+
+.input:where([data-variant='default']) {
+	@include createInput();
+}
+
+.input:where([data-variant='mega']) {
+	@include createInput($font-size: var(--fs-450));
+}
+
+.input:is([data-secondary-variant='use-shadow']) {
+	&:is(:focus-visible, :hover) {
+		box-shadow: 0 0 0px 4px var(--clr-input-border-shadow);
+	}
+}

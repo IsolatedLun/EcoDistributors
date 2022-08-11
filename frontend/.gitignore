@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/static/icons
+*.map
+/package
+.env
+.env.*
+!.env.example

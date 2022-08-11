@@ -1,0 +1,60 @@
+@use './_colors.scss' as *;
+
+// Root colors
+
+// Containers
+$main-container-width: 100%;
+$main-container-padding: 1rem;
+
+$secondary-container-width: 900px;
+
+// =================
+// Utilities
+// =================
+$border-radius-cubed: 9px;
+
+// =================
+// Components
+// =================
+// Navbar
+
+$navbar-mobile-dropdown-inset: 30% 4rem auto;
+
+// Input
+$def-input-font-size: var(--fs-350);
+$def-input-padding: 0.7em 1.5em;
+$def-input-background-color: var(--clr-input-background);
+$def-input-border: 2px solid var(--clr-input-border);
+$def-input-border-radius: 100vmax;
+$def-input-border-color-on-hov: var(--clr-input-border);
+
+$input-textarea-height: 4ch;
+
+$image-banner-width: 144px;
+
+// Button
+$def-button-font-size: var(--fs-400);
+$def-button-padding: 0.5em 1.25em;
+$def-button-background-color: var(--clr-primary-400);
+$def-button-border-radius: 100vmax;
+$def-button-background-color-on-hov: var(--clr-primary-500);
+$def-button-color: white;
+
+// Card
+$def-card-background-color: var(--clr-background-600);
+$def-card-border-radius: $border-radius-cubed;
+
+// =================
+// Animations
+// =================
+$animation-background-color-highlight: var(--clr-blue-hover);
+
+// =================
+// Composition
+// =================
+$clr-column-split-border: var(--clr-hover-400);
+
+// =================
+// Misc
+// =================
+$flow-spacing: 0.5em;
