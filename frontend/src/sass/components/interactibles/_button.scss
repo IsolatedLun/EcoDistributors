@@ -16,6 +16,23 @@
 	);
 }
 
+.button:is([data-secondary-variant='select-list-item']) {
+	& .item__checkbox {
+		@include transformCenter($left: 6%);
+
+		position: absolute;
+		visibility: hidden;
+	}
+
+	&:is(:focus-visible, :hover) .icon {
+		visibility: hidden;
+	}
+
+	&:is(:focus-visible, :hover) .item__checkbox {
+		visibility: visible;
+	}
+}
+
 // ========================
 // Fixing issues
 // =========================
@@ -25,4 +42,11 @@
 	& .icon {
 		place-self: center;
 	}
+}
+
+.button:is([data-selected='true']) {
+	color: white;
+
+	background-color: $select-box-background-on-select;
+	border-color: $select-box-background-on-select;
 }

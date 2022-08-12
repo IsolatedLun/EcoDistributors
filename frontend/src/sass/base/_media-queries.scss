@@ -6,6 +6,10 @@
 			--fs-#{$font}: #{$size};
 		}
 	}
+
+	.state-indicator {
+		z-index: 1;
+	}
 }
 
 @media screen and (max-width: #{$breakpoint-small}) {
@@ -37,5 +41,14 @@
 		@each $font, $size in $font-sizes-mobile {
 			--fs-#{$font}: #{$size};
 		}
+	}
+
+	// Custom changes
+	.primary-navbar {
+		justify-content: space-between;
+	}
+
+	.state-indicator {
+		z-index: 2;
 	}
 }

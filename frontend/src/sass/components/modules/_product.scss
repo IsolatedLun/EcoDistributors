@@ -1,0 +1,15 @@
+.products {
+	.product {
+		.product__image {
+			width: 12em;
+			aspect-ratio: 1;
+			background-color: var(--clr-image-background);
+		}
+
+		.product__price {
+			color: var(--clr-text-muted);
+		}
+
+		background-color: var(--clr-card-primary);
+	}
+}

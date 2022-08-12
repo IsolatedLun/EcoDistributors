@@ -45,3 +45,9 @@
 		border-inline-start: $select-box-border;
 	}
 }
+
+.select:is([data-variant='list']) {
+	& li {
+		color: var(--clr-text-muted);
+	}
+}

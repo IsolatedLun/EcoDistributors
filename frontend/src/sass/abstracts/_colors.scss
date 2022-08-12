@@ -1,6 +1,13 @@
 $colors-dark: (
 	background: (
-		'body': hsl(0 0% 11%)
+		'body': hsl(0 0% 11%),
+		'secondary': hsl(0 0% 16%)
+	),
+	card: (
+		'primary': hsl(0 0% 21%)
+	),
+	image: (
+		'background': hsl(0 0% 70% / 10%)
 	),
 	input: (
 		'background': hsl(0 0% 8%),
@@ -28,7 +35,14 @@ $colors-dark: (
 
 $colors-light: (
 	background: (
-		'body': white
+		'body': hsl(0 0% 100%),
+		'secondary': hsl(0 0% 94%)
+	),
+	card: (
+		'primary': white
+	),
+	image: (
+		'background': hsl(0 0% 85%)
 	),
 	input: (
 		'background': hsl(0 0% 95%),
@@ -43,7 +57,7 @@ $colors-light: (
 	),
 	text: (
 		'400': black,
-		'accent': #212b40,
+		'accent': hsl(221 62% 19%),
 		'muted': hsl(0 0% 46%),
 		'light-muted': hsl(0 0% 85%)
 	),

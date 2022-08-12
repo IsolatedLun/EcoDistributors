@@ -33,7 +33,7 @@
 			{#if option.icon}
 				<Icon ariaLabel={`${option.text} Icon`}>{option.icon}</Icon>
 			{/if}
-			<p>{option.text}</p>
+			<p data-desktop>{option.text}</p>
 		</li>
 	{/each}
 </ul>
