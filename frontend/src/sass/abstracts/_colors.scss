@@ -30,19 +30,23 @@ $colors-dark: (
 		'400': hsl(220 97% 60%),
 		'500': hsl(220 97% 65%),
 		'shadow': hsl(220 97% 65% / 0.67)
+	),
+	error: (
+		'400': hsl(2 97% 62%),
+		'hover': hsl(2 97% 62% / 46%)
 	)
 );
 
 $colors-light: (
 	background: (
 		'body': hsl(0 0% 100%),
-		'secondary': hsl(0 0% 94%)
+		'secondary': hsl(0 0% 96%)
 	),
 	card: (
 		'primary': white
 	),
 	image: (
-		'background': hsl(0 0% 85%)
+		'background': hsl(0 0% 87%)
 	),
 	input: (
 		'background': hsl(0 0% 95%),
@@ -65,6 +69,10 @@ $colors-light: (
 		'400': hsl(215 97% 60%),
 		'500': hsl(215 97% 65%),
 		'shadow': hsl(220 97% 65% / 0.67)
+	),
+	error: (
+		'400': hsl(2 97% 62%),
+		'hover': hsl(2 97% 62% / 56%)
 	)
 );
 

@@ -40,6 +40,22 @@ $def-button-border-radius: 100vmax;
 $def-button-background-color-on-hov: var(--clr-primary-500);
 $def-button-color: white;
 
+$button-hoverable-font-size: var(--fs-400);
+$button-hoverable-padding: 0.75em;
+$button-hoverable-background-color: transparent;
+$button-hoverable-border-radius: $border-radius-cubed;
+$button-hoverable-background-color-on-hov: hsl(0 0% 50% / 0.26);
+$button-hoverable-color: white;
+
+// => Filter
+$button-filter-font-size: var(--fs-400);
+$button-filter-padding: 0.25em 0.75em;
+$button-filter-background-color: hsl(0 0% 50% / 0.26);
+$button-filter-border: 2px solid hsl(0 0% 50% / 0.26);
+$button-filter-border-radius: $border-radius-cubed;
+$button-filter-background-color-on-hov: var(--clr-error-hover);
+$button-filter-color: var(--clr-text-muted);
+
 // Selects
 $select-box-border: 2px solid hsl(0 0 50% / 0.36);
 $select-box-background-on-hov: var(--clr-select-box-background-on-hov);

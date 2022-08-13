@@ -7,16 +7,34 @@
 
 .button:is([data-variant='hoverable']) {
 	@include createButton(
-		$padding: 0.75em,
-		$color: var(--clr-accent-400),
-		$color-on-hov: var(--clr-accent-400),
-		$background-color: transparent,
-		$border-radius: $border-radius-cubed,
-		$background-color-on-hov: hsl(0 0% 50% / 0.26)
+		$padding: $button-hoverable-padding,
+		$color: $button-hoverable-color,
+		$color-on-hov: $button-hoverable-color,
+		$background-color: $button-hoverable-background-color,
+		$border-radius: $button-hoverable-border-radius,
+		$background-color-on-hov: $button-hoverable-background-color-on-hov
 	);
 }
 
+.button:is([data-variant='filter']) {
+	@include createButton(
+		$padding: 0.25em 0.75em,
+		$border: 2px solid hsl(0 0% 50% / 0.26),
+		$color: var(--clr-text-muted),
+		$color-on-hov: var(--clr-accent-400),
+		$background-color: hsl(0 0% 50% / 0.26),
+		$background-color-on-hov: var(--clr-error-hover),
+		$border-radius: 100vmax
+	);
+
+	&:is(:focus-visible, :hover) .icon {
+		color: var(--clr-error-400);
+	}
+}
+
 .button:is([data-secondary-variant='select-list-item']) {
+	border-radius: 100vmax;
+
 	& .item__checkbox {
 		@include transformCenter($left: 6%);
 

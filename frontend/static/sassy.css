@@ -4,7 +4,7 @@
 }
 
 .clr-background-secondary {
-  color: #f0f0f0;
+  color: whitesmoke;
 }
 
 .clr-card-primary {
@@ -12,7 +12,7 @@
 }
 
 .clr-image-background {
-  color: #d9d9d9;
+  color: #dedede;
 }
 
 .clr-input-background {
@@ -69,6 +69,14 @@
 
 .clr-primary-shadow {
   color: rgba(79, 137, 252, 0.67);
+}
+
+.clr-error-400 {
+  color: #fc4640;
+}
+
+.clr-error-hover {
+  color: rgba(252, 70, 64, 0.56);
 }
 
 .margin-block-end-05 {
@@ -1157,7 +1165,7 @@
   font-size: var(--fs-400);
   padding: 0.75em;
   background-color: transparent;
-  color: var(--clr-accent-400);
+  color: white;
   border: none;
   border-radius: 9px;
   cursor: pointer;
@@ -1165,14 +1173,40 @@
 }
 .button:is([data-variant=hoverable]) > .icon {
   font-size: var(--fs-400);
-  color: var(--clr-accent-400);
+  color: white;
 }
 .button:is([data-variant=hoverable]):not([data-selected=true]):is(:focus-visible, :hover) {
   background-color: rgba(128, 128, 128, 0.26);
-  color: var(--clr-accent-400);
+  color: white;
   border-color: rgba(128, 128, 128, 0.26);
 }
 
+.button:is([data-variant=filter]) {
+  font-size: var(--fs-400);
+  padding: 0.25em 0.75em;
+  background-color: rgba(128, 128, 128, 0.26);
+  color: var(--clr-text-muted);
+  border: 2px solid rgba(128, 128, 128, 0.26);
+  border-radius: 100vmax;
+  cursor: pointer;
+  transition: background-color 95ms ease-in-out, color 95ms ease-in-out;
+}
+.button:is([data-variant=filter]) > .icon {
+  font-size: var(--fs-400);
+  color: var(--clr-text-muted);
+}
+.button:is([data-variant=filter]):not([data-selected=true]):is(:focus-visible, :hover) {
+  background-color: var(--clr-error-hover);
+  color: var(--clr-accent-400);
+  border-color: var(--clr-error-hover);
+}
+.button:is([data-variant=filter]):is(:focus-visible, :hover) .icon {
+  color: var(--clr-error-400);
+}
+
+.button:is([data-secondary-variant=select-list-item]) {
+  border-radius: 100vmax;
+}
 .button:is([data-secondary-variant=select-list-item]) .item__checkbox {
   top: 50%;
   left: 6%;
@@ -1645,9 +1679,9 @@
 
 :root {
   --clr-background-body: white;
-  --clr-background-secondary: #f0f0f0;
+  --clr-background-secondary: whitesmoke;
   --clr-card-primary: white;
-  --clr-image-background: #d9d9d9;
+  --clr-image-background: #dedede;
   --clr-input-background: #f2f2f2;
   --clr-input-border: #a6a6a6;
   --clr-input-border-shadow: rgba(166, 166, 166, 0.56);
@@ -1662,6 +1696,8 @@
   --clr-primary-400: #3689fc;
   --clr-primary-500: #4f97fc;
   --clr-primary-shadow: rgba(79, 137, 252, 0.67);
+  --clr-error-400: #fc4640;
+  --clr-error-hover: rgba(252, 70, 64, 0.56);
   --fs-200: 0.5rem;
   --fs-300: 0.75rem;
   --fs-350: 0.85rem;
@@ -1677,13 +1713,13 @@
   color: white;
 }
 :root .clr-background-secondary {
-  color: #f0f0f0;
+  color: whitesmoke;
 }
 :root .clr-card-primary {
   color: white;
 }
 :root .clr-image-background {
-  color: #d9d9d9;
+  color: #dedede;
 }
 :root .clr-input-background {
   color: #f2f2f2;
@@ -1727,6 +1763,12 @@
 :root .clr-primary-shadow {
   color: rgba(79, 137, 252, 0.67);
 }
+:root .clr-error-400 {
+  color: #fc4640;
+}
+:root .clr-error-hover {
+  color: rgba(252, 70, 64, 0.56);
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1748,6 +1790,8 @@
     --clr-primary-400: #3678fc;
     --clr-primary-500: #4f89fc;
     --clr-primary-shadow: rgba(79, 137, 252, 0.67);
+    --clr-error-400: #fc4640;
+    --clr-error-hover: rgba(252, 70, 64, 0.46);
   }
 }
 *,
@@ -1816,7 +1860,7 @@ button,
   color: var(--clr-text-400);
 }
 
-.input[type=checkbox] {
+input[type=checkbox] {
   accent-color: var(--clr-primary-400);
 }
 

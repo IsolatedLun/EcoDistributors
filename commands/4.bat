@@ -1,1 +1,1 @@
-cd .. && cd backend && python manage.py runserver
+cd .. && cd ecoBackend && python manage.py runserver

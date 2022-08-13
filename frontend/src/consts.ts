@@ -23,7 +23,6 @@ export const MOCK_PRODUCTS = [
 		thumbnail:
 			'https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$',
 		date_created: 'Today',
-
 		price: 499.99,
 		rating: 4.6,
 		reviews: 48,
