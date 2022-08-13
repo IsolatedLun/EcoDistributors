@@ -10,6 +10,7 @@
 	export let cubeClass: Props_CubeCSS = createDefaultCubeClass();
 	export let variant = 'default';
 	export let secondaryVariant = 'default';
+	export let dataSelected = false;
 	export let ariaLabel = 'Button';
 	export let use: Function = () => null;
 
@@ -25,6 +26,7 @@
 	bind:this={_this}
 	class={_class}
 	data-variant={variant}
+	data-selected={dataSelected}
 	data-secondary-variant={secondaryVariant}
 	aria-label={ariaLabel}
 >

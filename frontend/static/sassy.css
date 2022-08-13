@@ -8,7 +8,7 @@
 }
 
 .clr-card-primary {
-  color: white;
+  color: #ebebeb;
 }
 
 .clr-image-background {
@@ -1100,19 +1100,35 @@
 .home-grid {
   display: grid;
   grid-template-columns: 30% auto;
-  background-color: var(--clr-background-secondary);
+}
+.home-grid .products__filters {
+  background-color: var(--clr-card-primary);
 }
 
 .products .product {
   background-color: var(--clr-card-primary);
 }
 .products .product .product__image {
-  width: 12em;
+  min-width: 12rem;
+  max-width: 12rem;
   aspect-ratio: 1;
   background-color: var(--clr-image-background);
 }
 .products .product .product__price {
   color: var(--clr-text-muted);
+}
+
+.star-rater-container .star > .icon {
+  color: var(--clr-text-muted);
+}
+.star-rater-container .star:is([data-star-selected=true]) > .icon,
+.star-rater-container .star:is([data-star-selected=true]) ~ .star > .icon {
+  color: orange;
+}
+
+.star-rater-container[data-star-hoverable=true] .star:is(:focus-visible, :hover) > .icon,
+.star-rater-container[data-star-hoverable=true] .star:is(:focus-visible, :hover) ~ .star > .icon {
+  color: orange;
 }
 
 .input:where([data-variant="default"]) {
@@ -1165,7 +1181,7 @@
   font-size: var(--fs-400);
   padding: 0.75em;
   background-color: transparent;
-  color: white;
+  color: var(--clr-accent-400);
   border: none;
   border-radius: 9px;
   cursor: pointer;
@@ -1173,18 +1189,18 @@
 }
 .button:is([data-variant=hoverable]) > .icon {
   font-size: var(--fs-400);
-  color: white;
+  color: var(--clr-accent-400);
 }
 .button:is([data-variant=hoverable]):not([data-selected=true]):is(:focus-visible, :hover) {
   background-color: rgba(128, 128, 128, 0.26);
-  color: white;
+  color: var(--clr-accent-400);
   border-color: rgba(128, 128, 128, 0.26);
 }
 
 .button:is([data-variant=filter]) {
   font-size: var(--fs-400);
   padding: 0.25em 0.75em;
-  background-color: rgba(128, 128, 128, 0.26);
+  background-color: rgba(128, 128, 128, 0.1);
   color: var(--clr-text-muted);
   border: 2px solid rgba(128, 128, 128, 0.26);
   border-radius: 100vmax;
@@ -1196,22 +1212,23 @@
   color: var(--clr-text-muted);
 }
 .button:is([data-variant=filter]):not([data-selected=true]):is(:focus-visible, :hover) {
-  background-color: var(--clr-error-hover);
-  color: var(--clr-accent-400);
-  border-color: var(--clr-error-hover);
+  background-color: rgba(128, 128, 128, 0.16);
+  color: var(--clr-text-muted);
+  border-color: rgba(128, 128, 128, 0.16);
 }
 .button:is([data-variant=filter]):is(:focus-visible, :hover) .icon {
   color: var(--clr-error-400);
 }
 
 .button:is([data-secondary-variant=select-list-item]) {
+  padding: 0.5em 1em;
+  color: var(--clr-accent-400);
   border-radius: 100vmax;
 }
 .button:is([data-secondary-variant=select-list-item]) .item__checkbox {
   top: 50%;
-  left: 6%;
+  left: 1.5rem;
   transform: translate(-50%, -50%);
-  position: absolute;
   visibility: hidden;
 }
 .button:is([data-secondary-variant=select-list-item]):is(:focus-visible, :hover) .icon {
@@ -1650,6 +1667,10 @@
   flex-wrap: wrap;
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .border-radius-100 {
   border-radius: 100%;
 }
@@ -1680,7 +1701,7 @@
 :root {
   --clr-background-body: white;
   --clr-background-secondary: whitesmoke;
-  --clr-card-primary: white;
+  --clr-card-primary: #ebebeb;
   --clr-image-background: #dedede;
   --clr-input-background: #f2f2f2;
   --clr-input-border: #a6a6a6;
@@ -1716,7 +1737,7 @@
   color: whitesmoke;
 }
 :root .clr-card-primary {
-  color: white;
+  color: #ebebeb;
 }
 :root .clr-image-background {
   color: #dedede;

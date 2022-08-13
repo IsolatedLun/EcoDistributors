@@ -53,18 +53,18 @@
 	</div>
 </SecondaryContainer>
 
-<div class="[ home-grid ] [ border-radius-cubed padding-1 gap-2 ]" data-grid-collapse>
-	<section class="[ products__filters ]" data-desktop>
+<div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
+	<section class="[ products__filters ] [ padding-1 border-radius-cubed ]" data-desktop>
 		<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
 	</section>
 
 	{#if showFilters}
-		<section class="[ products__filters ]" data-mobile>
+		<section class="[ products__filters ] [ padding-1 border-radius-cubed ]" data-mobile>
 			<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
 		</section>
 	{/if}
 
-	<section class="[ product__results ] [ padding-1 ]" data-mode="column">
+	<section class="[ product__results ]" data-mode="column">
 		<FlexyCustom>
 			<h2 class="[ fw-500 whitespace-nowrap ]">{MOCK_PRODUCTS.length} Results</h2>
 			<!-- svelte-ignore a11y-no-redundant-roles -->
@@ -72,7 +72,7 @@
 				{#if $selectedHook.length > 0}
 					{#each $selectedHook as item}
 						<li>
-							<Button variant="filter">
+							<Button variant="filter" on:click={() => selectedHook.remove(item)}>
 								<FlexyCustom>
 									<p>{item}</p>
 									<Icon cubeClass={{ utilClass: 'fs-350' }}>{TIMES_ICON}</Icon>

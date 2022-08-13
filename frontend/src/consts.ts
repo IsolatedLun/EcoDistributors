@@ -13,13 +13,15 @@ export const FRUIT_ICON = '\uf5d1';
 export const VEGETABLE_ICON = '\uf787';
 export const MEAT_ICON = '\uf6d7';
 export const DESSERT_ICON = '\uf6d7';
+export const STAR_ICON = '\uf005';
 
 // =============
 // Misc
 // =============
 export const MOCK_PRODUCTS = [
 	{
-		title: 'Playstation 5 1TB Exclusive Deluxe Edition',
+		title:
+			'Playstation 5 1TB Exclusive Deluxe Edition All In One, 100+ Games + 3 Controllers For More Epicness',
 		thumbnail:
 			'https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$',
 		date_created: 'Today',

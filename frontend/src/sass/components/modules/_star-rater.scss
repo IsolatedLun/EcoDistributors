@@ -1,0 +1,19 @@
+@use '../../abstracts/' as *;
+
+.star-rater-container {
+	.star > .icon {
+		color: var(--clr-text-muted);
+	}
+
+	.star:is([data-star-selected='true']) > .icon,
+	.star:is([data-star-selected='true']) ~ .star > .icon {
+		color: $star-color;
+	}
+}
+
+.star-rater-container[data-star-hoverable='true'] {
+	.star:is(:focus-visible, :hover) > .icon,
+	.star:is(:focus-visible, :hover) ~ .star > .icon {
+		color: $star-color;
+	}
+}

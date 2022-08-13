@@ -21,9 +21,9 @@
 		$padding: 0.25em 0.75em,
 		$border: 2px solid hsl(0 0% 50% / 0.26),
 		$color: var(--clr-text-muted),
-		$color-on-hov: var(--clr-accent-400),
-		$background-color: hsl(0 0% 50% / 0.26),
-		$background-color-on-hov: var(--clr-error-hover),
+		$color-on-hov: var(--clr-text-muted),
+		$background-color: hsl(0 0% 50% / 0.1),
+		$background-color-on-hov: hsl(0 0% 50% / 0.16),
 		$border-radius: 100vmax
 	);
 
@@ -33,12 +33,14 @@
 }
 
 .button:is([data-secondary-variant='select-list-item']) {
+	padding: 0.5em 1em;
+
+	color: var(--clr-accent-400);
 	border-radius: 100vmax;
 
 	& .item__checkbox {
-		@include transformCenter($left: 6%);
+		@include transformCenter($left: 1.5rem);
 
-		position: absolute;
 		visibility: hidden;
 	}
 

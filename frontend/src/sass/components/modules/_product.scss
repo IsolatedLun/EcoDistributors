@@ -1,15 +1,19 @@
+@use '../../abstracts/' as *;
+
 .products {
 	.product {
 		.product__image {
-			width: 12em;
+			min-width: $product-image-min-width;
+			max-width: $product-image-max-width;
+
 			aspect-ratio: 1;
-			background-color: var(--clr-image-background);
+			background-color: $product-image-background;
 		}
 
 		.product__price {
-			color: var(--clr-text-muted);
+			color: $product-price-color;
 		}
 
-		background-color: var(--clr-card-primary);
+		background-color: $product-background-color;
 	}
 }

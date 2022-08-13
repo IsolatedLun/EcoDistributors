@@ -9,6 +9,8 @@
 	export let justify = '';
 	export let tag = 'div';
 
+	export let _this: HTMLElement | null = null;
+
 	const _class = createCubeCSSClass(cubeClass, {
 		compostClass: `${
 			useColumn ? 'flex-direction-column' : 'flex'
@@ -16,6 +18,6 @@
 	});
 </script>
 
-<svelte:element this={tag} class={_class}>
+<svelte:element this={tag} bind:this={_this} class={_class}>
 	<slot />
 </svelte:element>

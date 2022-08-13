@@ -2,5 +2,7 @@
 	display: grid;
 	grid-template-columns: 30% auto;
 
-	background-color: var(--clr-background-secondary);
+	.products__filters {
+		background-color: var(--clr-card-primary);
+	}
 }

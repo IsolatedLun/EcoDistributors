@@ -1,42 +1,19 @@
 <script lang="ts">
-	import type { Props_StoreSelected } from 'src/stores/types';
-
-	import { onMount } from 'svelte';
+	import type { Props_StoreSelected } from '../../../stores/types';
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import Icon from '../../../components/Modules/Icon/Icon.svelte';
 	import Button from '../Buttons/Button.svelte';
 	import TextInput from '../Inputs/TextInput.svelte';
 	import type { Props_ListSelect } from './types';
 
-	onMount(() => {
-		$selected.forEach((name) => {
-			const li = document.getElementById(name + '-select') as HTMLElement;
-
-			if (li) {
-				const btn = li.querySelector('.button[data-value]') as HTMLButtonElement;
-				const checkbox = li.querySelector('input[type="checkbox"]') as HTMLInputElement;
-
-				btn.setAttribute('data-selected', 'true');
-				checkbox.checked = true;
-			}
-		});
-	});
-
 	function handleSelect(e: Event) {
 		const target = e.target as HTMLButtonElement;
-		const checkbox = target.querySelector('input[type="checkbox"]') as HTMLInputElement;
 		const value = target.getAttribute('data-value') as string;
 
 		if ($selected.includes(value)) {
-			target.setAttribute('data-selected', 'false');
-
 			selected.remove(value);
-			checkbox.checked = false;
 		} else {
-			target.setAttribute('data-selected', 'true');
-
 			selected.add(value);
-			checkbox.checked = true;
 		}
 	}
 
@@ -63,6 +40,7 @@
 			<Button
 				use={(e) => e.setAttribute('data-value', item.name)}
 				on:click={handleSelect}
+				dataSelected={$selected.includes(item.name)}
 				variant="hoverable"
 				secondaryVariant="select-list-item"
 				cubeClass={{
@@ -75,7 +53,11 @@
 				</FlexyCustom>
 				<p>{item.amount}</p>
 
-				<input type="checkbox" class="[ item__checkbox ] [ ignore-self ]" />
+				<input
+					type="checkbox"
+					class="[ item__checkbox ] [ pos-absolute ignore-self ]"
+					checked={$selected.includes(item.name)}
+				/>
 			</Button>
 		</li>
 	{/each}
