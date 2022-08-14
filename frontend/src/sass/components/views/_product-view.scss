@@ -1,0 +1,50 @@
+@use '../../abstracts/' as *;
+
+.product-view {
+	.image-viewer {
+		.image__view {
+			min-width: $image-view-size;
+			max-width: $image-view-size;
+			aspect-ratio: 1;
+		}
+
+		.viewer__images {
+			max-height: $image-view-main-size;
+			height: 100%;
+
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			scrollbar-width: none;
+		}
+
+		.viewer__main-image {
+			max-width: $image-view-main-size;
+
+			&[data-image-type='long'] {
+				aspect-ratio: 1 / 2;
+			}
+
+			&[data-image-type='default'] {
+				aspect-ratio: 1;
+			}
+		}
+	}
+
+	.view__header {
+		grid-template-columns: $product-view-header-grid;
+	}
+}
+
+@media screen and (max-width: #{$breakpoint-small}) {
+	.product-view .image-viewer {
+		flex-direction: column-reverse !important;
+
+		.viewer__images {
+			overflow-x: auto;
+			overflow-y: hidden;
+
+			scrollbar-width: auto;
+		}
+	}
+}

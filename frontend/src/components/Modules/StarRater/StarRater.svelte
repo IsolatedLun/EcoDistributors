@@ -15,16 +15,15 @@
 	}
 
 	export let props: Props_StarRater = createDefaultStarRater();
-	export const canRate = false;
-
-	let _thisContainer: HTMLElement;
+	export const canRate = true;
 </script>
 
 <div class="[ star-rater-container ]" data-star-hoverable={canRate}>
-	<FlexyCustom bind:_this={_thisContainer} gap={1}>
+	<FlexyCustom gap={1}>
 		<FlexyCustom cubeClass={{ blockClass: 'star-rater', utilClass: 'flex-row-reverse' }} gap={0}>
 			{#each { length: 5 } as _, i}
 				<Button
+					use={(e) => e.setAttribute('data-star', String(5 - i))}
 					on:click={canRate ? handleStarRate : () => null}
 					cubeClass={{ blockClass: 'star', utilClass: 'ignore-children cursor-pointer padding-1' }}
 					variant="none"

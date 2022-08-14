@@ -3,8 +3,7 @@
 .products {
 	.product {
 		.product__image {
-			min-width: $product-image-min-width;
-			max-width: $product-image-max-width;
+			width: clamp(12rem, 50%, 16rem);
 
 			aspect-ratio: 1;
 			background-color: $product-image-background;
@@ -13,7 +12,5 @@
 		.product__price {
 			color: $product-price-color;
 		}
-
-		background-color: $product-background-color;
 	}
 }

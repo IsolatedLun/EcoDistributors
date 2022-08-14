@@ -61,7 +61,7 @@ $select-box-background-on-select: var(--clr-primary-400);
 $select-box-border-color-on-hov: var(--clr-primary-400);
 
 // Card
-$def-card-background-color: var(--clr-background-600);
+$def-card-background-color: var(--clr-card-400);
 $def-card-border-radius: $border-radius-cubed;
 
 // Product Card
@@ -74,6 +74,12 @@ $product-background-color: var(--clr-card-primary);
 
 // Star rater
 $star-color: orange;
+
+// Product view
+$product-view-header-grid: 30% auto;
+
+$image-view-size: 5rem;
+$image-view-main-size: 18rem;
 
 // =================
 // Animations

@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { attrSetter } from '../../../utils/misc';
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
-
 	import { createDefaultProductPreview } from '../../../utils/defaultCreates';
+	import Card from '../Card/Card.svelte';
 	import StarRater from '../StarRater/StarRater.svelte';
 
 	export let props = createDefaultProductPreview();
 	export let dataMode = 'column';
 </script>
 
-<div class="[ product ] [ flex gap-2 overflow-hidden border-radius-cubed ]" data-mode={dataMode}>
+<Card
+	use={(e) => attrSetter(e, [{ name: 'data-mode', value: dataMode }])}
+	cubeClass={{
+		blockClass: 'product',
+		utilClass: 'flex gap-2 overflow-hidden'
+	}}
+>
 	<!-- Clamp image size for mobile -->
 	<div class="[ product__image ]">
 		<img src={props.thumbnail} alt={`${props.title}'s profile`} />
@@ -27,4 +34,4 @@
 		<p class="[ product__price ]">${props.price}</p>
 		<!-- Add related category tags -->
 	</FlexyCustom>
-</div>
+</Card>

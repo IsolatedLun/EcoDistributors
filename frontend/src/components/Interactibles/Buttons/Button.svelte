@@ -2,6 +2,7 @@
 	import type { Props_CubeCSS } from '../../../utils/types';
 	import { createCubeCSSClass, createDefaultCubeClass } from '../../../utils/cubeCssUtils';
 	import { onMount } from 'svelte';
+	import type { EventFunction } from '../../../types';
 
 	onMount(() => {
 		use(_this);
@@ -12,7 +13,7 @@
 	export let secondaryVariant = 'default';
 	export let dataSelected = false;
 	export let ariaLabel = 'Button';
-	export let use: Function = () => null;
+	export let use: EventFunction<HTMLButtonElement> = (e) => null;
 
 	const _class = createCubeCSSClass(cubeClass, {
 		compostClass: 'button'

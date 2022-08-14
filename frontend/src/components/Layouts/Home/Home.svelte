@@ -18,10 +18,16 @@
 	import { useSelected } from '../../../stores/main-search/mainSearch';
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import Icon from '../../../components/Modules/Icon/Icon.svelte';
+	import Card from '../../../components/Modules/Card/Card.svelte';
+	import { attrSetter } from '../../../utils/misc';
 
 	let showFilters = false;
 	let selectedHook = useSelected();
 </script>
+
+<svelte:head>
+	<title>Eco | Home</title>
+</svelte:head>
 
 <SecondaryContainer>
 	<TextInput
@@ -54,14 +60,20 @@
 </SecondaryContainer>
 
 <div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
-	<section class="[ products__filters ] [ padding-1 border-radius-cubed ]" data-desktop>
+	<Card
+		cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1' }}
+		use={(e) => attrSetter(e, [{ name: 'data-desktop', value: '' }])}
+	>
 		<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
-	</section>
+	</Card>
 
 	{#if showFilters}
-		<section class="[ products__filters ] [ padding-1 border-radius-cubed ]" data-mobile>
+		<Card
+			cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1' }}
+			use={(e) => attrSetter(e, [{ name: 'data-mobile', value: '' }])}
+		>
 			<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
-		</section>
+		</Card>
 	{/if}
 
 	<section class="[ product__results ]" data-mode="column">

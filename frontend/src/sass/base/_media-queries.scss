@@ -23,6 +23,11 @@
 			grid-template-columns: 1fr !important;
 		}
 
+		*[data-grid-collapse-center] {
+			grid-template-columns: 1fr !important;
+			place-items: center !important;
+		}
+
 		*[data-desktop] {
 			display: none !important;
 		}

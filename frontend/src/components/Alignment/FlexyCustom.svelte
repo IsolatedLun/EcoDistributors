@@ -1,6 +1,12 @@
 <script lang="ts">
 	import type { Props_CubeCSS } from '../../utils/types';
 	import { createCubeCSSClass, createDefaultCubeClass } from '../../utils/cubeCssUtils';
+	import { onMount } from 'svelte';
+	import type { EventFunction } from '../../types';
+
+	onMount(() => {
+		use(_this);
+	});
 
 	export let gap = 2;
 	export let cubeClass: Props_CubeCSS = createDefaultCubeClass();
@@ -9,7 +15,8 @@
 	export let justify = '';
 	export let tag = 'div';
 
-	export let _this: HTMLElement | null = null;
+	let _this: HTMLElement;
+	export let use: EventFunction<HTMLElement> = () => null;
 
 	const _class = createCubeCSSClass(cubeClass, {
 		compostClass: `${

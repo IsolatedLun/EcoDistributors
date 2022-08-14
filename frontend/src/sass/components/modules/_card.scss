@@ -1,0 +1,6 @@
+@use '../mixins' as *;
+
+.card,
+.card[data-card-variant='default'] {
+	@include createCard();
+}

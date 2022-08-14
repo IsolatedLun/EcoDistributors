@@ -37,3 +37,7 @@ $box-values: column, row;
 .flex-row-reverse {
 	flex-direction: row-reverse;
 }
+
+.place-self-center {
+	place-self: center;
+}

@@ -3,8 +3,11 @@
 @forward './layouts/navbar';
 @forward './layouts/home';
 
+@forward './views/product-view';
+
 @forward './modules/product';
 @forward './modules//star-rater';
+@forward './modules/card';
 
 @forward './interactibles/input';
 @forward './interactibles/button';
