@@ -56,7 +56,7 @@
 
 {#if showHamburger}
 	<!-- svelte-ignore a11y-unknown-role -->
-	<nav class="[ mobile-navbar ]" role="Mobile navigation">
+	<nav class="[ mobile-navbar ] [ margin-block-1 ]" role="Mobile navigation">
 		<!-- svelte-ignore a11y-no-redundant-roles -->
 		<FlexyCustom
 			use={(e) => e.setAttribute('role', 'list')}

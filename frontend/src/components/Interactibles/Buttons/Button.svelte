@@ -24,6 +24,8 @@
 
 <button
 	on:click
+	on:mousedown
+	on:mouseup
 	bind:this={_this}
 	class={_class}
 	data-variant={variant}

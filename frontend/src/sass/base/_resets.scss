@@ -47,7 +47,8 @@ a {
 	}
 }
 
-:focus:not([data-variant], [data-secondary-variant]) {
+:focus:not([data-variant], [data-secondary-variant]),
+:target {
 	outline: 3px solid var(--clr-primary-shadow);
 	border-radius: 2px;
 	outline-offset: 9px;
@@ -88,6 +89,8 @@ video {
 
 	object-fit: cover;
 	border-radius: inherit;
+
+	background-color: var(--clr-image-background);
 }
 
 img[data-small='true'] {

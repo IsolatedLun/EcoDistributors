@@ -54,6 +54,7 @@
 				<p>{item.amount}</p>
 
 				<input
+					tabindex="-1"
 					type="checkbox"
 					class="[ item__checkbox ] [ pos-absolute ignore-self ]"
 					checked={$selected.includes(item.name)}

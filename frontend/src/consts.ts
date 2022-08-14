@@ -14,6 +14,8 @@ export const VEGETABLE_ICON = '\uf787';
 export const MEAT_ICON = '\uf6d7';
 export const DESSERT_ICON = '\uf6d7';
 export const STAR_ICON = '\uf005';
+export const PLUS_ICON = '\uf067';
+export const MINUS_ICON = '\uf068';
 
 // =============
 // Misc

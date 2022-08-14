@@ -2,7 +2,11 @@
 	import { page } from '$app/stores';
 	import ProductView from '../../components/Views/ProductView/ProductView.svelte';
 
-	let id = Number($page.params.data.split('/')[0]);
+	let [id, name] = $page.params.data.split('/');
 </script>
+
+<svelte:head>
+	<title>Eco | {name}</title>
+</svelte:head>
 
 <ProductView />

@@ -28,7 +28,9 @@
 	>
 		<FlexyCustom useColumn={true} align="start" gap={1}>
 			<!-- Clamp line -->
-			<p class="[ fs-500 ]">{props.title}</p>
+			<a href={`/products/${props.id}/${props.title}`} class="[ text-ellipsis-2 ] [ fs-500 ]"
+				>{props.title}</a
+			>
 			<StarRater />
 		</FlexyCustom>
 		<p class="[ product__price ]">${props.price}</p>

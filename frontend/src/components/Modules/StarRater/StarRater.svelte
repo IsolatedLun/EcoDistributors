@@ -15,7 +15,7 @@
 	}
 
 	export let props: Props_StarRater = createDefaultStarRater();
-	export const canRate = true;
+	export let canRate = false;
 </script>
 
 <div class="[ star-rater-container ]" data-star-hoverable={canRate}>

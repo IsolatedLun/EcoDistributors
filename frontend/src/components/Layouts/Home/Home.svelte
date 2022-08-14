@@ -76,9 +76,11 @@
 		</Card>
 	{/if}
 
-	<section class="[ product__results ]" data-mode="column">
-		<FlexyCustom>
-			<h2 class="[ fw-500 whitespace-nowrap ]">{MOCK_PRODUCTS.length} Results</h2>
+	<div class="[ product__results ]">
+		<FlexyCustom tag="section">
+			<h2 class="[ fw-500 whitespace-nowrap ]">
+				{MOCK_PRODUCTS.length} <span class="[ sr-only ]">product</span> Results
+			</h2>
 			<!-- svelte-ignore a11y-no-redundant-roles -->
 			<ul role="list" class="[ flex gap-1 flex-wrap ]">
 				{#if $selectedHook.length > 0}
@@ -103,5 +105,5 @@
 		<div class="[ products ] [ margin-block-start-2 ]">
 			<ComponentMap items={MOCK_PRODUCTS} _this={Product} />
 		</div>
-	</section>
+	</div>
 </div>

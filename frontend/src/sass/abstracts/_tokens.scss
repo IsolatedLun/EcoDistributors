@@ -48,11 +48,13 @@ $button-hoverable-color: var(--clr-accent-400);
 // => Filter
 $button-filter-font-size: var(--fs-400);
 $button-filter-padding: 0.25em 0.75em;
-$button-filter-background-color: hsl(0 0% 50% / 0.26);
+$button-filter-background-color: hsl(0 0% 50% / 0.1);
 $button-filter-border: 2px solid hsl(0 0% 50% / 0.26);
 $button-filter-border-radius: $border-radius-cubed;
-$button-filter-background-color-on-hov: var(--clr-error-hover);
+$button-filter-background-color-on-hov: hsl(0 0% 50% / 0.16);
 $button-filter-color: var(--clr-text-muted);
+$button-filter-color-on-hov: var(--clr-text-muted);
+$button-filter-border-radius: 100vmax;
 
 // Selects
 $select-box-border: 2px solid hsl(0 0 50% / 0.36);
@@ -90,6 +92,9 @@ $animation-background-color-highlight: var(--clr-blue-hover);
 // Composition
 // =================
 $clr-column-split-border: var(--clr-hover-400);
+
+// Media scroller
+$media-scroller-max-width: 92vw;
 
 // =================
 // Misc

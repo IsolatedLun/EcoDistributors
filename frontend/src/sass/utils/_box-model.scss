@@ -38,6 +38,17 @@ $box-values: column, row;
 	flex-direction: row-reverse;
 }
 
+$grid-ops: items, content, self;
+$grid-values: center, start, end;
+
+@each $op in $grid-ops {
+	@each $val in $grid-values {
+		.place-#{$op}-#{$val} {
+			place-#{$op}: $val;
+		}
+	}
+}
+
 .place-self-center {
 	place-self: center;
 }

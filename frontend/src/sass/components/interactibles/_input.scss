@@ -14,3 +14,9 @@
 		box-shadow: 0 0 0px 4px var(--clr-input-border-shadow);
 	}
 }
+
+.input:is([data-secondary-variant='quantity']) {
+	padding-inline: 0.65em;
+	max-width: 9ch;
+	border-radius: $border-radius-cubed;
+}

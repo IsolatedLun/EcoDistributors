@@ -18,13 +18,13 @@
 
 .button:is([data-variant='filter']) {
 	@include createButton(
-		$padding: 0.25em 0.75em,
-		$border: 2px solid hsl(0 0% 50% / 0.26),
-		$color: var(--clr-text-muted),
-		$color-on-hov: var(--clr-text-muted),
-		$background-color: hsl(0 0% 50% / 0.1),
-		$background-color-on-hov: hsl(0 0% 50% / 0.16),
-		$border-radius: 100vmax
+		$padding: $button-filter-padding,
+		$border: $button-filter-border,
+		$color: $button-filter-color,
+		$color-on-hov: $button-filter-color-on-hov,
+		$background-color: $button-filter-background-color,
+		$background-color-on-hov: $button-filter-background-color-on-hov,
+		$border-radius: $button-filter-border-radius
 	);
 
 	&:is(:focus-visible, :hover) .icon {
