@@ -36,6 +36,14 @@
 			display: block !important;
 		}
 
+		*[data-align-mobile='true'] {
+			align-items: center !important;
+		}
+
+		*[data-text-center-mobile='true'] {
+			text-align: center !important;
+		}
+
 		// Loops
 		@each $name, $size in $sizes-mobile {
 			@each $size-key, $size-val in $size {

@@ -6,6 +6,11 @@
 	import { createDefaultProduct } from '../../../utils/defaultCreates';
 	import QuantityInput from '../../../components/Interactibles/Inputs/QuantityInput.svelte';
 	import StarRater from '../../../components/Modules/StarRater/StarRater.svelte';
+	import ProductTable from './_sections/ProductTable.svelte';
+	import Review from '../../../components/Modules/Review/Review.svelte';
+	import Card from '../../../components/Modules/Card/Card.svelte';
+	import Typography from '../../../components/Modules/Typography/Typography.svelte';
+	import ComponentMap from '../../../components/Misc/ComponentMap.svelte';
 
 	export let props = createDefaultProduct();
 
@@ -19,26 +24,36 @@
 			cubeClass={{
 				blockClass: 'products__content',
 				compostClass: 'card',
-				utilClass: `padding-2 ${$mq.state === 2 ? 'margin-block-start-2' : ''} border-radius-cubed`
+				utilClass: `padding-2 ${$mq.state === 2 ? 'margin-block-start-2' : ''} 
+					border-radius-cubed`
 			}}
 			align="start"
 			useColumn={true}
 			tag="section"
 			justify="space-between"
 		>
-			<FlexyCustom useColumn={true} align="start" gap={1}>
+			<FlexyCustom
+				useColumn={true}
+				centerOnMobile={true}
+				align="start"
+				gap={1}
+				cubeClass={{ utilClass: 'width-100' }}
+			>
 				<h2>Playstation 5</h2>
 				<StarRater />
 			</FlexyCustom>
-			<section class="[ margin-block-1 ]">
-				<h3 class="[ margin-block-end-1 ]">About this item</h3>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat consectetur sequi
-					laudantium aut quis sunt maxime saepe hic, suscipit accusamus incidunt, laborum expedita
-					consequuntur officia eligendi iusto ea impedit. Commodi!
-				</p>
+			<section class={`[ margin-block-1 ] [ ${$mq.state === 2 && 'text-center'} ]`}>
+				<h3 class="[ margin-block-end-1 ]">About this product</h3>
+				<article>
+					{props.description}
+				</article>
 			</section>
-			<FlexyCustom useColumn={true} align="start" cubeClass={{ utilClass: 'width-100' }}>
+			<FlexyCustom
+				centerOnMobile={true}
+				useColumn={true}
+				align="start"
+				cubeClass={{ utilClass: 'width-100' }}
+			>
 				<FlexyCustom gap={1} useColumn={true}>
 					<p>
 						<output class="[ fs-450 fw-bold margin-inline-1 ]">
@@ -52,4 +67,26 @@
 			</FlexyCustom>
 		</FlexyCustom>
 	</header>
+
+	<section class="[ margin-block-2 ] [ under-border ]">
+		<h2 class="[ fw-normal ] [ margin-block-end-1 ]">More about this product</h2>
+		<div class="[ grid-repeater-2 ] [ place-items-start gap-2 ]" data-grid-collapse>
+			<ProductTable />
+			<FlexyCustom useColumn={true} cubeClass={{ utilClass: 'margin-inline-start-2' }}>
+				{#each props.about_list as about}
+					<li><Typography centerOnMobile={true}>{about}</Typography></li>
+				{/each}
+			</FlexyCustom>
+		</div>
+	</section>
+
+	<div class="[ grid-repeater-2 ]" data-grid-collapse-center>
+		<Card tag="section" cubeClass={{ utilClass: 'padding-1' }}>
+			<h2 class="[ fw-normal ] [ margin-block-end-1 ]">Customer reviews</h2>
+
+			<div class="[ reviews ]">
+				<ComponentMap _this={Review} items={props.reviews} />
+			</div>
+		</Card>
+	</div>
 </div>

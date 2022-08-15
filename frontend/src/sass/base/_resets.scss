@@ -51,11 +51,16 @@ a {
 :target {
 	outline: 3px solid var(--clr-primary-shadow);
 	border-radius: 2px;
-	outline-offset: 9px;
+	outline-offset: 4px;
 }
 
-td[title] {
-	cursor: crosshair;
+li::marker {
+	color: var(--clr-primary-400);
+}
+
+::selection {
+	background-color: var(--clr-select-background);
+	color: var(--clr-select-color);
 }
 
 ul[role='list'] {

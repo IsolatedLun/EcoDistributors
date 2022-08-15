@@ -16,6 +16,8 @@
 
 	export let props: Props_StarRater = createDefaultStarRater();
 	export let canRate = false;
+	export let isReview = false;
+	export let size: 'big' | 'small' = 'big';
 </script>
 
 <div class="[ star-rater-container ]" data-star-hoverable={canRate}>
@@ -28,14 +30,19 @@
 					cubeClass={{ blockClass: 'star', utilClass: 'ignore-children cursor-pointer padding-1' }}
 					variant="none"
 				>
-					<Icon cubeClass={{ utilClass: 'fs-350' }} ariaLabel="Star Icon">{STAR_ICON}</Icon>
+					<Icon
+						cubeClass={{ utilClass: size === 'big' ? 'fs-350' : 'fs-300' }}
+						ariaLabel="Star Icon">{STAR_ICON}</Icon
+					>
 				</Button>
 			{/each}
 		</FlexyCustom>
 		<div class="[ rater__stats ] [ fs-350 ]">
 			<p>
 				{props.rating} / 5
-				<span class="[ fs-300 margin-inline-start-1 ]">({props.reviews} reviews)</span>
+				{#if !isReview}
+					<span class="[ fs-300 margin-inline-start-1 ]">({props.reviews} reviews)</span>
+				{/if}
 			</p>
 		</div>
 	</FlexyCustom>

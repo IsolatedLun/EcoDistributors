@@ -7,12 +7,28 @@
   color: whitesmoke;
 }
 
+.clr-hover-400 {
+  color: rgba(128, 128, 128, 0.26);
+}
+
+.clr-card-300 {
+  color: #d6d6d6;
+}
+
 .clr-card-400 {
   color: #ebebeb;
 }
 
 .clr-image-background {
   color: #dedede;
+}
+
+.clr-select-background {
+  color: rgba(28, 96, 242, 0.26);
+}
+
+.clr-select-color {
+  color: #04163f;
 }
 
 .clr-input-background {
@@ -1130,6 +1146,22 @@
 .product-view .view__header {
   grid-template-columns: 30% auto;
 }
+.product-view .product__table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.product-view .product__table tr td {
+  padding: 0.55em 0.85em;
+}
+.product-view .product__table tr:nth-of-type(odd) {
+  background-color: var(--clr-card-400);
+}
+.product-view .product__table tr:nth-of-type(even) {
+  background-color: var(--clr-card-300);
+}
 
 @media screen and (max-width: 50em) {
   .product-view .image-viewer {
@@ -1425,7 +1457,7 @@
 
 .under-border {
   border-bottom: 1px solid var(--clr-hover-400);
-  padding-block-end: 0.45em;
+  padding-block-end: 1em;
 }
 
 .long-bar {
@@ -1508,6 +1540,12 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+img[data-profile=true] {
+  width: 2.25em;
+  aspect-ratio: 1;
+  border-radius: 100vmax;
 }
 
 .text-center {
@@ -1848,8 +1886,12 @@
 :root {
   --clr-background-body: white;
   --clr-background-secondary: whitesmoke;
+  --clr-hover-400: rgba(128, 128, 128, 0.26);
+  --clr-card-300: #d6d6d6;
   --clr-card-400: #ebebeb;
   --clr-image-background: #dedede;
+  --clr-select-background: rgba(28, 96, 242, 0.26);
+  --clr-select-color: #04163f;
   --clr-input-background: #f2f2f2;
   --clr-input-border: #a6a6a6;
   --clr-input-border-shadow: rgba(166, 166, 166, 0.56);
@@ -1883,11 +1925,23 @@
 :root .clr-background-secondary {
   color: whitesmoke;
 }
+:root .clr-hover-400 {
+  color: rgba(128, 128, 128, 0.26);
+}
+:root .clr-card-300 {
+  color: #d6d6d6;
+}
 :root .clr-card-400 {
   color: #ebebeb;
 }
 :root .clr-image-background {
   color: #dedede;
+}
+:root .clr-select-background {
+  color: rgba(28, 96, 242, 0.26);
+}
+:root .clr-select-color {
+  color: #04163f;
 }
 :root .clr-input-background {
   color: #f2f2f2;
@@ -1942,7 +1996,11 @@
   :root {
     --clr-background-body: #1c1c1c;
     --clr-background-secondary: #292929;
+    --clr-hover-400: rgba(128, 128, 128, 0.36);
+    --clr-card-300: #242424;
     --clr-card-400: #363636;
+    --clr-select-background: rgba(28, 96, 242, 0.26);
+    --clr-select-color: #dde7fd;
     --clr-image-background: rgba(179, 179, 179, 0.1);
     --clr-input-background: #141414;
     --clr-input-border: #474747;
@@ -2009,11 +2067,16 @@ a:hover {
 :target {
   outline: 3px solid var(--clr-primary-shadow);
   border-radius: 2px;
-  outline-offset: 9px;
+  outline-offset: 4px;
 }
 
-td[title] {
-  cursor: crosshair;
+li::marker {
+  color: var(--clr-primary-400);
+}
+
+::selection {
+  background-color: var(--clr-select-background);
+  color: var(--clr-select-color);
 }
 
 ul[role=list] {
@@ -2144,6 +2207,12 @@ img[data-small=true] {
   }
   :root *[data-mobile] {
     display: block !important;
+  }
+  :root *[data-align-mobile=true] {
+    align-items: center !important;
+  }
+  :root *[data-text-center-mobile=true] {
+    text-align: center !important;
   }
 
   .primary-navbar {

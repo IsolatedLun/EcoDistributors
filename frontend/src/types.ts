@@ -3,4 +3,9 @@ export interface Props_DB_Model {
 	date_created: string;
 }
 
+export interface Props_User extends Props_DB_Model {
+	username: string;
+	profile: string;
+}
+
 export type EventFunction<EventT> = (e: EventT) => void;

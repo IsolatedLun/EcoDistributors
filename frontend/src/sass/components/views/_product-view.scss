@@ -35,6 +35,27 @@
 	.view__header {
 		grid-template-columns: $product-view-header-grid;
 	}
+
+	.product__table {
+		table-layout: fixed;
+		border-collapse: collapse;
+
+		width: 100%;
+		border-radius: 9px;
+		overflow: hidden;
+
+		tr td {
+			padding: 0.55em 0.85em;
+		}
+
+		tr:nth-of-type(odd) {
+			background-color: var(--clr-card-400);
+		}
+
+		tr:nth-of-type(even) {
+			background-color: var(--clr-card-300);
+		}
+	}
 }
 
 @media screen and (max-width: #{$breakpoint-small}) {

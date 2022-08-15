@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { mq } from '../../../../stores/media-queries/mqStore';
-
 	import FlexyCustom from '../../../../components/Alignment/FlexyCustom.svelte';
 	import LinkButton from '../../../../components/Interactibles/Buttons/LinkButton.svelte';
+	import Image from '../../../../components/Misc/MediaElements/Image.svelte';
 
 	export let images: string[] = [
 		'https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png',
@@ -34,7 +34,10 @@
 				variant="none"
 				cubeClass={{ compostClass: 'image__view', utilClass: 'border-radius-cubed' }}
 			>
-				<img id={`image-${i}`} src={image} alt={productName + 'image'} />
+				<Image
+					use={(e) => (e.id = `image-${i}`)}
+					props={{ src: image, alt: productName + 'image' }}
+				/>
 			</LinkButton>
 		{/each}
 	</div>
@@ -42,6 +45,9 @@
 		class="[ viewer__main-image ] [ place-self-center border-radius-cubed ]"
 		data-image-type="default"
 	>
-		<img class="[ object-fit-contain ]" src={images[idx]} alt="" />
+		<Image
+			cubeClass={{ utilClass: 'object-fit-contain' }}
+			props={{ src: images[idx], alt: productName + 'image' }}
+		/>
 	</div>
 </FlexyCustom>

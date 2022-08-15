@@ -13,6 +13,7 @@
 	>
 	<input
 		bind:value
+		on:change={() => (value < 0 ? (value = 1) : null)}
 		min="1"
 		class="[ input ]"
 		type="number"
