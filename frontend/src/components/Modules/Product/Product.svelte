@@ -6,14 +6,12 @@
 	import StarRater from '../StarRater/StarRater.svelte';
 
 	export let props = createDefaultProductPreview();
-	export let dataMode = 'column';
 </script>
 
 <Card
-	use={(e) => attrSetter(e, [{ name: 'data-mode', value: dataMode }])}
 	cubeClass={{
 		blockClass: 'product',
-		utilClass: 'flex gap-2 overflow-hidden'
+		utilClass: 'flex overflow-hidden'
 	}}
 >
 	<!-- Clamp image size for mobile -->
@@ -21,7 +19,7 @@
 		<img src={props.thumbnail} alt={`${props.title}'s profile`} />
 	</div>
 	<FlexyCustom
-		cubeClass={{ blockClass: 'product__content', utilClass: 'margin-block-1' }}
+		cubeClass={{ blockClass: 'product__content', utilClass: 'padding-1 margin-block-1' }}
 		useColumn={true}
 		align="start"
 		justify="space-between"

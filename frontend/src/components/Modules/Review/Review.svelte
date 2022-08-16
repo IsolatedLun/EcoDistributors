@@ -4,11 +4,12 @@
 	import StarRater from '../StarRater/StarRater.svelte';
 	import type { Props_Review } from './types';
 	import { createDefaultReview } from '../../../utils/defaultCreates';
+	import Card from '../Card/Card.svelte';
 
 	export let props: Props_Review = createDefaultReview();
 </script>
 
-<div class="[ review ]">
+<Card cubeClass={{ blockClass: 'review', utilClass: 'padding-1' }}>
 	<div class="[ review__user ]">
 		<div class="[ user__profile ]" />
 		<FlexyCustom gap={1}>
@@ -21,4 +22,4 @@
 	<p>
 		{props.comment}
 	</p>
-</div>
+</Card>

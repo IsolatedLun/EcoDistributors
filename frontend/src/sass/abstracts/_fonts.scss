@@ -1,3 +1,5 @@
+@use './tokens' as *;
+
 $base-fs-size: 1rem;
 $base-mobile-fs-size: 0.75rem;
 $base-medium-fs-size: 0.8rem;
@@ -50,4 +52,9 @@ $font-weights: 100, 200, 400, 500, 600, 700, 800, 900, bold, normal, bolder, lig
 	.fw-#{$type} {
 		font-weight: #{$type};
 	}
+}
+
+// Custom
+.fw-heading {
+	font-weight: $fw-heading;
 }

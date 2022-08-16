@@ -13,6 +13,15 @@
 
 			if (index) mq.set({ ...mq, state: index });
 		});
+
+		window.addEventListener('visibilitychange', () => {
+			const index = parseInt(
+				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index'),
+				10
+			);
+
+			if (index) mq.set({ ...mq, state: index });
+		});
 	});
 </script>
 

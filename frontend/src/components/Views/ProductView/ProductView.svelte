@@ -11,6 +11,7 @@
 	import Card from '../../../components/Modules/Card/Card.svelte';
 	import Typography from '../../../components/Modules/Typography/Typography.svelte';
 	import ComponentMap from '../../../components/Misc/ComponentMap.svelte';
+	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 
 	export let props = createDefaultProduct();
 
@@ -39,11 +40,11 @@
 				gap={1}
 				cubeClass={{ utilClass: 'width-100' }}
 			>
-				<h2>Playstation 5</h2>
+				<TypoHeader h={2} spacing={0}>Playstation 5</TypoHeader>
 				<StarRater />
 			</FlexyCustom>
 			<section class={`[ margin-block-1 ] [ ${$mq.state === 2 && 'text-center'} ]`}>
-				<h3 class="[ margin-block-end-1 ]">About this product</h3>
+				<TypoHeader h={3}>About this product</TypoHeader>
 				<article>
 					{props.description}
 				</article>
@@ -69,7 +70,7 @@
 	</header>
 
 	<section class="[ margin-block-2 ] [ under-border ]">
-		<h2 class="[ fw-normal ] [ margin-block-end-1 ]">More about this product</h2>
+		<TypoHeader h={2}>More about this product</TypoHeader>
 		<div class="[ grid-repeater-2 ] [ place-items-start gap-2 ]" data-grid-collapse>
 			<ProductTable />
 			<FlexyCustom useColumn={true} cubeClass={{ utilClass: 'margin-inline-start-2' }}>
@@ -80,13 +81,14 @@
 		</div>
 	</section>
 
-	<div class="[ grid-repeater-2 ]" data-grid-collapse-center>
-		<Card tag="section" cubeClass={{ utilClass: 'padding-1' }}>
-			<h2 class="[ fw-normal ] [ margin-block-end-1 ]">Customer reviews</h2>
-
-			<div class="[ reviews ]">
-				<ComponentMap _this={Review} items={props.reviews} />
-			</div>
-		</Card>
+	<div class="[ grid-repeater-2 gap-3 ]" data-grid-collapse-center>
+		<section>
+			<TypoHeader h={2}>Customer reviews</TypoHeader>
+			<ComponentMap _this={Review} items={[]} fallbackText={'No reviews found!'} />
+		</section>
+		<section>
+			<TypoHeader h={2}>Related products</TypoHeader>
+			<ComponentMap _this={Review} items={[]} fallbackText={'No products found!'} />
+		</section>
 	</div>
 </div>

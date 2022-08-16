@@ -16,6 +16,8 @@ export const DESSERT_ICON = '\uf6d7';
 export const STAR_ICON = '\uf005';
 export const PLUS_ICON = '\uf067';
 export const MINUS_ICON = '\uf068';
+export const GRID_ICON = '\uf00a';
+export const CUBE_ICON = '\uf1b2';
 
 // =============
 // Misc

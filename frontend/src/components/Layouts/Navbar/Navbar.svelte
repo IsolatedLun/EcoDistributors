@@ -21,7 +21,9 @@
 	</h1>
 
 	<h1 data-mobile>
-		<Icon cubeClass={{ utilClass: 'fs-800' }} ariaLabel="Truck icon">{TRUCK_ICON}</Icon>
+		<a href="/"
+			><Icon cubeClass={{ utilClass: 'fs-800' }} ariaLabel="Truck icon">{TRUCK_ICON}</Icon></a
+		>
 	</h1>
 
 	<div data-mobile>
