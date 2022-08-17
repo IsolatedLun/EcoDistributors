@@ -1132,7 +1132,7 @@
 .home-grid .products .product .product__price {
   color: var(--clr-text-muted);
 }
-.home-grid .products:is([data-mode=column]) {
+.home-grid .products:is([data-mode*=column]) {
   grid-template-columns: 1fr;
 }
 .home-grid .products:is([data-mode*=mobile]) {
@@ -1349,36 +1349,36 @@
   border-color: var(--clr-primary-400);
 }
 
-.select:is([data-variant=box-select]) li {
+.select:is([data-variant=box-select]) li .box-select-button {
   padding: 0.95em 1.5em;
   background-color: transparent;
   color: var(--clr-text-accent);
 }
-.select:is([data-variant=box-select]) li:is([data-selected=true]) {
+.select:is([data-variant=box-select]) li .box-select-button:is([data-selected=true]) {
   color: white;
   background-color: var(--clr-primary-400);
   border-color: var(--clr-primary-400);
 }
-.select:is([data-variant=box-select]) li:not([data-selected=true]):is(:focus-visible, :hover) {
+.select:is([data-variant=box-select]) li .box-select-button:not([data-selected=true]):is(:focus-visible, :hover) {
   background-color: var(--clr-select-box-background-on-hov);
   border-color: var(--clr-primary-400);
 }
-.select:is([data-variant=box-select]) li:not([data-selected=true]):is(:focus-visible, :hover) + li {
+.select:is([data-variant=box-select]) li:is(:hover, :focus-visible) + li .box-select-button:not([data-selected=true]) {
   border-inline-start-color: var(--clr-primary-400);
 }
-.select:is([data-variant=box-select]) li:where(:first-child) {
+.select:is([data-variant=box-select]) li:where(:first-child) .box-select-button {
   border-block: 2px solid rgba(128, 128, 128, 0.36);
   border-inline-start: 2px solid rgba(128, 128, 128, 0.36);
   border-start-start-radius: 9px;
   border-end-start-radius: 9px;
 }
-.select:is([data-variant=box-select]) li:where(:last-child) {
+.select:is([data-variant=box-select]) li:where(:last-child) .box-select-button {
   border-block: 2px solid rgba(128, 128, 128, 0.36);
   border-inline-end: 2px solid rgba(128, 128, 128, 0.36);
   border-start-end-radius: 9px;
   border-end-end-radius: 9px;
 }
-.select:is([data-variant=box-select]) li:where(:not(:first-child)) {
+.select:is([data-variant=box-select]) li:where(:not(:first-child)) .box-select-button {
   border-block: 2px solid rgba(128, 128, 128, 0.36);
   border-inline-start: 2px solid rgba(128, 128, 128, 0.36);
 }
@@ -2200,6 +2200,14 @@ img[data-small=true] {
     z-index: 1;
   }
 }
+@media screen and (min-width: 50em) {
+  .products:is([data-mode=mobile]) .product .product__image {
+    max-height: 16rem;
+  }
+  .products:is([data-mode=mobile]) .product .product__image img {
+    object-fit: contain;
+  }
+}
 @media screen and (max-width: 50em) {
   :root {
     --size-container-main: 100%;
@@ -2230,6 +2238,7 @@ img[data-small=true] {
     display: block !important;
   }
   :root *[data-align-mobile=true] {
+    width: 100%;
     align-items: center !important;
   }
   :root *[data-text-center-mobile=true] {

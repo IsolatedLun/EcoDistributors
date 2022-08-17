@@ -5,7 +5,6 @@
 		HOT_ICON,
 		LATEST_ICON,
 		MOCK_FILTERS,
-		MOCK_PRODUCTS,
 		TIMES_ICON,
 		TOP_ICON,
 		UPCOMING_ICON
@@ -84,7 +83,7 @@
 		<FlexyCustom justify="space-between">
 			<FlexyCustom tag="section" align="start">
 				<TypoHeader h={2} cubeClass={{ utilClass: 'whitespace-nowrap ' }}>
-					{MOCK_PRODUCTS.length} <span class="[ sr-only ]">product</span> Results
+					{[].length} <span class="[ sr-only ]">product</span> Results
 				</TypoHeader>
 				<!-- svelte-ignore a11y-no-redundant-roles -->
 				<ul role="list" class="[ flex gap-1 flex-wrap ]">
@@ -111,7 +110,7 @@
 		</FlexyCustom>
 
 		<div class="[ products ] [ grid gap-2 margin-block-start-2 ]" data-mode={gridLayout}>
-			<ComponentMap items={MOCK_PRODUCTS} _this={Product} />
+			<ComponentMap items={[]} _this={Product} />
 		</div>
 	</div>
 </div>

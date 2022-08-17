@@ -1,13 +1,9 @@
 import type { Props_Review } from 'src/components/Modules/Review/types';
 import type { Props_ProductPreview } from '../../../components/Modules/Product/types';
 
-interface _Props_ProductView extends Props_ProductPreview {
+export interface Props_ProductView extends Props_ProductPreview<Props_Review[]> {
 	description: string;
 
 	images: string[];
-	about_list: string[];
+	key_details: string[];
 }
-
-export type Props_ProductView = _Props_ProductView & {
-	reviews: Props_Review[];
-};

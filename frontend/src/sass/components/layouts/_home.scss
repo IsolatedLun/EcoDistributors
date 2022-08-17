@@ -23,7 +23,7 @@
 		}
 	}
 
-	.products:is([data-mode='column']) {
+	.products:is([data-mode*='column']) {
 		grid-template-columns: 1fr;
 	}
 

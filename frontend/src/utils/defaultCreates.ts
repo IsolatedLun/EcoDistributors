@@ -4,7 +4,7 @@ import type { Props_ProductView } from '../components/Views/ProductView/types';
 import type { Props_Review } from 'src/components/Modules/Review/types';
 import type { Props_User } from 'src/types';
 
-export function createDefaultProductPreview(): Props_ProductPreview {
+export function createDefaultProductPreview(): Props_ProductPreview<number> {
 	return {
 		title: '',
 		thumbnail: '',
@@ -23,7 +23,7 @@ export function createDefaultProduct(): Props_ProductView {
 
 		description: '',
 		images: [],
-		about_list: [],
+		key_details: [],
 		reviews: []
 	};
 }

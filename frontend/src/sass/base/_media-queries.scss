@@ -12,6 +12,18 @@
 	}
 }
 
+@media screen and(min-width: #{$breakpoint-small}) {
+	.products:is([data-mode='mobile']) .product {
+		.product__image {
+			max-height: $product-image-desktop-max-height;
+
+			img {
+				object-fit: contain;
+			}
+		}
+	}
+}
+
 @media screen and (max-width: #{$breakpoint-small}) {
 	:root {
 		// Classes
@@ -37,6 +49,7 @@
 		}
 
 		*[data-align-mobile='true'] {
+			width: 100%;
 			align-items: center !important;
 		}
 

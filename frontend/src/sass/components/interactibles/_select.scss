@@ -1,7 +1,7 @@
 @use '../../abstracts/' as *;
 
 .select:is([data-variant='box-select']) {
-	& li {
+	& li .box-select-button {
 		padding: 0.95em 1.5em;
 		background-color: transparent;
 		color: var(--clr-text-accent);
@@ -16,15 +16,14 @@
 		&:not([data-selected='true']):is(:focus-visible, :hover) {
 			background-color: $select-box-background-on-hov;
 			border-color: $select-box-border-color-on-hov;
-
-			// Selects the left border of the next li
-			& + li {
-				border-inline-start-color: $select-box-border-color-on-hov;
-			}
 		}
 	}
 
-	& li:where(:first-child) {
+	& li:is(:hover, :focus-visible) + li .box-select-button:not([data-selected='true']) {
+		border-inline-start-color: $select-box-border-color-on-hov;
+	}
+
+	& li:where(:first-child) .box-select-button {
 		border-block: $select-box-border;
 		border-inline-start: $select-box-border;
 
@@ -32,7 +31,7 @@
 		border-end-start-radius: 9px;
 	}
 
-	& li:where(:last-child) {
+	& li:where(:last-child) .box-select-button {
 		border-block: $select-box-border;
 		border-inline-end: $select-box-border;
 
@@ -40,7 +39,7 @@
 		border-end-end-radius: 9px;
 	}
 
-	& li:where(:not(:first-child)) {
+	& li:where(:not(:first-child)) .box-select-button {
 		border-block: $select-box-border;
 		border-inline-start: $select-box-border;
 	}

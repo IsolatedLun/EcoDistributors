@@ -6,12 +6,10 @@
 	import { createDefaultProduct } from '../../../utils/defaultCreates';
 	import QuantityInput from '../../../components/Interactibles/Inputs/QuantityInput.svelte';
 	import StarRater from '../../../components/Modules/StarRater/StarRater.svelte';
-	import ProductTable from './_sections/ProductTable.svelte';
 	import Review from '../../../components/Modules/Review/Review.svelte';
-	import Card from '../../../components/Modules/Card/Card.svelte';
-	import Typography from '../../../components/Modules/Typography/Typography.svelte';
 	import ComponentMap from '../../../components/Misc/ComponentMap.svelte';
 	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
+	import MoreSection from './_sections/MoreSection.svelte';
 
 	export let props = createDefaultProduct();
 
@@ -20,7 +18,7 @@
 
 <div class="[ product-view ] [ width-100 ]">
 	<header class="[ view__header ] [ grid gap-1 ]" data-grid-collapse>
-		<ProductImageViewer />
+		<ProductImageViewer images={[props.thumbnail]} />
 		<FlexyCustom
 			cubeClass={{
 				blockClass: 'products__content',
@@ -40,7 +38,7 @@
 				gap={1}
 				cubeClass={{ utilClass: 'width-100' }}
 			>
-				<TypoHeader h={2} spacing={0}>Playstation 5</TypoHeader>
+				<TypoHeader h={2} spacing={0}>{props.title}</TypoHeader>
 				<StarRater />
 			</FlexyCustom>
 			<section class={`[ margin-block-1 ] [ ${$mq.state === 2 && 'text-center'} ]`}>
@@ -69,17 +67,7 @@
 		</FlexyCustom>
 	</header>
 
-	<section class="[ margin-block-2 ] [ under-border ]">
-		<TypoHeader h={2}>More about this product</TypoHeader>
-		<div class="[ grid-repeater-2 ] [ place-items-start gap-2 ]" data-grid-collapse>
-			<ProductTable />
-			<FlexyCustom useColumn={true} cubeClass={{ utilClass: 'margin-inline-start-2' }}>
-				{#each props.about_list as about}
-					<li><Typography centerOnMobile={true}>{about}</Typography></li>
-				{/each}
-			</FlexyCustom>
-		</div>
-	</section>
+	<MoreSection details={props.key_details} />
 
 	<div class="[ grid-repeater-2 gap-3 ]" data-grid-collapse-center>
 		<section>

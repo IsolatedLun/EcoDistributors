@@ -10,7 +10,8 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"format": "prettier --write --plugin-search-dir=. .",
-		"postcss-run": "postcss ./static/sassy.css -o ./static/posty.css --watch"
+		"postcss-run": "postcss ./static/sassy.css -o ./static/posty.css --watch",
+		"test": "jest --env=jsdom --silent=false"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
@@ -38,9 +39,26 @@
 		"typescript": "^4.7.4",
 		"vite": "^3.0.0"
 	},
+	"jest": {
+		"transform": {
+			"^.+\\.ts$": "ts-jest",
+			"^.+\\.svelte$": [
+				"svelte-jester",
+				{
+					"preprocess": true
+				}
+			]
+		},
+		"moduleFileExtensions": [
+			"js",
+			"ts",
+			"svelte"
+		]
+	},
 	"type": "module",
 	"dependencies": {
 		"autoprefixer": "^10.4.8",
+		"axios": "^0.27.2",
 		"cssnano": "^5.1.12",
 		"postcss": "^8.4.16",
 		"postcss-cli": "^10.0.0"
