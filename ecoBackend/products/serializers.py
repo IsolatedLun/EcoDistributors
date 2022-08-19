@@ -1,3 +1,4 @@
+from ctypes import oledll
 from rest_framework import serializers
 
 from . import models
@@ -30,8 +31,10 @@ class ProductViewSerializer(serializers.ModelSerializer):
         return []
 
     def get_related_products(self, obj):
+        tags = list(Tag.objects.filter(product=obj.id))
         related_objects = models.Product.objects.filter(
-            tags__name__in=['dessert']).distinct()
+            tags__name__in=tags).distinct()
+
         return ProductSerializer(related_objects, many=True).data
 
     class Meta:

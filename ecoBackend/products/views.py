@@ -1,5 +1,5 @@
 from django.db.models import Q
-from operator import attrgetter
+from django.db.models import Count
 
 from rest_framework import generics
 from rest_framework.views import APIView, Response
@@ -13,6 +13,8 @@ class ProductsView(APIView):
     def post(self, req):
         filtered_products = models.Product.objects.filter(
             title__icontains=req.data['title'])
+        categories = list(models.Product.objects.all().values(
+            'category').annotate(count=Count('category')))
 
         if(req.data['filters'] or req.data['tags']):
             filtered_products = filtered_products.filter(
@@ -22,7 +24,7 @@ class ProductsView(APIView):
 
         serialized_data = serializers.ProductSerializer(
             filtered_products.distinct(), many=True).data
-        return Response(data=serialized_data, status=OK)
+        return Response(data={'products': serialized_data, 'categories': categories}, status=OK)
 
 
 class ProductView(APIView):
@@ -30,6 +32,9 @@ class ProductView(APIView):
         try:
             product = models.Product.objects.get(id=product_id)
             serialized_data = serializers.ProductViewSerializer(product).data
+
+            product.views += 1
+            product.save()
 
             return Response(data=serialized_data, status=OK)
         except Exception as e:

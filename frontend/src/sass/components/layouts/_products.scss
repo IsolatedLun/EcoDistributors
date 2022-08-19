@@ -1,0 +1,35 @@
+@use '../../abstracts/' as *;
+
+.products {
+	.product {
+		.product__image {
+			width: clamp(12rem, 50%, 16rem);
+
+			aspect-ratio: 1;
+			background-color: $product-image-background;
+		}
+
+		.product__price {
+			color: $product-price-color;
+		}
+	}
+}
+
+.products:is([data-mode*='column']) {
+	grid-template-columns: 1fr;
+}
+
+.products:is([data-mode*='mobile']) {
+	grid-template-columns: repeat(auto-fit, minmax($product-row-width, 1fr));
+
+	.product {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.product .product__image {
+		width: 100%;
+
+		aspect-ratio: 16 / 9;
+	}
+}

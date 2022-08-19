@@ -76,18 +76,17 @@
 
 		<MoreSection details={props.key_details} />
 
-		<div class="[ grid-repeater-2 gap-3 ]" data-grid-collapse-center>
-			<section>
-				<TypoHeader h={2}>Customer reviews</TypoHeader>
-				<ComponentMap _this={Review} items={props.reviews} fallbackText={'No reviews found!'} />
-			</section>
+		<div class="[ grid-repeater-1 gap-3 ]" data-grid-collapse-center>
 			<section>
 				<TypoHeader h={2}>Related products</TypoHeader>
-				<ComponentMap
-					_this={Product}
-					items={props.related_products}
-					fallbackText={'No products found!'}
-				/>
+				<div class="[ products ] [ grid gap-2 ]" data-mode="mobile">
+					<ComponentMap
+						_this={Product}
+						items={props.related_products}
+						ignoreByIds={[id]}
+						fallbackText={'No products found!'}
+					/>
+				</div>
 			</section>
 		</div>
 	</div>

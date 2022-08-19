@@ -4,8 +4,7 @@ export interface Props_Select {
 }
 
 export interface Props_ListSelect {
-	name: string;
-	icon: string;
+	category: string;
 
-	amount: number;
+	count: number;
 }

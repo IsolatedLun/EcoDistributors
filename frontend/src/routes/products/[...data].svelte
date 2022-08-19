@@ -9,4 +9,4 @@
 	<title>Eco | {name}</title>
 </svelte:head>
 
-<ProductView />
+<ProductView id={Number(id)} />

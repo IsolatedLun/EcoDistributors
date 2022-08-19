@@ -37,8 +37,8 @@
 	>
 		<FlexyCustom useColumn={true} align="start" gap={1}>
 			<a
-				sveltekit:prefetch
-				href={`/products/${props.id}/${props.title}`}
+				target="_self"
+				href={`/products/${props.id}/${props.title}?id=${props.id}`}
 				class="[ text-ellipsis-2 ] [ fs-500 ]">{props.title}</a
 			>
 			<StarRater />

@@ -5,6 +5,7 @@
 	import Button from '../Buttons/Button.svelte';
 	import TextInput from '../Inputs/TextInput.svelte';
 	import type { Props_ListSelect } from './types';
+	import { iconDict } from '../../../consts';
 
 	function handleSelect(e: Event) {
 		const target = e.target as HTMLButtonElement;
@@ -33,14 +34,14 @@
 <ul class="[ select ] [ flex-direction-column gap-1 ]" role="list" data-variant="list">
 	{#each items as item}
 		<li
-			id={item.name + '-select'}
+			id={item.category + '-select'}
 			class="[ pos-relative ]"
-			data-explicit-hide={!(item.name.toLowerCase().indexOf(searchCategory.toLowerCase()) > -1)}
+			data-explicit-hide={!(item.category.toLowerCase().indexOf(searchCategory.toLowerCase()) > -1)}
 		>
 			<Button
-				use={(e) => e.setAttribute('data-value', item.name)}
+				use={(e) => e.setAttribute('data-value', item.category)}
 				on:click={handleSelect}
-				dataSelected={$selected.includes(item.name)}
+				dataSelected={$selected.includes(item.category)}
 				variant="hoverable"
 				secondaryVariant="select-list-item"
 				cubeClass={{
@@ -48,16 +49,23 @@
 				}}
 			>
 				<FlexyCustom>
-					<Icon ariaLabel={`${item.name} Icon`}>{item.icon}</Icon>
-					<p>{item.name}</p>
+					<Icon ariaLabel={`${item.category} Icon`}>
+						{#if iconDict[item.category.toLowerCase()]}
+							{iconDict[item.category.toLowerCase()]}
+						{:else}
+							{iconDict['food']}
+						{/if}
+					</Icon>
+
+					<p>{item.category}</p>
 				</FlexyCustom>
-				<p>{item.amount}</p>
+				<p>{item.count}</p>
 
 				<input
 					tabindex="-1"
 					type="checkbox"
 					class="[ item__checkbox ] [ pos-absolute ignore-self ]"
-					checked={$selected.includes(item.name)}
+					checked={$selected.includes(item.category)}
 				/>
 			</Button>
 		</li>

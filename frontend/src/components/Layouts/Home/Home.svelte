@@ -4,7 +4,6 @@
 	import {
 		HOT_ICON,
 		LATEST_ICON,
-		MOCK_FILTERS,
 		SEARCH_ICON,
 		TIMES_ICON,
 		TOP_ICON,
@@ -27,10 +26,10 @@
 	import type { Props_StoreSelected } from '../../../stores/types';
 	import TagPart from './_sections/TagPart.svelte';
 	import { mq } from '../../../stores/media-queries/mqStore';
-	import type { Props_ProductPreview } from '../../../components/Modules/Product/types';
+	import type { Return__POST_Get_Products } from '../../../services/types';
 
 	async function handleGetProducts() {
-		products = await getProducts({
+		productsData = await getProducts({
 			tags: $selectedTagsHook,
 			filters: $selectedFilterHook,
 			title
@@ -43,7 +42,7 @@
 	let selectedFilterHook: Props_StoreSelected = useSelected();
 	let selectedTagsHook: Props_StoreSelected = useSelected();
 
-	let products: Props_ProductPreview<number>[];
+	let productsData: Return__POST_Get_Products;
 	let title = '';
 </script>
 
@@ -82,61 +81,63 @@
 	</div>
 </SecondaryContainer>
 
-<div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
-	{#if showFilters || $mq.state !== 2}
-		<Card
-			cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1 height-fit-content' }}
-		>
-			<Button
-				on:click={handleGetProducts}
-				cubeClass={{ utilClass: 'flex gap-1 margin-block-end-1 width-100 justify-content-center' }}
+{#await handleGetProducts() then _}
+	<div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
+		{#if showFilters || $mq.state !== 2}
+			<Card
+				cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1 height-fit-content' }}
 			>
-				<p>Search</p>
-				<Icon ariaLabel="Search icon">{SEARCH_ICON}</Icon>
-			</Button>
-			<TagPart tagHook={selectedTagsHook} />
-			<ListSelect bind:selected={selectedFilterHook} items={MOCK_FILTERS} />
-		</Card>
-	{/if}
+				<Button
+					on:click={handleGetProducts}
+					cubeClass={{
+						utilClass: 'flex gap-1 margin-block-end-1 width-100 justify-content-center'
+					}}
+				>
+					<p>Search</p>
+					<Icon ariaLabel="Search icon">{SEARCH_ICON}</Icon>
+				</Button>
+				<TagPart tagHook={selectedTagsHook} />
+				<ListSelect bind:selected={selectedFilterHook} items={productsData.categories} />
+			</Card>
+		{/if}
 
-	<div class="[ product__results ]">
-		<FlexyCustom justify="space-between">
-			<FlexyCustom tag="section" align="center">
-				<TypoHeader h={2} cubeClass={{ utilClass: 'whitespace-nowrap ' }}>Filters:</TypoHeader>
-				<!-- svelte-ignore a11y-no-redundant-roles -->
-				<ul role="list" class="[ flex gap-1 flex-wrap ]">
-					{#if $selectedFilterHook.length > 0}
-						{#each $selectedFilterHook as item}
+		<div class="[ product__results ]">
+			<FlexyCustom justify="space-between">
+				<FlexyCustom tag="section" align="center">
+					<TypoHeader h={2} cubeClass={{ utilClass: 'whitespace-nowrap ' }}>Categories:</TypoHeader>
+					<!-- svelte-ignore a11y-no-redundant-roles -->
+					<ul role="list" class="[ flex gap-1 flex-wrap ]">
+						{#if $selectedFilterHook.length > 0}
+							{#each $selectedFilterHook as item}
+								<li>
+									<Button variant="filter" on:click={() => selectedFilterHook.remove(item)}>
+										<FlexyCustom>
+											<p>{item}</p>
+											<Icon cubeClass={{ utilClass: 'fs-350' }}>{TIMES_ICON}</Icon>
+										</FlexyCustom>
+									</Button>
+								</li>
+							{/each}
+						{:else}
 							<li>
-								<Button variant="filter" on:click={() => selectedFilterHook.remove(item)}>
-									<FlexyCustom>
-										<p>{item}</p>
-										<Icon cubeClass={{ utilClass: 'fs-350' }}>{TIMES_ICON}</Icon>
-									</FlexyCustom>
-								</Button>
+								<Button variant="filter" cubeClass={{ utilClass: 'ignore-self' }}
+									>No categories</Button
+								>
 							</li>
-						{/each}
-					{:else}
-						<li>
-							<Button variant="filter" cubeClass={{ utilClass: 'ignore-self' }}>No filters</Button>
-						</li>
-					{/if}
-				</ul>
+						{/if}
+					</ul>
+				</FlexyCustom>
+
+				<GridButtons bind:layout={gridLayout} />
 			</FlexyCustom>
 
-			<GridButtons bind:layout={gridLayout} />
-		</FlexyCustom>
-
-		{#await handleGetProducts()}
-			<p>LOADING</p>
-		{:then _}
 			<section class="[ margin-block-start-1 ]">
 				<TypoHeader h={2}
-					>{products.length} <span class="[ sr-only ]">product</span> Results</TypoHeader
+					>{productsData.products.length} <span class="[ sr-only ]">product</span> Results</TypoHeader
 				>
 				<div class="[ products ] [ grid gap-2 margin-block-start-2 ]" data-mode={gridLayout}>
 					<ComponentMap
-						items={products}
+						items={productsData.products}
 						_this={Product}
 						on:event={(e) => {
 							const name = e.detail.name;
@@ -145,6 +146,6 @@
 					/>
 				</div>
 			</section>
-		{/await}
+		</div>
 	</div>
-</div>
+{/await}
