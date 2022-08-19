@@ -3,16 +3,9 @@
 	import FlexyCustom from '../../../../components/Alignment/FlexyCustom.svelte';
 	import LinkButton from '../../../../components/Interactibles/Buttons/LinkButton.svelte';
 	import Image from '../../../../components/Misc/MediaElements/Image.svelte';
+	import { API_URL } from '../../../../consts';
 
-	export let images: string[] = [
-		'https://image.api.playstation.com/vulcan/img/cfn/11307x4B5WLoVoIUtdewG4uJ_YuDRTwBxQy0qP8ylgazLLc01PBxbsFG1pGOWmqhZsxnNkrU3GXbdXIowBAstzlrhtQ4LCI4.png',
-		'https://www.global-esports.news/wp-content/uploads/2022/05/Minecraft-2022-Guide.jpg',
-		'https://cdn-products.eneba.com/resized-products/Dbdx7ihzJk48bASi_G0jHEgx2obfGYE_tNyWsjtJ4a4_350x200_3x-0.png',
-		'https://cdn.cloudflare.steamstatic.com/steam/apps/1928870/header.jpg?t=1659111277',
-		'https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$',
-		'https://assets.reedpopcdn.com/Minecraft-Legends-%E2%80%93-Announce-Trailer---Xbox-%26-Bethesda-Games-Showcase-2022-thumbnail-4.jpg/BROK/thumbnail/1600x900/quality/100/Minecraft-Legends-%E2%80%93-Announce-Trailer---Xbox-%26-Bethesda-Games-Showcase-2022-thumbnail-4.jpg'
-	];
-
+	export let images: string[] = [];
 	export let productName = '';
 
 	let idx = 0;
@@ -36,7 +29,7 @@
 			>
 				<Image
 					use={(e) => (e.id = `image-${i}`)}
-					props={{ src: image, alt: productName + 'image' }}
+					props={{ src: API_URL + image, alt: productName + 'image' }}
 				/>
 			</LinkButton>
 		{/each}
@@ -47,7 +40,7 @@
 	>
 		<Image
 			cubeClass={{ utilClass: 'object-fit-contain' }}
-			props={{ src: images[idx], alt: productName + 'image' }}
+			props={{ src: API_URL + images[idx], alt: productName + 'image' }}
 		/>
 	</div>
 </FlexyCustom>

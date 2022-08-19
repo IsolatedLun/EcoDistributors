@@ -1149,7 +1149,7 @@
 
 .product-view .image-viewer .viewer__images {
   display: flex;
-  max-height: 18rem;
+  max-height: 22.5rem;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1161,7 +1161,7 @@
   aspect-ratio: 1;
 }
 .product-view .image-viewer .viewer__main-image {
-  max-width: 18rem;
+  width: 100%;
 }
 .product-view .image-viewer .viewer__main-image[data-image-type=long] {
   aspect-ratio: 1/2;
@@ -1170,7 +1170,7 @@
   aspect-ratio: 1;
 }
 .product-view .view__header {
-  grid-template-columns: 30% auto;
+  grid-template-columns: 40% auto;
 }
 .product-view .product__table {
   table-layout: fixed;

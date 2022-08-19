@@ -1,10 +1,6 @@
 import axios from 'axios';
-
-enum HTTPMethods {
-	GET,
-	POST,
-	DELETE
-}
+import { API_URL } from '../consts';
+import { HTTPMethods } from './types';
 
 export async function createEndpoint<T>(
 	url: string,
@@ -14,6 +10,7 @@ export async function createEndpoint<T>(
 ): Promise<T> {
 	let res = new Promise(() => undefined) as any;
 
+	url = API_URL + url;
 	if (method === HTTPMethods.GET) {
 		const req = await axios.get(url, data);
 		res = (await req.data) as T;

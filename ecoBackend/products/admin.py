@@ -2,4 +2,9 @@ from django.contrib import admin
 
 from . import models
 
-admin.site.register(models.Product)
+
+@admin.register(models.Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ["id", "title", 'category']
+    ordering = ["title", 'category']
+    search_fields = ["title", 'category']

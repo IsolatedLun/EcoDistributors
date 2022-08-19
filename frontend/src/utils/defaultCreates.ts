@@ -10,6 +10,8 @@ export function createDefaultProductPreview(): Props_ProductPreview<number> {
 		thumbnail: '',
 		date_created: '',
 
+		tags: [],
+
 		price: 499.99,
 		rating: 0,
 		reviews: 0,
@@ -22,9 +24,11 @@ export function createDefaultProduct(): Props_ProductView {
 		...createDefaultProductPreview(),
 
 		description: '',
+
 		images: [],
 		key_details: [],
-		reviews: []
+		reviews: [],
+		related_products: []
 	};
 }
 

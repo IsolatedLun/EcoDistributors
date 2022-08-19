@@ -13,19 +13,21 @@
 	});
 </script>
 
-<FlexyCustom>
-	<Button
-		on:click={() => (layout = 'mobile')}
-		variant="hoverable"
-		dataSelected={layout === 'mobile'}
-	>
-		<Icon>{GRID_ICON}</Icon>
-	</Button>
-	<Button
-		on:click={() => (layout = 'column')}
-		variant="hoverable"
-		dataSelected={layout === 'column'}
-	>
-		<Icon>{CUBE_ICON}</Icon>
-	</Button>
-</FlexyCustom>
+<div data-desktop>
+	<FlexyCustom>
+		<Button
+			on:click={() => (layout = 'mobile')}
+			variant="hoverable"
+			dataSelected={layout === 'mobile'}
+		>
+			<Icon>{GRID_ICON}</Icon>
+		</Button>
+		<Button
+			on:click={() => (layout = 'column')}
+			variant="hoverable"
+			dataSelected={layout === 'column'}
+		>
+			<Icon>{CUBE_ICON}</Icon>
+		</Button>
+	</FlexyCustom>
+</div>

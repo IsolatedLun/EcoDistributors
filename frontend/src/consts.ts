@@ -18,6 +18,15 @@ export const PLUS_ICON = '\uf067';
 export const MINUS_ICON = '\uf068';
 export const GRID_ICON = '\uf00a';
 export const CUBE_ICON = '\uf1b2';
+export const SEARCH_ICON = '\uf002';
+
+// =============
+// Endpoints
+// =============
+export const API_URL = 'http://localhost:8000';
+
+export const GET_PRODUCTS_URL = '/products/';
+export const GET_PRODUCT_VIEW_URL = (id: number) => GET_PRODUCTS_URL + id;
 
 // =============
 // Misc
@@ -26,5 +35,6 @@ export const MOCK_FILTERS: Props_ListSelect[] = [
 	{ icon: FRUIT_ICON, amount: 12, name: 'Fruits' },
 	{ icon: VEGETABLE_ICON, amount: 753, name: 'Vegetables' },
 
-	{ icon: MEAT_ICON, amount: 216, name: 'Meat' }
+	{ icon: MEAT_ICON, amount: 216, name: 'Meat' },
+	{ icon: MEAT_ICON, amount: 1567, name: 'Condiments' }
 ];

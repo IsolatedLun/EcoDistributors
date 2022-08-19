@@ -2,8 +2,8 @@
 	import { createCubeCSSClass, createDefaultCubeClass } from '../../../utils/cubeCssUtils';
 
 	export let centerOnMobile = false;
-	export let fontSize = 'default';
-	export let fontWeight = 'default';
+	export let fontSize: string | number = 'default';
+	export let fontWeight: string | number = 'default';
 	export let tag = 'p';
 
 	export let cubeClass = createDefaultCubeClass();

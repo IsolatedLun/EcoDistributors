@@ -5,6 +5,7 @@
 		HOT_ICON,
 		LATEST_ICON,
 		MOCK_FILTERS,
+		SEARCH_ICON,
 		TIMES_ICON,
 		TOP_ICON,
 		UPCOMING_ICON
@@ -22,10 +23,28 @@
 	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 	import type { Props_GridLayouts } from './types';
 	import GridButtons from './_sections/GridButtons.svelte';
+	import { getProducts } from '../../../services/productService';
+	import type { Props_StoreSelected } from '../../../stores/types';
+	import TagPart from './_sections/TagPart.svelte';
+	import { mq } from '../../../stores/media-queries/mqStore';
+	import type { Props_ProductPreview } from '../../../components/Modules/Product/types';
+
+	async function handleGetProducts() {
+		products = await getProducts({
+			tags: $selectedTagsHook,
+			filters: $selectedFilterHook,
+			title
+		});
+	}
 
 	let gridLayout: Props_GridLayouts = 'column';
 	let showFilters = false;
-	let selectedHook = useSelected();
+
+	let selectedFilterHook: Props_StoreSelected = useSelected();
+	let selectedTagsHook: Props_StoreSelected = useSelected();
+
+	let products: Props_ProductPreview<number>[];
+	let title = '';
 </script>
 
 <svelte:head>
@@ -34,6 +53,7 @@
 
 <SecondaryContainer>
 	<TextInput
+		bind:value={title}
 		secondaryVariant="use-shadow"
 		variant="mega"
 		placeholder="Search 24,563,123 products"
@@ -63,34 +83,32 @@
 </SecondaryContainer>
 
 <div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
-	<Card
-		cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1 height-fit-content' }}
-		use={(e) => attrSetter(e, [{ name: 'data-desktop', value: '' }])}
-	>
-		<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
-	</Card>
-
-	{#if showFilters}
+	{#if showFilters || $mq.state !== 2}
 		<Card
-			cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1' }}
-			use={(e) => attrSetter(e, [{ name: 'data-mobile', value: '' }])}
+			cubeClass={{ blockClass: 'products__filters', utilClass: 'padding-1 height-fit-content' }}
 		>
-			<ListSelect bind:selected={selectedHook} items={MOCK_FILTERS} />
+			<Button
+				on:click={handleGetProducts}
+				cubeClass={{ utilClass: 'flex gap-1 margin-block-end-1 width-100 justify-content-center' }}
+			>
+				<p>Search</p>
+				<Icon ariaLabel="Search icon">{SEARCH_ICON}</Icon>
+			</Button>
+			<TagPart tagHook={selectedTagsHook} />
+			<ListSelect bind:selected={selectedFilterHook} items={MOCK_FILTERS} />
 		</Card>
 	{/if}
 
 	<div class="[ product__results ]">
 		<FlexyCustom justify="space-between">
-			<FlexyCustom tag="section" align="start">
-				<TypoHeader h={2} cubeClass={{ utilClass: 'whitespace-nowrap ' }}>
-					{[].length} <span class="[ sr-only ]">product</span> Results
-				</TypoHeader>
+			<FlexyCustom tag="section" align="center">
+				<TypoHeader h={2} cubeClass={{ utilClass: 'whitespace-nowrap ' }}>Filters:</TypoHeader>
 				<!-- svelte-ignore a11y-no-redundant-roles -->
 				<ul role="list" class="[ flex gap-1 flex-wrap ]">
-					{#if $selectedHook.length > 0}
-						{#each $selectedHook as item}
+					{#if $selectedFilterHook.length > 0}
+						{#each $selectedFilterHook as item}
 							<li>
-								<Button variant="filter" on:click={() => selectedHook.remove(item)}>
+								<Button variant="filter" on:click={() => selectedFilterHook.remove(item)}>
 									<FlexyCustom>
 										<p>{item}</p>
 										<Icon cubeClass={{ utilClass: 'fs-350' }}>{TIMES_ICON}</Icon>
@@ -109,8 +127,24 @@
 			<GridButtons bind:layout={gridLayout} />
 		</FlexyCustom>
 
-		<div class="[ products ] [ grid gap-2 margin-block-start-2 ]" data-mode={gridLayout}>
-			<ComponentMap items={[]} _this={Product} />
-		</div>
+		{#await handleGetProducts()}
+			<p>LOADING</p>
+		{:then _}
+			<section class="[ margin-block-start-1 ]">
+				<TypoHeader h={2}
+					>{products.length} <span class="[ sr-only ]">product</span> Results</TypoHeader
+				>
+				<div class="[ products ] [ grid gap-2 margin-block-start-2 ]" data-mode={gridLayout}>
+					<ComponentMap
+						items={products}
+						_this={Product}
+						on:event={(e) => {
+							const name = e.detail.name;
+							if (!$selectedTagsHook.includes(name)) selectedTagsHook.add(name);
+						}}
+					/>
+				</div>
+			</section>
+		{/await}
 	</div>
 </div>
