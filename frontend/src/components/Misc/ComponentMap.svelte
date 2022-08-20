@@ -1,5 +1,9 @@
 <script lang="ts">
+	import { INFO_ICON } from '../../consts';
 	import { createEventDispatcher } from 'svelte';
+	import FlexyCustom from '../Alignment/FlexyCustom.svelte';
+	import Card from '../Modules/Card/Card.svelte';
+	import Icon from '../Modules/Icon/Icon.svelte';
 
 	function handleEvent(data: any) {
 		dispatch('event', {
@@ -15,7 +19,6 @@
 	export let fallbackText = 'No items found.';
 
 	const dispatch = createEventDispatcher();
-	console.log(items);
 </script>
 
 {#if items.length - ignoreByIds.length > 0}
@@ -31,6 +34,11 @@
 	{/each}
 {:else}
 	<div class="[ grid place-items-center ]">
-		<p class={`[ fs-${fontSize} ]`}>{fallbackText}</p>
+		<Card variant="primary" cubeClass={{ utilClass: 'padding-block-1 padding-inline-2' }}>
+			<FlexyCustom>
+				<Icon ariaLabel="Info icon" cubeClass={{ utilClass: 'clr-primary-400' }}>{INFO_ICON}</Icon>
+				<p class={`[ fs-${fontSize} ]`}>{fallbackText}</p>
+			</FlexyCustom>
+		</Card>
 	</div>
 {/if}

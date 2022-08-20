@@ -3,25 +3,19 @@
 	import { onMount } from 'svelte';
 	import Navbar from '../components/Layouts/Navbar/Navbar.svelte';
 	import { mq } from '../stores/media-queries/mqStore';
+	import { MQ_UPDATE_INTERVAL } from '../consts';
 
 	onMount(() => {
-		window.addEventListener('resize', () => {
+		function updateMq() {
 			const index = parseInt(
-				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index'),
-				10
+				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index')
 			);
-
+			console.log(index);
 			if (index) mq.set({ ...mq, state: index });
-		});
+			setTimeout(updateMq, MQ_UPDATE_INTERVAL);
+		}
 
-		window.addEventListener('visibilitychange', () => {
-			const index = parseInt(
-				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index'),
-				10
-			);
-
-			if (index) mq.set({ ...mq, state: index });
-		});
+		updateMq();
 	});
 </script>
 

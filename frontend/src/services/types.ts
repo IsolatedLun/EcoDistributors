@@ -14,6 +14,9 @@ export interface POST_Get_Products {
 	tags: string[];
 	filters: string[]; // categories
 	title: string;
+	sort_by: 'top' | 'latest' | 'hot' | string;
+
+	show_upcoming: boolean;
 }
 
 export interface Return__POST_Get_Products {

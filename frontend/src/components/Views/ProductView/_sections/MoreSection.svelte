@@ -1,16 +1,18 @@
 <script lang="ts">
+	import type { KeyValue } from '../../../../types';
 	import FlexyCustom from '../../../../components/Alignment/FlexyCustom.svelte';
 	import Typography from '../../../../components/Modules/Typography/Typography.svelte';
 	import TypoHeader from '../../../../components/Modules/Typography/TypoHeader.svelte';
 	import ProductTable from './ProductTable.svelte';
 
 	export let details: string[] = [];
+	export let tableDetails: KeyValue<string>[];
 </script>
 
 <section class="[ margin-block-2 ] [ under-border ]">
 	<TypoHeader h={2}>More about this product</TypoHeader>
 	<div class="[ grid-repeater-2 ] [ place-items-start gap-2 ]" data-grid-collapse>
-		<ProductTable />
+		<ProductTable data={tableDetails} />
 		<FlexyCustom
 			tag={'ul'}
 			gap={1}

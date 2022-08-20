@@ -66,6 +66,9 @@ $select-box-border-color-on-hov: var(--clr-primary-400);
 $def-card-background-color: var(--clr-card-400);
 $def-card-border-radius: $border-radius-cubed;
 
+$card-primary-background-color: var(--clr-primary-faded);
+$card-primary-border: 2px solid var(--clr-primary-400);
+
 // Product Card
 $product-image-min-width: 12rem;
 $product-image-max-width: 12rem;
@@ -87,6 +90,11 @@ $image-view-main-size: 18rem;
 
 // Profile
 $profile-width: 2.25em;
+
+// Loader
+$loader-bottom: -1rem;
+$loader-height: 3px;
+$loader-animation-duration: 2.25s;
 
 // =================
 // Animations

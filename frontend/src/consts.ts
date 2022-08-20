@@ -1,5 +1,3 @@
-import type { Props_ListSelect } from './components/Interactibles/Selects/types';
-
 export const TOP_ICON = '\uf201';
 export const HOT_ICON = '\uf7e4';
 export const LATEST_ICON = '\uf01e';
@@ -23,6 +21,7 @@ export const DAIRY_ICON = '\uf6c8';
 export const CONDIMENT_ICON = '\uf816';
 export const FOOD_ICON = '\uf0f5';
 export const FISH_ICON = '\uf578';
+export const INFO_ICON = '\uf05a';
 
 export const iconDict: any = {
 	dairy: DAIRY_ICON,
@@ -41,3 +40,15 @@ export const API_URL = 'http://localhost:8000';
 
 export const GET_PRODUCTS_URL = '/products/';
 export const GET_PRODUCT_VIEW_URL = (id: number) => GET_PRODUCTS_URL + id;
+
+// =============
+// Misc
+// =============
+export const MQ_UPDATE_INTERVAL = 1000;
+
+// =============
+// SOCIALS
+// =============
+const YOUTUBE_URL = '';
+const FACEBOOK_URL = '';
+const INSTAGRAM_URL = '';

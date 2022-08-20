@@ -5,7 +5,7 @@
 		.viewer__images {
 			display: flex;
 			max-height: $image-view-main-size * 1.25;
-			height: 100%;
+			height: $image-view-main-size * 1.25; // Fixes bug on chrome where the scrollbar is still visible
 
 			overflow-x: hidden;
 			overflow-y: auto;
@@ -65,6 +65,8 @@
 		.viewer__images {
 			overflow-x: auto;
 			overflow-y: hidden;
+
+			height: fit-content;
 
 			scrollbar-width: auto;
 		}

@@ -19,7 +19,7 @@
 		}
 	}
 
-	& li:is(:hover, :focus-visible) + li .box-select-button:not([data-selected='true']) {
+	& li:is(:hover, :focus-visible, :focus) + li .box-select-button:not([data-selected='true']) {
 		border-inline-start-color: $select-box-border-color-on-hov;
 	}
 

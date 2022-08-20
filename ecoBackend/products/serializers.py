@@ -1,4 +1,4 @@
-from ctypes import oledll
+from django.db.models import Q
 from rest_framework import serializers
 
 from . import models
@@ -24,6 +24,10 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class ProductViewSerializer(serializers.ModelSerializer):
     reviews = serializers.SerializerMethodField(method_name='get_reviews')
+    images = serializers.SerializerMethodField(method_name='get_images')
+    details = serializers.SerializerMethodField(method_name='get_details')
+    key_points = serializers.SerializerMethodField(
+        method_name='get_key_points')
     related_products = serializers.SerializerMethodField(
         method_name='get_related_products')
 
@@ -33,10 +37,32 @@ class ProductViewSerializer(serializers.ModelSerializer):
     def get_related_products(self, obj):
         tags = list(Tag.objects.filter(product=obj.id))
         related_objects = models.Product.objects.filter(
-            tags__name__in=tags).distinct()
+            Q(tags__name__in=tags) |
+            Q(category__in=[obj.category])
+        ).distinct()
 
         return ProductSerializer(related_objects, many=True).data
+
+    def get_images(self, obj):
+        return [x.image.url for x in models.ProductImage.objects.filter(product_id=obj.id)]
+
+    def get_key_points(self, obj):
+        return [x.key_point for x in models.ProductKeyPoint.objects.filter(product_id=obj.id)]
+
+    def get_details(self, obj):
+        details = models.ProductDetails.objects.get(product_id=obj.id)
+
+        return ProductDetailSerializer(details).data
 
     class Meta:
         model = models.Product
         fields = '__all__'
+
+# ===============================
+# ===============================
+
+
+class ProductDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProductDetails
+        exclude = ['id', 'product']

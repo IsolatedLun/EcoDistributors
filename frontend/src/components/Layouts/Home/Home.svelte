@@ -27,12 +27,15 @@
 	import TagPart from './_sections/TagPart.svelte';
 	import { mq } from '../../../stores/media-queries/mqStore';
 	import type { Return__POST_Get_Products } from '../../../services/types';
+	import Loader from '../../../components/Misc/Loader/Loader.svelte';
 
 	async function handleGetProducts() {
 		productsData = await getProducts({
 			tags: $selectedTagsHook,
 			filters: $selectedFilterHook,
-			title
+			title: title.trim(),
+			sort_by: sortBy,
+			show_upcoming: showUpcoming
 		});
 	}
 
@@ -44,6 +47,8 @@
 
 	let productsData: Return__POST_Get_Products;
 	let title = '';
+	let sortBy = 'none';
+	let showUpcoming = false;
 </script>
 
 <svelte:head>
@@ -59,15 +64,23 @@
 	/>
 
 	<div class="[ grid ] [ place-items-center ]">
-		<BoxSelect
-			cubeClass={{ utilClass: 'margin-block-3' }}
-			options={[
-				{ text: 'Top', icon: TOP_ICON },
-				{ text: 'Latest', icon: LATEST_ICON },
-				{ text: 'Hot', icon: HOT_ICON },
-				{ text: 'Upcoming', icon: UPCOMING_ICON }
-			]}
-		/>
+		<FlexyCustom>
+			<BoxSelect
+				cubeClass={{ utilClass: 'margin-block-3' }}
+				canDeselect={true}
+				on:select={(e) => (sortBy = e.detail.type)}
+				options={[
+					{ text: 'Top', icon: TOP_ICON },
+					{ text: 'Latest', icon: LATEST_ICON },
+					{ text: 'Hot', icon: HOT_ICON }
+				]}
+			/>
+			<BoxSelect
+				options={[{ text: 'Upcoming', icon: UPCOMING_ICON }]}
+				on:select={(e) => (showUpcoming = e.detail.type === 'Upcoming')}
+				canDeselect={true}
+			/>
+		</FlexyCustom>
 	</div>
 
 	<div class="[ margin-block-end-3 ]" data-mobile>
@@ -81,7 +94,9 @@
 	</div>
 </SecondaryContainer>
 
-{#await handleGetProducts() then _}
+{#await handleGetProducts()}
+	<Loader text={'products'} />
+{:then _}
 	<div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
 		{#if showFilters || $mq.state !== 2}
 			<Card

@@ -5,23 +5,24 @@
 	import ProductImageViewer from './_sections/ProductImageViewer.svelte';
 	import QuantityInput from '../../../components/Interactibles/Inputs/QuantityInput.svelte';
 	import StarRater from '../../../components/Modules/StarRater/StarRater.svelte';
-	import Review from '../../../components/Modules/Review/Review.svelte';
 	import ComponentMap from '../../../components/Misc/ComponentMap.svelte';
 	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 	import MoreSection from './_sections/MoreSection.svelte';
 	import Product from '../../../components/Modules/Product/Product.svelte';
 	import { getProduct } from '../../../services/productService';
+	import Loader from '../../../components/Misc/Loader/Loader.svelte';
 
-	export let id = 1;
+	export let id = -1;
+	export let name = '';
 	let quantity = 1;
 </script>
 
 {#await getProduct(id)}
-	<p>LOADING</p>
+	<Loader text={name} />
 {:then props}
 	<div class="[ product-view ] [ width-100 ]">
 		<header class="[ view__header ] [ grid gap-1 ]" data-grid-collapse>
-			<ProductImageViewer images={[props.thumbnail]} />
+			<ProductImageViewer images={[props.thumbnail, ...props.images]} />
 			<FlexyCustom
 				cubeClass={{
 					blockClass: 'products__content',
@@ -69,12 +70,21 @@
 						</p>
 						<QuantityInput bind:value={quantity} />
 					</FlexyCustom>
-					<Button cubeClass={{ utilClass: 'width-100' }}>Add to cart</Button>
+					<Button
+						workCondition={!(props.is_out_of_stock || props.is_upcoming)}
+						cubeClass={{ utilClass: 'width-100' }}
+					>
+						{#if !(props.is_out_of_stock || props.is_upcoming)}
+							Add to cart
+						{:else}
+							Out of stock
+						{/if}
+					</Button>
 				</FlexyCustom>
 			</FlexyCustom>
 		</header>
 
-		<MoreSection details={props.key_details} />
+		<MoreSection tableDetails={props.details} details={props.key_points} />
 
 		<div class="[ grid-repeater-1 gap-3 ]" data-grid-collapse-center>
 			<section>

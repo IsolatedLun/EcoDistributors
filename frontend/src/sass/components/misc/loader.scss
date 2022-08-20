@@ -1,0 +1,47 @@
+@use '../../abstracts/' as *;
+
+.loader {
+	&::after {
+		content: '';
+		position: absolute;
+
+		bottom: $loader-bottom;
+		width: 100%;
+		height: $loader-height;
+
+		background-color: var(--clr-text-accent);
+
+		animation: smoothBar $loader-animation-duration ease-in-out infinite;
+	}
+
+	span {
+		color: var(--clr-text-muted);
+	}
+}
+
+@keyframes smoothBar {
+	0% {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
+	25% {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+
+	50% {
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+
+	75% {
+		transform: scaleX(1);
+		transform-origin: right;
+	}
+
+	100% {
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+}

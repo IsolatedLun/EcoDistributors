@@ -6,10 +6,6 @@
 			--fs-#{$font}: #{$size};
 		}
 	}
-
-	.state-indicator {
-		z-index: 1;
-	}
 }
 
 @media screen and(min-width: #{$breakpoint-small}) {
@@ -21,6 +17,10 @@
 				object-fit: contain;
 			}
 		}
+	}
+
+	.state-indicator {
+		z-index: 1 !important;
 	}
 }
 
@@ -75,6 +75,6 @@
 	}
 
 	.state-indicator {
-		z-index: 2;
+		z-index: 2 !important;
 	}
 }

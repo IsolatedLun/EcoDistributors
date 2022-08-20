@@ -4,6 +4,8 @@
 @forward './layouts/home';
 @forward './layouts/products';
 
+@forward './misc//loader.scss';
+
 @forward './views/product-view';
 
 @forward './modules//star-rater';

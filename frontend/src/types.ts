@@ -9,3 +9,7 @@ export interface Props_User extends Props_DB_Model {
 }
 
 export type EventFunction<EventT> = (e: EventT) => void;
+
+export interface KeyValue<T> {
+	[key: string]: T;
+}

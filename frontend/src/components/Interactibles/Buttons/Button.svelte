@@ -12,6 +12,7 @@
 	export let variant = 'default';
 	export let secondaryVariant = 'default';
 	export let dataSelected = false;
+	export let workCondition = true;
 	export let ariaLabel = 'Button';
 	export let use: EventFunction<HTMLButtonElement> = (e) => null;
 
@@ -31,6 +32,7 @@
 	data-variant={variant}
 	data-selected={dataSelected}
 	data-secondary-variant={secondaryVariant}
+	data-work-condition={workCondition}
 	aria-label={ariaLabel}
 >
 	<slot />

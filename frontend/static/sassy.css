@@ -87,6 +87,10 @@
   color: rgba(79, 137, 252, 0.67);
 }
 
+.clr-primary-faded {
+  color: rgba(79, 137, 252, 0.32);
+}
+
 .clr-error-400 {
   color: #fc4640;
 }
@@ -1150,10 +1154,45 @@
   aspect-ratio: 16/9;
 }
 
+.loader::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  width: 100%;
+  height: 3px;
+  background-color: var(--clr-text-accent);
+  animation: smoothBar 2.25s ease-in-out infinite;
+}
+.loader span {
+  color: var(--clr-text-muted);
+}
+
+@keyframes smoothBar {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  25% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  75% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
 .product-view .image-viewer .viewer__images {
   display: flex;
   max-height: 22.5rem;
-  height: 100%;
+  height: 22.5rem;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -1199,6 +1238,7 @@
   .product-view .image-viewer .viewer__images {
     overflow-x: auto;
     overflow-y: hidden;
+    height: fit-content;
     scrollbar-width: auto;
   }
 }
@@ -1215,14 +1255,23 @@
   color: orange;
 }
 
-.card,
+.card:not([data-card-variant]),
 .card[data-card-variant=default] {
   background-color: var(--clr-card-400);
   border: none;
   border-radius: 9px;
 }
-.card:is(:focus-visible, :hover),
+.card:not([data-card-variant]):is(:focus-visible, :hover),
 .card[data-card-variant=default]:is(:focus-visible, :hover) {
+  border-color: none;
+}
+
+.card:is([data-card-variant=primary]) {
+  background-color: var(--clr-primary-faded);
+  border: 2px solid var(--clr-primary-400);
+  border-radius: 9px;
+}
+.card:is([data-card-variant=primary]):is(:focus-visible, :hover) {
   border-color: none;
 }
 
@@ -1370,7 +1419,7 @@
   background-color: var(--clr-select-box-background-on-hov);
   border-color: var(--clr-primary-400);
 }
-.select:is([data-variant=box-select]) li:is(:hover, :focus-visible) + li .box-select-button:not([data-selected=true]) {
+.select:is([data-variant=box-select]) li:is(:hover, :focus-visible, :focus) + li .box-select-button:not([data-selected=true]) {
   border-inline-start-color: var(--clr-primary-400);
 }
 .select:is([data-variant=box-select]) li:where(:first-child) .box-select-button {
@@ -1934,6 +1983,7 @@ img[data-profile=true] {
   --clr-primary-400: #3689fc;
   --clr-primary-500: #4f97fc;
   --clr-primary-shadow: rgba(79, 137, 252, 0.67);
+  --clr-primary-faded: rgba(79, 137, 252, 0.32);
   --clr-error-400: #fc4640;
   --clr-error-hover: rgba(252, 70, 64, 0.56);
   --fs-200: 0.5rem;
@@ -2013,6 +2063,9 @@ img[data-profile=true] {
 :root .clr-primary-shadow {
   color: rgba(79, 137, 252, 0.67);
 }
+:root .clr-primary-faded {
+  color: rgba(79, 137, 252, 0.32);
+}
 :root .clr-error-400 {
   color: #fc4640;
 }
@@ -2044,6 +2097,7 @@ img[data-profile=true] {
     --clr-primary-400: #3678fc;
     --clr-primary-500: #4f89fc;
     --clr-primary-shadow: rgba(79, 137, 252, 0.67);
+    --clr-primary-faded: rgba(79, 137, 252, 0.37);
     --clr-error-400: #fc4640;
     --clr-error-hover: rgba(252, 70, 64, 0.46);
   }
@@ -2190,6 +2244,18 @@ img[data-small=true] {
   margin-block-start: 0.5em;
 }
 
+/* Remove all animations and transitions */
+@media screen and (prefers-reduced-motion: reduce) {
+  *,
+*::before,
+*::after {
+    animation-timing-function: forwards !important;
+    animation-duration: 0ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 @media screen and (max-width: 65em) {
   :root {
     --fs-200: 0.4rem;
@@ -2202,10 +2268,6 @@ img[data-small=true] {
     --fs-700: 1.4rem;
     --fs-800: 1.6rem;
   }
-
-  .state-indicator {
-    z-index: 1;
-  }
 }
 @media screen and (min-width: 50em) {
   .products:is([data-mode=mobile]) .product .product__image {
@@ -2213,6 +2275,10 @@ img[data-small=true] {
   }
   .products:is([data-mode=mobile]) .product .product__image img {
     object-fit: contain;
+  }
+
+  .state-indicator {
+    z-index: 1 !important;
   }
 }
 @media screen and (max-width: 50em) {
@@ -2257,7 +2323,7 @@ img[data-small=true] {
   }
 
   .state-indicator {
-    z-index: 2;
+    z-index: 2 !important;
   }
 }
 
