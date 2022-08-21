@@ -14,7 +14,9 @@
 	export let variant = 'default';
 	export let secondaryVariant = 'default';
 	export let placeholder = 'Enter text';
+	export let label: string;
 	export let value = '';
+	export let id = 'window.crypto.randomUUID()';
 	export let type: 'text' | 'email' | 'password' = 'text';
 
 	const _class = createCubeCSSClass(cubeClass, {
@@ -26,9 +28,11 @@
 </script>
 
 <div class={_class}>
+	<label for={id} class="[ sr-only ]">{label}</label>
 	<input
 		use:setType
 		bind:value
+		{id}
 		class="[ input ] [  width-100 ]"
 		data-variant={variant}
 		data-secondary-variant={secondaryVariant}

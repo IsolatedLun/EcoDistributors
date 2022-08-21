@@ -31,6 +31,10 @@
 			flex-direction: column !important;
 		}
 
+		*[data-explicit-flex-collapse='true'] {
+			flex-direction: column !important;
+		}
+
 		*[data-grid-collapse] {
 			grid-template-columns: 1fr !important;
 		}
@@ -51,6 +55,11 @@
 		*[data-align-mobile='true'] {
 			width: 100%;
 			align-items: center !important;
+		}
+
+		*[data-justify-mobile='true'] {
+			width: 100%;
+			justify-content: center !important;
 		}
 
 		*[data-text-center-mobile='true'] {

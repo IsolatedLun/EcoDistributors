@@ -16,6 +16,17 @@
 	);
 }
 
+.button:is([data-variant='red']) {
+	@include createButton(
+		$padding: $button-red-padding,
+		$color: $button-red-color,
+		$color-on-hov: $button-red-color,
+		$background-color: $button-red-background-color,
+		$border-radius: $button-red-border-radius,
+		$background-color-on-hov: $button-red-background-color-on-hov
+	);
+}
+
 .button:is([data-variant='filter']) {
 	@include createButton(
 		$padding: $button-filter-padding,

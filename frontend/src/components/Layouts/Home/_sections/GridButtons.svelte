@@ -13,21 +13,21 @@
 	});
 </script>
 
-<div data-desktop>
+<div data-desktop aria-hidden="true">
 	<FlexyCustom>
 		<Button
 			on:click={() => (layout = 'mobile')}
 			variant="hoverable"
 			dataSelected={layout === 'mobile'}
 		>
-			<Icon>{GRID_ICON}</Icon>
+			<Icon ariaLabel="Grid icon">{GRID_ICON}</Icon>
 		</Button>
 		<Button
 			on:click={() => (layout = 'column')}
 			variant="hoverable"
 			dataSelected={layout === 'column'}
 		>
-			<Icon>{CUBE_ICON}</Icon>
+			<Icon ariaLabel="Cube icon">{CUBE_ICON}</Icon>
 		</Button>
 	</FlexyCustom>
 </div>

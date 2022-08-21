@@ -22,12 +22,17 @@
 	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 	import type { Props_GridLayouts } from './types';
 	import GridButtons from './_sections/GridButtons.svelte';
-	import { getProducts } from '../../../services/productService';
+	import { getProductCount, getProducts } from '../../../services/productService';
 	import type { Props_StoreSelected } from '../../../stores/types';
 	import TagPart from './_sections/TagPart.svelte';
 	import { mq } from '../../../stores/media-queries/mqStore';
 	import type { Return__POST_Get_Products } from '../../../services/types';
 	import Loader from '../../../components/Misc/Loader/Loader.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		productCount = (await getProductCount()).count;
+	});
 
 	async function handleGetProducts() {
 		productsData = await getProducts({
@@ -46,6 +51,7 @@
 	let selectedTagsHook: Props_StoreSelected = useSelected();
 
 	let productsData: Return__POST_Get_Products;
+	let productCount = 0;
 	let title = '';
 	let sortBy = 'none';
 	let showUpcoming = false;
@@ -58,9 +64,10 @@
 <SecondaryContainer>
 	<TextInput
 		bind:value={title}
+		label={'Search products'}
 		secondaryVariant="use-shadow"
 		variant="mega"
-		placeholder="Search 24,563,123 products"
+		placeholder={`Search ${productCount} products`}
 	/>
 
 	<div class="[ grid ] [ place-items-center ]">
@@ -95,7 +102,7 @@
 </SecondaryContainer>
 
 {#await handleGetProducts()}
-	<Loader text={'products'} />
+	<Loader />
 {:then _}
 	<div class="[ home-grid ] [ border-radius-cubed  gap-2 ]" data-grid-collapse>
 		{#if showFilters || $mq.state !== 2}

@@ -22,6 +22,10 @@ export const CONDIMENT_ICON = '\uf816';
 export const FOOD_ICON = '\uf0f5';
 export const FISH_ICON = '\uf578';
 export const INFO_ICON = '\uf05a';
+export const FACEBOOK_ICON = '\uf09a';
+export const INSTAGRAM_ICON = '\uf16d';
+export const YOUTUBE_ICON = '\uf167';
+export const TRASH_ICON = '\uf1f8';
 
 export const iconDict: any = {
 	dairy: DAIRY_ICON,
@@ -40,6 +44,7 @@ export const API_URL = 'http://localhost:8000';
 
 export const GET_PRODUCTS_URL = '/products/';
 export const GET_PRODUCT_VIEW_URL = (id: number) => GET_PRODUCTS_URL + id;
+export const GET_PRODUCT_COUNT = GET_PRODUCTS_URL + 'count';
 
 // =============
 // Misc
@@ -49,6 +54,6 @@ export const MQ_UPDATE_INTERVAL = 1000;
 // =============
 // SOCIALS
 // =============
-const YOUTUBE_URL = '';
-const FACEBOOK_URL = '';
-const INSTAGRAM_URL = '';
+export const YOUTUBE_URL = '';
+export const FACEBOOK_URL = '';
+export const INSTAGRAM_URL = '';

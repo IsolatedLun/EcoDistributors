@@ -13,6 +13,8 @@
 	export let cubeClass: Props_CubeCSS = createDefaultCubeClass();
 	export let useColumn = false;
 	export let centerOnMobile = false;
+	export let justifyOnMobile = false;
+	export let collapseOnMobile = false;
 	export let align = 'center';
 	export let justify = '';
 	export let tag = 'div';
@@ -28,6 +30,13 @@
 	});
 </script>
 
-<svelte:element this={tag} bind:this={_this} class={_class} data-align-mobile={centerOnMobile}>
+<svelte:element
+	this={tag}
+	bind:this={_this}
+	class={_class}
+	data-align-mobile={centerOnMobile}
+	data-justify-mobile={justifyOnMobile}
+	data-explicit-flex-collapse={collapseOnMobile}
+>
 	<slot />
 </svelte:element>

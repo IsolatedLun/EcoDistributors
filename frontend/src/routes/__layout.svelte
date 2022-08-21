@@ -4,26 +4,33 @@
 	import Navbar from '../components/Layouts/Navbar/Navbar.svelte';
 	import { mq } from '../stores/media-queries/mqStore';
 	import { MQ_UPDATE_INTERVAL } from '../consts';
+	import Footer from '../components/Layouts/Footer/Footer.svelte';
+	import { cart, getCartOnLocalStorage } from '../stores/cart/cart';
 
 	onMount(() => {
 		function updateMq() {
 			const index = parseInt(
 				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index')
 			);
-			console.log(index);
+
 			if (index) mq.set({ ...mq, state: index });
 			setTimeout(updateMq, MQ_UPDATE_INTERVAL);
 		}
 
 		updateMq();
+		cart.set(getCartOnLocalStorage());
 	});
 </script>
 
-<Navbar />
+<div class="[ body-wrapper ]">
+	<Navbar />
 
-<main class="[ main-container ] [ gap-2 padding-1 border-radius-cubed ]">
-	<slot />
-</main>
+	<main class="[ main-container ] [ gap-2 padding-1 border-radius-cubed margin-block-end-auto ]">
+		<slot />
+	</main>
+
+	<Footer />
+</div>
 
 <style>
 	@import url('../../static/posty.css');

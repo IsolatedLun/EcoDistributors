@@ -3,7 +3,8 @@
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import Button from '../../Interactibles/Buttons/Button.svelte';
 	import Icon from '../../Modules/Icon/Icon.svelte';
-	import { BARS_ICON, SUN_ICON, TIMES_ICON, TRUCK_ICON } from '../../../consts';
+	import { BARS_ICON, TIMES_ICON, TRUCK_ICON } from '../../../consts';
+	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 
 	let showHamburger = false;
 </script>
@@ -16,19 +17,22 @@
 		utilClass: 'padding-1 padding-inline-5'
 	}}
 >
-	<h1 class="[ fs-600 fw-normal typography-header-1 ]" data-desktop>
-		<a href="/">Eco | Distributors</a>
-	</h1>
+	<div data-desktop>
+		<TypoHeader h={2}>
+			<a href="/">Eco | Distributors</a>
+		</TypoHeader>
+	</div>
 
-	<h1 data-mobile>
-		<a href="/"
-			><Icon cubeClass={{ utilClass: 'fs-800' }} ariaLabel="Truck icon">{TRUCK_ICON}</Icon></a
-		>
-	</h1>
+	<div data-mobile>
+		<TypoHeader h={2}>
+			<a href="/"
+				><Icon cubeClass={{ utilClass: 'fs-800' }} ariaLabel="Truck icon">{TRUCK_ICON}</Icon></a
+			>
+		</TypoHeader>
+	</div>
 
 	<div data-mobile>
 		<div class="[ flex align-items-center gap-2 ]">
-			<LinkButton>Sign up</LinkButton>
 			<Button variant="hoverable" on:click={() => (showHamburger = !showHamburger)}>
 				<Icon cubeClass={{ utilClass: 'fs-700' }}>
 					{#if showHamburger}
@@ -49,9 +53,8 @@
 	>
 		<li><a href="/">Our store</a></li>
 		<li><a href="/">Contact</a></li>
-		<li><a href="/">Login</a></li>
 		<li class="[ margin-inline-start-3 ]">
-			<LinkButton>Sign up</LinkButton>
+			<LinkButton to="/cart" cubeClass={{ blockClass: 'navbar__cart-link' }}>My cart</LinkButton>
 		</li>
 	</ul>
 </FlexyCustom>
@@ -70,9 +73,8 @@
 		>
 			<li><a href="/">Our store</a></li>
 			<li><a href="/">Contact</a></li>
-			<li><a href="/">Login</a></li>
 			<li class="[ margin-block-start-1 ]">
-				<LinkButton>Sign up</LinkButton>
+				<LinkButton to="/cart" cubeClass={{ blockClass: 'navbar__cart-link' }}>My cart</LinkButton>
 			</li>
 		</FlexyCustom>
 	</nav>

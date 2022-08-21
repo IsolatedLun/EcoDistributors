@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../consts';
-import { HTTPMethods } from './types';
+import { HTTPMethods, type ErrorResponse, type Props_HandledError } from './types';
 
 export async function createEndpoint<T>(
 	url: string,
@@ -25,4 +25,22 @@ export async function createEndpoint<T>(
 	}
 
 	return res;
+}
+
+export function handleError(e: any): Props_HandledError {
+	function isErrorResponse(e: any): e is ErrorResponse {
+		return e.response.data.detail !== undefined;
+	}
+
+	if (isErrorResponse(e)) {
+		const err = e.response.data.detail;
+
+		return {
+			detail: err
+		};
+	}
+
+	return {
+		detail: 'Something went wrong.'
+	};
 }

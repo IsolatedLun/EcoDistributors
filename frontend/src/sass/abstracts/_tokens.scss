@@ -56,6 +56,17 @@ $button-filter-color: var(--clr-text-muted);
 $button-filter-color-on-hov: var(--clr-text-muted);
 $button-filter-border-radius: 100vmax;
 
+// => Red
+$button-red-font-size: var(--fs-400);
+$button-red-padding: 0.75em;
+$button-red-background-color: var(--clr-error-400);
+$button-red-border: none;
+$button-red-border-radius: $border-radius-cubed;
+$button-red-background-color-on-hov: var(--clr-error-500);
+$button-red-color: var(--clr-text-accent);
+$button-red-color-on-hov: var(--clr-text-accent);
+$button-red-border-radius: $border-radius-cubed;
+
 // Selects
 $select-box-border: 2px solid hsl(0 0 50% / 0.36);
 $select-box-background-on-hov: var(--clr-select-box-background-on-hov);
@@ -68,6 +79,9 @@ $def-card-border-radius: $border-radius-cubed;
 
 $card-primary-background-color: var(--clr-primary-faded);
 $card-primary-border: 2px solid var(--clr-primary-400);
+
+$card-red-background-color: var(--clr-error-hover);
+$card-red-border: 2px solid var(--clr-error-400);
 
 // Product Card
 $product-image-min-width: 12rem;

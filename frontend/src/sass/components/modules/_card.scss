@@ -12,3 +12,11 @@
 		$border: $card-primary-border
 	);
 }
+
+.card:is([data-card-variant='red']) {
+	@include createCard($background-color: $card-red-background-color, $border: $card-red-border);
+}
+
+.card:is([data-card-variant='dark']) {
+	@include createCard($background-color: var(--clr-card-200));
+}

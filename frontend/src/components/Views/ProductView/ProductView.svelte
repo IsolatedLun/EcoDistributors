@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { mq } from '../../../stores/media-queries/mqStore';
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import Button from '../../../components/Interactibles/Buttons/Button.svelte';
@@ -11,13 +11,40 @@
 	import Product from '../../../components/Modules/Product/Product.svelte';
 	import { getProduct } from '../../../services/productService';
 	import Loader from '../../../components/Misc/Loader/Loader.svelte';
+	import { onMount } from 'svelte';
+	import { createDefaultProduct } from '../../../utils/defaultCreates';
+	import { goto } from '$app/navigation';
+	import { handleError } from '../../../services/utils';
+	import { addToCart, cart, isInCart, removeFromCart } from '../../../stores/cart/cart';
+
+	onMount(() => {
+		getProduct(id)
+			.then((data) => {
+				product = data;
+				isProductInCart = isInCart(product.id);
+			})
+			.catch((detail) => goto('/error?detail=' + handleError(detail).detail));
+	});
+
+	function handleProductCart(product: any) {
+		if (!isInCart(product.id)) {
+			addToCart(product, quantity);
+			isProductInCart = true;
+		} else {
+			removeFromCart(product.id);
+			isProductInCart = false;
+		}
+	}
 
 	export let id = -1;
 	export let name = '';
+
+	let product: any = new Promise(() => createDefaultProduct());
+	let isProductInCart = false;
 	let quantity = 1;
 </script>
 
-{#await getProduct(id)}
+{#await product}
 	<Loader text={name} />
 {:then props}
 	<div class="[ product-view ] [ width-100 ]">
@@ -68,14 +95,18 @@
 							</output>
 							x {quantity}
 						</p>
-						<QuantityInput bind:value={quantity} />
+						<QuantityInput bind:value={quantity} label={'Quantity'} />
 					</FlexyCustom>
 					<Button
+						on:click={() => handleProductCart(props)}
 						workCondition={!(props.is_out_of_stock || props.is_upcoming)}
+						variant={isProductInCart ? 'red' : 'default'}
 						cubeClass={{ utilClass: 'width-100' }}
 					>
-						{#if !(props.is_out_of_stock || props.is_upcoming)}
+						{#if !(props.is_out_of_stock || props.is_upcoming || isProductInCart)}
 							Add to cart
+						{:else if isProductInCart}
+							Remove from cart
 						{:else}
 							Out of stock
 						{/if}

@@ -7,6 +7,20 @@ export enum HTTPMethods {
 	DELETE
 }
 
+export interface Props_HandledError {
+	detail: string;
+}
+
+export interface ErrorResponse {
+	response: {
+		data: {
+			detail: string;
+		};
+
+		status: number;
+	};
+}
+
 // ====================
 // Request interfaces
 // ====================
@@ -17,6 +31,10 @@ export interface POST_Get_Products {
 	sort_by: 'top' | 'latest' | 'hot' | string;
 
 	show_upcoming: boolean;
+}
+
+export interface Return__POST_Get_Product_Count {
+	count: number;
 }
 
 export interface Return__POST_Get_Products {

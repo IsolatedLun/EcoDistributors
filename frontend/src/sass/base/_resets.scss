@@ -25,6 +25,14 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
+.body-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	min-height: 100vh;
+}
+
 h1,
 h2,
 h3,
@@ -151,14 +159,14 @@ img[data-small='true'] {
 }
 
 /* Remove all animations and transitions */
-@media screen and (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-timing-function: forwards !important;
-		animation-duration: 0ms !important;
-		transition-duration: 0.01ms !important;
-		animation-iteration-count: 0ms !important;
-		scroll-behavior: auto !important;
-	}
-}
+// @media screen and (prefers-reduced-motion: reduce) {
+// 	*,
+// 	*::before,
+// 	*::after {
+// 		animation-timing-function: forwards !important;
+// 		animation-duration: 0ms !important;
+// 		transition-duration: 0.01ms !important;
+// 		animation-iteration-count: 0ms !important;
+// 		scroll-behavior: auto !important;
+// 	}
+// }

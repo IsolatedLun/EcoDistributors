@@ -2,15 +2,16 @@
 	import { combineCubeClasses, createDefaultCubeClass } from '../../../utils/cubeCssUtils';
 	import Typography from './Typography.svelte';
 
-	export let h: number;
+	export let h: number = 2;
+	export let tag = '';
 	export let cubeClass = createDefaultCubeClass();
 	export let spacing = 1;
 
 	let combinedCubeClass = combineCubeClasses(cubeClass, {
-		utilClass: `margin-block-end-${spacing}`
+		utilClass: ` margin-block-end-${spacing} `
 	});
 </script>
 
-<Typography tag={`h${h}`} cubeClass={{ ...combinedCubeClass }} fontWeight="heading">
+<Typography tag={tag ? tag : `h${h}`} cubeClass={{ ...combinedCubeClass }} fontWeight="heading">
 	<slot />
 </Typography>

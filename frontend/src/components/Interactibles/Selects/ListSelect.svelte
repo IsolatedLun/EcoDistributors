@@ -26,6 +26,7 @@
 
 <TextInput
 	placeholder="Search category"
+	label="Search categories"
 	cubeClass={{ utilClass: 'margin-block-end-1' }}
 	bind:value={searchCategory}
 />

@@ -26,6 +26,7 @@ class ProductViewSerializer(serializers.ModelSerializer):
     reviews = serializers.SerializerMethodField(method_name='get_reviews')
     images = serializers.SerializerMethodField(method_name='get_images')
     details = serializers.SerializerMethodField(method_name='get_details')
+    tags = serializers.SerializerMethodField(method_name='get_tags')
     key_points = serializers.SerializerMethodField(
         method_name='get_key_points')
     related_products = serializers.SerializerMethodField(
@@ -33,6 +34,9 @@ class ProductViewSerializer(serializers.ModelSerializer):
 
     def get_reviews(self, obj):
         return []
+
+    def get_tags(self, obj):
+        return [x.name for x in Tag.objects.filter(product=obj.id)]
 
     def get_related_products(self, obj):
         tags = list(Tag.objects.filter(product=obj.id))

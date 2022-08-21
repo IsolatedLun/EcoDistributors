@@ -1,9 +1,13 @@
 import type { Props_StarRater } from '../components/Modules/StarRater/types';
 import type { Props_ProductPreview } from '../components/Modules/Product/types';
 import type { Props_ProductView } from '../components/Views/ProductView/types';
-import type { Props_Review } from 'src/components/Modules/Review/types';
-import type { Props_User } from 'src/types';
+import type { Props_Review } from '../components/Modules/Review/types';
+import type { Props_User } from '../types';
+import type { Store_Cart } from '../stores/cart/types';
 
+// ===============
+// Component props
+// ===============
 export function createDefaultProductPreview(): Props_ProductPreview<number> {
 	return {
 		title: '',
@@ -25,10 +29,14 @@ export function createDefaultProduct(): Props_ProductView {
 
 		description: '',
 
+		details: [],
 		images: [],
-		key_details: [],
+		key_points: [],
 		reviews: [],
-		related_products: []
+		related_products: [],
+
+		is_out_of_stock: false,
+		is_upcoming: false
 	};
 }
 
@@ -65,5 +73,14 @@ export function createDefaultReview(): Props_Review {
 		title: '',
 		comment: '',
 		date_created: ''
+	};
+}
+
+// ===============
+// Stores
+// ===============
+export function createDefaultCartStore(): Store_Cart {
+	return {
+		items: []
 	};
 }

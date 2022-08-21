@@ -51,3 +51,10 @@ class ProductView(APIView):
         except Exception as e:
             print(e)
             return Response(data={'detail': 'Post does not exist'}, status=NOT_FOUND)
+
+
+class ProductCountView(APIView):
+    def get(self, req):
+        count = models.Product.objects.all().count()
+
+        return Response(data={'count': count}, status=OK)

@@ -7,6 +7,7 @@ $colors-dark: (
 		'400': hsl(0 0% 50% / 0.36)
 	),
 	card: (
+		'200': hsl(0 0% 4%),
 		'300': hsl(0 0% 14%),
 		'400': hsl(0 0% 21%)
 	),
@@ -42,6 +43,7 @@ $colors-dark: (
 	),
 	error: (
 		'400': hsl(2 97% 62%),
+		'500': hsl(2 97% 69%),
 		'hover': hsl(2 97% 62% / 46%)
 	)
 );
@@ -55,6 +57,7 @@ $colors-light: (
 		'400': hsl(0 0% 50% / 0.26)
 	),
 	card: (
+		'200': hsl(0 0% 84%),
 		'300': hsl(0 0% 84%),
 		'400': hsl(0 0% 92%)
 	),
@@ -79,7 +82,7 @@ $colors-light: (
 	text: (
 		'400': black,
 		'accent': hsl(221 62% 19%),
-		'muted': hsl(0 0% 46%),
+		'muted': hsl(0 0% 36%),
 		'light-muted': hsl(0 0% 85%)
 	),
 	primary: (
@@ -90,6 +93,7 @@ $colors-light: (
 	),
 	error: (
 		'400': hsl(2 97% 62%),
+		'500': hsl(2 97% 69%),
 		'hover': hsl(2 97% 62% / 56%)
 	)
 );

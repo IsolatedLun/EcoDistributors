@@ -7,19 +7,34 @@
 	export let secondaryVariant = 'default';
 	export let ariaLabel = 'Link button';
 	export let to = '/';
+	export let target: '_blank' | '_self' | string = '_self';
 
 	const _class = createCubeCSSClass(cubeClass, {
 		compostClass: 'button'
 	});
 </script>
 
-<a
-	href={to}
-	on:click
-	class={_class}
-	data-variant={variant}
-	data-secondary-variant={secondaryVariant}
-	aria-label={ariaLabel}
->
-	<slot />
-</a>
+{#if target === '_blank'}
+	<a
+		href={to}
+		target="_blank"
+		on:click
+		class={_class}
+		data-variant={variant}
+		data-secondary-variant={secondaryVariant}
+		aria-label={ariaLabel}
+	>
+		<slot />
+	</a>
+{:else}
+	<a
+		href={to}
+		on:click
+		class={_class}
+		data-variant={variant}
+		data-secondary-variant={secondaryVariant}
+		aria-label={ariaLabel}
+	>
+		<slot />
+	</a>
+{/if}

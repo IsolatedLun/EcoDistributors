@@ -21,7 +21,12 @@
 
 <div class="[ margin-block-2 padding-inline-1 ]">
 	<FlexyCustom cubeClass={{ utilClass: 'margin-block-1' }}>
-		<TextInput cubeClass={{ utilClass: 'width-100' }} bind:value={newTag} placeholder="Add a tag" />
+		<TextInput
+			label="Add tag"
+			cubeClass={{ utilClass: 'width-100' }}
+			bind:value={newTag}
+			placeholder="Add a tag"
+		/>
 		<Button on:click={handleAddNewTag} secondaryVariant="cube" cubeClass={{ utilClass: 'fs-350' }}>
 			<FlexyCustom gap={1}>
 				<p>Add</p>
