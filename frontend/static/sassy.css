@@ -1151,11 +1151,19 @@
 }
 
 .products:is([data-mode*=mobile]) {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 }
 .products:is([data-mode*=mobile]) .product {
   flex-direction: column;
   align-items: center;
+}
+.products:is([data-mode*=mobile]) .product .product__content > *,
+.products:is([data-mode*=mobile]) .product .product__content .tags {
+  align-items: center;
+  justify-content: center;
+}
+.products:is([data-mode*=mobile]) .product .star-rater-container .container__wrapper {
+  flex-direction: column;
 }
 .products:is([data-mode*=mobile]) .product .product__image {
   width: 100%;
@@ -2017,6 +2025,114 @@ img[data-profile=true] {
   border-bottom-right-radius: 9px;
 }
 
+.clr-background-body {
+  color: white;
+}
+
+.clr-background-secondary {
+  color: whitesmoke;
+}
+
+.clr-hover-400 {
+  color: rgba(128, 128, 128, 0.26);
+}
+
+.clr-card-200 {
+  color: #d6d6d6;
+}
+
+.clr-card-300 {
+  color: #d6d6d6;
+}
+
+.clr-card-400 {
+  color: #ebebeb;
+}
+
+.clr-image-background {
+  color: #dedede;
+}
+
+.clr-select-background {
+  color: rgba(28, 96, 242, 0.26);
+}
+
+.clr-select-color {
+  color: #04163f;
+}
+
+.clr-input-background {
+  color: #f2f2f2;
+}
+
+.clr-input-border {
+  color: #a6a6a6;
+}
+
+.clr-input-border-shadow {
+  color: rgba(166, 166, 166, 0.56);
+}
+
+.clr-input-border-on-hov {
+  color: #a6a6a6;
+}
+
+.clr-select-box-background-on-select {
+  color: #1a4a99;
+}
+
+.clr-select-box-background-on-hov {
+  color: rgba(233, 240, 251, 0.16);
+}
+
+.clr-select-box-border-color-on-hov {
+  color: #bed2f4;
+}
+
+.clr-text-400 {
+  color: black;
+}
+
+.clr-text-accent {
+  color: #12254e;
+}
+
+.clr-text-muted {
+  color: #5c5c5c;
+}
+
+.clr-text-light-muted {
+  color: #d9d9d9;
+}
+
+.clr-primary-400 {
+  color: #3689fc;
+}
+
+.clr-primary-500 {
+  color: #4f97fc;
+}
+
+.clr-primary-shadow {
+  color: rgba(79, 137, 252, 0.67);
+}
+
+.clr-primary-faded {
+  color: rgba(79, 137, 252, 0.32);
+}
+
+.clr-error-400 {
+  color: #fc4640;
+}
+
+.clr-error-500 {
+  color: #fd6863;
+}
+
+.clr-error-hover {
+  color: rgba(252, 70, 64, 0.56);
+}
+
 :root {
   --clr-background-body: white;
   --clr-background-secondary: whitesmoke;
@@ -2045,100 +2161,127 @@ img[data-profile=true] {
   --clr-error-400: #fc4640;
   --clr-error-500: #fd6863;
   --clr-error-hover: rgba(252, 70, 64, 0.56);
-  --fs-200: 0.5rem;
-  --fs-300: 0.75rem;
-  --fs-350: 0.85rem;
-  --fs-400: 1rem;
-  --fs-450: 1.05rem;
-  --fs-500: 1.25rem;
-  --fs-600: 1.5rem;
-  --fs-700: 1.75rem;
-  --fs-800: 2rem;
+  --fs-200: 0.46rem;
+  --fs-300: 0.69rem;
+  --fs-350: 0.782rem;
+  --fs-400: 0.92rem;
+  --fs-450: 0.966rem;
+  --fs-500: 1.15rem;
+  --fs-600: 1.38rem;
+  --fs-700: 1.61rem;
+  --fs-800: 1.84rem;
   --size-container-main: 1200px;
-}
-:root .clr-background-body {
-  color: white;
-}
-:root .clr-background-secondary {
-  color: whitesmoke;
-}
-:root .clr-hover-400 {
-  color: rgba(128, 128, 128, 0.26);
-}
-:root .clr-card-200 {
-  color: #d6d6d6;
-}
-:root .clr-card-300 {
-  color: #d6d6d6;
-}
-:root .clr-card-400 {
-  color: #ebebeb;
-}
-:root .clr-image-background {
-  color: #dedede;
-}
-:root .clr-select-background {
-  color: rgba(28, 96, 242, 0.26);
-}
-:root .clr-select-color {
-  color: #04163f;
-}
-:root .clr-input-background {
-  color: #f2f2f2;
-}
-:root .clr-input-border {
-  color: #a6a6a6;
-}
-:root .clr-input-border-shadow {
-  color: rgba(166, 166, 166, 0.56);
-}
-:root .clr-input-border-on-hov {
-  color: #a6a6a6;
-}
-:root .clr-select-box-background-on-select {
-  color: #1a4a99;
-}
-:root .clr-select-box-background-on-hov {
-  color: rgba(233, 240, 251, 0.16);
-}
-:root .clr-select-box-border-color-on-hov {
-  color: #bed2f4;
-}
-:root .clr-text-400 {
-  color: black;
-}
-:root .clr-text-accent {
-  color: #12254e;
-}
-:root .clr-text-muted {
-  color: #5c5c5c;
-}
-:root .clr-text-light-muted {
-  color: #d9d9d9;
-}
-:root .clr-primary-400 {
-  color: #3689fc;
-}
-:root .clr-primary-500 {
-  color: #4f97fc;
-}
-:root .clr-primary-shadow {
-  color: rgba(79, 137, 252, 0.67);
-}
-:root .clr-primary-faded {
-  color: rgba(79, 137, 252, 0.32);
-}
-:root .clr-error-400 {
-  color: #fc4640;
-}
-:root .clr-error-500 {
-  color: #fd6863;
-}
-:root .clr-error-hover {
-  color: rgba(252, 70, 64, 0.56);
 }
 
 @media (prefers-color-scheme: dark) {
+  .clr-background-body {
+    color: #1c1c1c;
+  }
+
+  .clr-background-secondary {
+    color: #292929;
+  }
+
+  .clr-hover-400 {
+    color: rgba(128, 128, 128, 0.36);
+  }
+
+  .clr-card-200 {
+    color: #0a0a0a;
+  }
+
+  .clr-card-300 {
+    color: #242424;
+  }
+
+  .clr-card-400 {
+    color: #363636;
+  }
+
+  .clr-select-background {
+    color: rgba(28, 96, 242, 0.26);
+  }
+
+  .clr-select-color {
+    color: #dde7fd;
+  }
+
+  .clr-image-background {
+    color: rgba(179, 179, 179, 0.1);
+  }
+
+  .clr-input-background {
+    color: #141414;
+  }
+
+  .clr-input-border {
+    color: #474747;
+  }
+
+  .clr-input-border-shadow {
+    color: rgba(26, 74, 153, 0.56);
+  }
+
+  .clr-input-border-on-hov {
+    color: #1a4a99;
+  }
+
+  .clr-text-400 {
+    color: white;
+  }
+
+  .clr-text-accent {
+    color: white;
+  }
+
+  .clr-text-muted {
+    color: #e6e6e6;
+  }
+
+  .clr-text-light-muted {
+    color: #d9d9d9;
+  }
+
+  .clr-select-box-background-on-select {
+    color: #1a4a99;
+  }
+
+  .clr-select-box-background-on-hov {
+    color: rgba(26, 74, 153, 0.56);
+  }
+
+  .clr-select-box-border-color-on-hov {
+    color: #1a4a99;
+  }
+
+  .clr-primary-400 {
+    color: #3678fc;
+  }
+
+  .clr-primary-500 {
+    color: #4f89fc;
+  }
+
+  .clr-primary-shadow {
+    color: rgba(79, 137, 252, 0.67);
+  }
+
+  .clr-primary-faded {
+    color: rgba(79, 137, 252, 0.37);
+  }
+
+  .clr-error-400 {
+    color: #fc4640;
+  }
+
+  .clr-error-500 {
+    color: #fd6863;
+  }
+
+  .clr-error-hover {
+    color: rgba(252, 70, 64, 0.46);
+  }
+
   :root {
     --clr-background-body: #1c1c1c;
     --clr-background-secondary: #292929;
@@ -2219,6 +2362,7 @@ a:hover {
   color: var(--clr-primary-400);
 }
 
+:focus[data-target],
 :focus:not([data-variant], [data-secondary-variant]),
 :target {
   outline: 3px solid var(--clr-primary-shadow);
@@ -2272,16 +2416,7 @@ img[data-small=true] {
   object-fit: contain;
 }
 
-:focus {
-  outline: 1px solid var(--clr-text-400);
-  outline-offset: 4px;
-}
-
-:target {
-  animation: highlight_element 0.75s ease forwards;
-}
-
-:is(.button, .input, body):focus {
+:not([data-target]):where(.button, .input, body):focus {
   outline: 0;
 }
 

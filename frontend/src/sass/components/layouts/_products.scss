@@ -20,11 +20,21 @@
 }
 
 .products:is([data-mode*='mobile']) {
-	grid-template-columns: repeat(auto-fit, minmax($product-row-width, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 
 	.product {
 		flex-direction: column;
 		align-items: center;
+
+		.product__content > *,
+		.product__content .tags {
+			align-items: center;
+			justify-content: center;
+		}
+
+		.star-rater-container .container__wrapper {
+			flex-direction: column;
+		}
 	}
 
 	.product .product__image {

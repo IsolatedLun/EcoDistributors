@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { mq } from '../../../../stores/media-queries/mqStore';
 	import FlexyCustom from '../../../../components/Alignment/FlexyCustom.svelte';
-	import LinkButton from '../../../../components/Interactibles/Buttons/LinkButton.svelte';
 	import Image from '../../../../components/Misc/MediaElements/Image.svelte';
 	import { API_URL } from '../../../../consts';
+	import Button from '../../../../components/Interactibles/Buttons/Button.svelte';
 
 	export let images: string[] = [];
 	export let productName = '';
@@ -21,17 +21,20 @@
 		} ] [ gap-2 padding-2 ]`}
 	>
 		{#each images as image, i}
-			<LinkButton
+			<Button
 				on:click={() => (idx = i)}
-				to={`#image-${i}`}
+				use={(e) => e.setAttribute('data-target', 'true')}
 				variant="none"
-				cubeClass={{ compostClass: 'image__view', utilClass: 'border-radius-cubed' }}
+				cubeClass={{
+					compostClass: 'image__view',
+					utilClass: 'ignore-children border-radius-cubed cursor-pointer'
+				}}
 			>
 				<Image
 					use={(e) => (e.id = `image-${i}`)}
 					props={{ src: API_URL + image, alt: productName + 'image' }}
 				/>
-			</LinkButton>
+			</Button>
 		{/each}
 	</div>
 	<div

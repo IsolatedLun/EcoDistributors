@@ -21,7 +21,7 @@
 </script>
 
 <div class="[ star-rater-container ]" data-star-hoverable={canRate}>
-	<FlexyCustom gap={1}>
+	<FlexyCustom cubeClass={{ blockClass: 'container__wrapper' }} gap={1}>
 		<FlexyCustom cubeClass={{ blockClass: 'star-rater', utilClass: 'flex-row-reverse' }} gap={0}>
 			{#each { length: 5 } as _, i}
 				<Button

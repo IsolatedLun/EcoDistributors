@@ -55,6 +55,7 @@ a {
 	}
 }
 
+:focus[data-target],
 :focus:not([data-variant], [data-secondary-variant]),
 :target {
 	outline: 3px solid var(--clr-primary-shadow);
@@ -111,16 +112,7 @@ img[data-small='true'] {
 	object-fit: contain;
 }
 
-:focus {
-	outline: 1px solid var(--clr-text-400);
-	outline-offset: 4px;
-}
-
-:target {
-	animation: highlight_element 0.75s ease forwards;
-}
-
-:is(.button, .input, body):focus {
+:not([data-target]):where(.button, .input, body):focus {
 	outline: 0;
 }
 

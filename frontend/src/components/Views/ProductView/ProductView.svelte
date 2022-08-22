@@ -74,11 +74,11 @@
 				</FlexyCustom>
 				<section
 					class={`margin-block-1 margin-block-end-auto ${
-						$mq.state === 2 && 'text-center'
+						$mq.state === 2 ? 'text-center margin-block-end-1' : 'margin-block-end-auto'
 					} width-100 ]`}
 				>
-					<TypoHeader h={3}>About this product</TypoHeader>
-					<article>
+					<TypoHeader h={2}>About this product</TypoHeader>
+					<article class="[ fw-normal ]">
 						{props.description}
 					</article>
 				</section>

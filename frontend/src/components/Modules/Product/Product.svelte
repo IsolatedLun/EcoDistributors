@@ -30,12 +30,17 @@
 		<Image props={{ src: API_URL + props.thumbnail, alt: `${props.title}'s profile` }} />
 	</div>
 	<FlexyCustom
-		cubeClass={{ blockClass: 'product__content', utilClass: 'padding-2 width-100' }}
+		cubeClass={{ blockClass: 'product__content', utilClass: 'padding-2 width-100 height-100' }}
 		useColumn={true}
 		align="start"
 		justify="space-between"
 	>
-		<FlexyCustom useColumn={true} align="start" gap={1}>
+		<FlexyCustom
+			useColumn={true}
+			align="start"
+			gap={1}
+			cubeClass={{ blockClass: 'content__wrapper', utilClass: 'width-100' }}
+		>
 			<a
 				rel="external"
 				href={`/products/${props.id}/${props.title}`}
@@ -44,7 +49,7 @@
 			<StarRater />
 
 			<!-- svelte-ignore a11y-no-redundant-roles -->
-			<ul role="list" class="[ tags ] [ flex gap-1 flex-wrap ]">
+			<ul role="list" class="[ tags ] [ flex gap-1 flex-wrap margin-block-start-1 ]">
 				{#each props.tags as tag}
 					<li>
 						<Tag on:click={(e) => handleTagClick(e.detail.name)} name={tag} />
@@ -52,6 +57,10 @@
 				{/each}
 			</ul>
 		</FlexyCustom>
-		<Typography fontSize={450} fontWeight={'500'}>${props.price}</Typography>
+		<Typography
+			fontSize={450}
+			fontWeight={'500'}
+			cubeClass={{ utilClass: 'margin-block-start-auto' }}>${props.price}</Typography
+		>
 	</FlexyCustom>
 </Card>
