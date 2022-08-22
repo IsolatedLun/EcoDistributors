@@ -18,6 +18,7 @@
 			gap={1}
 			useColumn={true}
 			centerOnMobile={true}
+			align="start"
 			cubeClass={{ utilClass: 'margin-inline-start-2' }}
 		>
 			{#if details.length > 0}

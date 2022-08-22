@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'users',
     'products',
 ]
+
 # Custom changes
+DEFAULT_PORT = "8080"
 AUTH_USER_MODEL = 'users.cUser'
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -108,8 +110,13 @@ WSGI_APPLICATION = 'ecoBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+
     }
 }
 
