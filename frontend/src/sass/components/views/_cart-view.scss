@@ -1,0 +1,10 @@
+@use '../../abstracts/' as *;
+
+@media screen and (max-width: #{$breakpoint-small}) {
+	.cart__products .product__cart-controls {
+		flex-direction: row;
+
+		width: 100%;
+		height: auto;
+	}
+}

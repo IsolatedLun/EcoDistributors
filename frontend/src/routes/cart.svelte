@@ -25,7 +25,7 @@
 		</TypoHeader>
 
 		<div
-			class="[ products ] [ grid gap-1 margin-block-end-2  ]"
+			class="[ products cart__products ] [ grid gap-2 margin-block-end-2  ]"
 			data-mode={$mq.state === 2 ? 'mobile' : 'desktop'}
 		>
 			{#if $cart.items.length > 0}
@@ -35,14 +35,15 @@
 						<FlexyCustom
 							useColumn={true}
 							justify="space-between"
-							cubeClass={{ utilClass: 'height-100' }}
+							cubeClass={{ blockClass: 'product__cart-controls', utilClass: 'height-100' }}
 						>
 							<Card variant="primary" cubeClass={{ utilClass: 'padding-1 whitespace-nowrap' }}
 								>x {productData.quantity}</Card
 							>
-							<Button on:click={() => removeFromCart(productData.product.id)} variant="red"
-								><Icon>{TRASH_ICON}</Icon></Button
-							>
+							<Button on:click={() => removeFromCart(productData.product.id)} variant="red">
+								<p class="[ sr-only ]">Delete product {productData.product.title}</p>
+								<Icon>{TRASH_ICON}</Icon>
+							</Button>
 						</FlexyCustom>
 					</FlexyCustom>
 				{/each}

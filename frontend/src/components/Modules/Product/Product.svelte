@@ -37,8 +37,8 @@
 	>
 		<FlexyCustom useColumn={true} align="start" gap={1}>
 			<a
-				target="_self"
-				href={`/products/${props.id}/${props.title}?id=${props.id}`}
+				rel="external"
+				href={`/products/${props.id}/${props.title}`}
 				class="[ text-ellipsis-2 ] [ fs-500 ]">{props.title}</a
 			>
 			<StarRater />

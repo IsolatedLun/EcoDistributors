@@ -11,8 +11,7 @@
     "typings/": true,
 
     // ------- PROJECT FILES -------
-    "LICENSE": true,
-    "README.md": true
+    "LICENSE": true
   },
 
   "explorer.fileNesting.patterns": {

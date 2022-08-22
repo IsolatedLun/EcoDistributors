@@ -68,6 +68,8 @@
 						</LinkButton>
 					</li>
 				</ul>
+
+				<address class="[ fs-300 ]">Eco Distrubters &copy; 2022</address>
 			</FlexyCustom>
 		</div>
 

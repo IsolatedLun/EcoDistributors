@@ -1254,6 +1254,13 @@
     scrollbar-width: auto;
   }
 }
+@media screen and (max-width: 50em) {
+  .cart__products .product__cart-controls {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+}
 .star-rater-container .star > .icon {
   color: var(--clr-text-muted);
 }
