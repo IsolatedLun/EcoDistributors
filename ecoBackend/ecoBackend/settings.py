@@ -68,15 +68,6 @@ WHITENOISE_MIMETYPES = {
     '.css': 'text/css'
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/assets')
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -172,7 +163,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_URL = '/static/'
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'staticfiles')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -181,4 +180,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DATABASES['default'] = dj_database_url.config(
-    conn_max_age=600, ssl_require=True)
+    default='postgres://dtxpvvzqjbedwa:b8fca1d3c9be3b4a7f67d24af623077684f675af13081d880671e360e7727b0f@ec2-54-204-241-136.compute-1.amazonaws.com:5432/dc7ce21uc3h6fj')
