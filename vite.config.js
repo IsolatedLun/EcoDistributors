@@ -5,6 +5,9 @@ const config = {
 	plugins: [sveltekit()],
 	server: {
 		host: true
+	},
+	build: {
+		outDir: './dist'
 	}
 };
 

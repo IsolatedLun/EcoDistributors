@@ -7,4 +7,5 @@ node_modules
 /package
 .env
 .env.*
+dist
 !.env.example
