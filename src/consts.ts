@@ -40,7 +40,7 @@ export const iconDict: any = {
 // =============
 // Endpoints
 // =============
-export const API_URL = 'http://localhost:8000';
+export const API_URL = 'http://localhost:8000/api';
 
 export const GET_PRODUCTS_URL = '/products/';
 export const GET_PRODUCT_VIEW_URL = (id: number) => GET_PRODUCTS_URL + id;

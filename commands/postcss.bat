@@ -1,1 +1,1 @@
-cd .. && cd frontend && npm run postcss-run
+cd .. && npm run postcss-run

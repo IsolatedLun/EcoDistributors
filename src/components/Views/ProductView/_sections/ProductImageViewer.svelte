@@ -12,7 +12,10 @@
 </script>
 
 <FlexyCustom
-	cubeClass={{ blockClass: 'image-viewer', utilClass: 'place-self-start margin-inline-auto' }}
+	cubeClass={{
+		blockClass: 'image-viewer',
+		utilClass: 'place-self-start margin-inline-auto width-100'
+	}}
 	align="start"
 >
 	<div

@@ -6,8 +6,12 @@
 	import { MQ_UPDATE_INTERVAL } from '../consts';
 	import Footer from '../components/Layouts/Footer/Footer.svelte';
 	import { cart, getCartOnLocalStorage } from '../stores/cart/cart';
+	import axios from 'axios';
 
 	onMount(() => {
+		axios.defaults.xsrfCookieName = 'csrftoken';
+		axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
 		function updateMq() {
 			const index = parseInt(
 				window.getComputedStyle(createMqIndicator()).getPropertyValue('z-index')
