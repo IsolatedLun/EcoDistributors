@@ -3,16 +3,17 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
 		"package": "svelte-kit package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"format": "prettier --write --plugin-search-dir=. .",
-		"start": "node dist/index.js",
 		"postcss-run": "postcss ./static/sassy.css -o ./static/posty.css --watch",
-		"test": "jest --env=jsdom --silent=false"
+		"test": "jest --env=jsdom --silent=false",
+		"heroku-postbuild": "npm run build",
+		"start": "node dist/index.js",
+		"build": "vite build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
