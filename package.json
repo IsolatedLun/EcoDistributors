@@ -11,7 +11,6 @@
 		"format": "prettier --write --plugin-search-dir=. .",
 		"postcss-run": "postcss ./static/sassy.css -o ./static/posty.css --watch",
 		"test": "jest --env=jsdom --silent=false",
-		"heroku-postbuild": "npm run build",
 		"build": "node dist/index.js"
 	},
 	"devDependencies": {
