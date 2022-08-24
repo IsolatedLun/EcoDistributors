@@ -11,7 +11,7 @@ const config = {
 			pages: './ecoBackend/frontend/templates/',
 			assets: './ecoBackend/frontend/static/',
 
-			fallback: null,
+			fallback: true,
 			precompress: false
 		}),
 
