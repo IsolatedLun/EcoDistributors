@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -7,8 +7,17 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			out: 'dist'
-		})
+			out: 'dist',
+			pages: './ecoBackend/frontend/templates/',
+			assets: './ecoBackend/frontend/static/',
+
+			fallback: null,
+			precompress: false
+		}),
+
+		prerender: {
+			default: true
+		}
 	}
 };
 

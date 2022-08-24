@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["icons/tabIcon.svg","images/defaultProfile.png","posty.css","posty.css.map","sassy.css","sassy.css.map"]),
 	mimeTypes: {".svg":"image/svg+xml",".png":"image/png",".css":"text/css",".map":"application/json"},
 	_: {
-		entry: {"file":"_app/immutable/start-5d7ff88f.js","imports":["_app/immutable/start-5d7ff88f.js","_app/immutable/chunks/index-d9a79891.js","_app/immutable/chunks/index-d827f58a.js","_app/immutable/chunks/singletons-eca981c1.js"],"stylesheets":[]},
+		entry: {"file":"_app/immutable/start-f574f194.js","imports":["_app/immutable/start-f574f194.js","_app/immutable/chunks/index-d9a79891.js","_app/immutable/chunks/index-d827f58a.js","_app/immutable/chunks/singletons-eca981c1.js"],"stylesheets":[]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
