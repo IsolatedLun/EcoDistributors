@@ -16,7 +16,7 @@ const config = {
 		}),
 
 		prerender: {
-			default: true
+			default: false
 		}
 	}
 };
