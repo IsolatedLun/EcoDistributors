@@ -12,8 +12,7 @@
 		"postcss-run": "postcss ./static/sassy.css -o ./static/posty.css --watch",
 		"test": "jest --env=jsdom --silent=false",
 		"heroku-postbuild": "npm run build",
-		"start": "node dist/index.js",
-		"build": "vite build"
+		"build": "node dist/index.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
