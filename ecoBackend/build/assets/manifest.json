@@ -1,0 +1,172 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "_app/immutable/start-6f351e07.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_index-d827f58a.js",
+      "_singletons-eca981c1.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      "src/routes/__error.svelte",
+      "src/routes/cart.svelte",
+      "src/routes/index.svelte",
+      "src/routes/products/[...data].svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "_app/immutable/pages/__layout.svelte-bd484656.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_misc-84bfec14.js",
+      "_LinkButton-6d245915.js",
+      "_Card-f19a648f.js",
+      "_defaultCreates-8c3c9e34.js",
+      "_cart-c543658e.js",
+      "_index-c00af6b7.js",
+      "_index-d827f58a.js"
+    ],
+    "css": [
+      "_app/immutable/assets/__layout-ce6f71c3.css"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "_app/immutable/pages/__error.svelte-887f492d.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_LinkButton-6d245915.js",
+      "_Card-f19a648f.js",
+      "_stores-e91be897.js"
+    ]
+  },
+  "src/routes/cart.svelte": {
+    "file": "_app/immutable/pages/cart.svelte-28dba0c9.js",
+    "src": "src/routes/cart.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_ComponentMap-c2c5c271.js",
+      "_Card-f19a648f.js",
+      "_cart-c543658e.js",
+      "_defaultCreates-8c3c9e34.js",
+      "_LinkButton-6d245915.js",
+      "_index-d827f58a.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "_app/immutable/pages/index.svelte-50ef919b.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_defaultCreates-8c3c9e34.js",
+      "_Card-f19a648f.js",
+      "_ComponentMap-c2c5c271.js",
+      "_index-d827f58a.js",
+      "_Loader-5c559c11.js",
+      "_index-c00af6b7.js"
+    ]
+  },
+  "src/routes/products/[...data].svelte": {
+    "file": "_app/immutable/pages/products/_...data_.svelte-f0879bea.js",
+    "src": "src/routes/products/[...data].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-d9a79891.js",
+      "_stores-e91be897.js",
+      "_defaultCreates-8c3c9e34.js",
+      "_Card-f19a648f.js",
+      "_ComponentMap-c2c5c271.js",
+      "_misc-84bfec14.js",
+      "_Loader-5c559c11.js",
+      "_singletons-eca981c1.js",
+      "_cart-c543658e.js",
+      "_index-d827f58a.js",
+      "_index-c00af6b7.js"
+    ]
+  },
+  "_index-d9a79891.js": {
+    "file": "_app/immutable/chunks/index-d9a79891.js"
+  },
+  "_index-d827f58a.js": {
+    "file": "_app/immutable/chunks/index-d827f58a.js",
+    "imports": [
+      "_index-d9a79891.js"
+    ]
+  },
+  "_singletons-eca981c1.js": {
+    "file": "_app/immutable/chunks/singletons-eca981c1.js"
+  },
+  "_misc-84bfec14.js": {
+    "file": "_app/immutable/chunks/misc-84bfec14.js"
+  },
+  "_defaultCreates-8c3c9e34.js": {
+    "file": "_app/immutable/chunks/defaultCreates-8c3c9e34.js",
+    "imports": [
+      "_index-d827f58a.js",
+      "_index-d9a79891.js",
+      "_Card-f19a648f.js"
+    ]
+  },
+  "_cart-c543658e.js": {
+    "file": "_app/immutable/chunks/cart-c543658e.js",
+    "imports": [
+      "_defaultCreates-8c3c9e34.js",
+      "_index-d827f58a.js"
+    ]
+  },
+  "_index-c00af6b7.js": {
+    "file": "_app/immutable/chunks/index-c00af6b7.js"
+  },
+  "_LinkButton-6d245915.js": {
+    "file": "_app/immutable/chunks/LinkButton-6d245915.js",
+    "imports": [
+      "_index-d9a79891.js",
+      "_Card-f19a648f.js"
+    ]
+  },
+  "_Card-f19a648f.js": {
+    "file": "_app/immutable/chunks/Card-f19a648f.js",
+    "imports": [
+      "_index-d9a79891.js"
+    ]
+  },
+  "_stores-e91be897.js": {
+    "file": "_app/immutable/chunks/stores-e91be897.js",
+    "imports": [
+      "_index-d9a79891.js"
+    ]
+  },
+  "_ComponentMap-c2c5c271.js": {
+    "file": "_app/immutable/chunks/ComponentMap-c2c5c271.js",
+    "imports": [
+      "_index-d9a79891.js",
+      "_Card-f19a648f.js",
+      "_defaultCreates-8c3c9e34.js"
+    ]
+  },
+  "_Loader-5c559c11.js": {
+    "file": "_app/immutable/chunks/Loader-5c559c11.js",
+    "imports": [
+      "_defaultCreates-8c3c9e34.js",
+      "_index-c00af6b7.js",
+      "_index-d9a79891.js",
+      "_Card-f19a648f.js"
+    ]
+  },
+  "src/routes/__layout.css": {
+    "file": "_app/immutable/assets/__layout-ce6f71c3.css",
+    "src": "src/routes/__layout.css"
+  }
+}

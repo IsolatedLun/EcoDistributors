@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/static/icons/tabIcon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link crossorigin rel="stylesheet" href="/static/posty.css" />
+
+    <meta http-equiv="content-security-policy" content="" />
+    <link
+      crossorigin
+      rel="modulepreload"
+      href="/static/_app/immutable/start-6f351e07.js"
+    />
+    <link
+      crossorigin
+      rel="modulepreload"
+      href="/static/_app/immutable/chunks/index-d9a79891.js"
+    />
+    <link
+      crossorigin
+      rel="modulepreload"
+      href="/static/_app/immutable/chunks/index-d827f58a.js"
+    />
+    <link
+      crossorigin
+      rel="modulepreload"
+      href="/static/_app/immutable/chunks/singletons-eca981c1.js"
+    />
+  </head>
+  <body>
+    <div>
+      <script type="module" data-sveltekit-hydrate="45h" crossorigin>
+        import {
+          set_public_env,
+          start,
+        } from "/static/_app/immutable/start-6f351e07.js";
+
+        set_public_env({});
+
+        start({
+          target: document.querySelector('[data-sveltekit-hydrate="45h"]')
+            .parentNode,
+          paths: { base: "", assets: "/static/" },
+          session: {},
+          route: true,
+          spa: true,
+          trailing_slash: "never",
+          hydrate: null,
+        });
+      </script>
+    </div>
+  </body>
+</html>
