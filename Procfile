@@ -1,1 +1,1 @@
-web: cd ./ecoBackend && waitress-serve --listen=*:8000 ecoBackend.wsgi:application
+web: cd ./ecoBackend && gunicorn ecoBackend.wsgi:application
