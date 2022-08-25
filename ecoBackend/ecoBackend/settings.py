@@ -173,4 +173,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 DATABASES['default'] = dj_database_url.config(
-    default=os.environ['HEROKU_POSTGRES_DB'])
+    default=os.environ['DATABASE_URL'])
