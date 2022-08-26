@@ -21,6 +21,7 @@
 		getProduct(id)
 			.then((data) => {
 				product = data;
+				console.log(data);
 				isProductInCart = isInCart(product.id);
 			})
 			.catch((detail) => goto('/error?detail=' + handleError(detail).detail));
@@ -49,7 +50,7 @@
 {:then props}
 	<div class="[ product-view ] [ width-100 ]">
 		<header class="[ view__header ] [ grid gap-1 ]" data-grid-collapse>
-			<ProductImageViewer images={[props.thumbnail, ...props.images]} />
+			<ProductImageViewer images={[props.thumbnail, ...props.images]} productName={props.title} />
 			<FlexyCustom
 				cubeClass={{
 					blockClass: 'products__content',

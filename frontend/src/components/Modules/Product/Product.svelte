@@ -8,6 +8,7 @@
 	import Tag from './_Parts/Tag.svelte';
 	import { createEventDispatcher } from 'svelte';
 	import { API_URL } from '../../../consts';
+	import { combineCubeClasses, createDefaultCubeClass } from '../../../utils/cubeCssUtils';
 
 	function handleTagClick(name: string) {
 		dispatch('event', {
@@ -16,18 +17,20 @@
 	}
 
 	export let props = createDefaultProductPreview();
+	export let cubeClass = createDefaultCubeClass();
+
+	let _cubeClass = {
+		blockClass: 'product',
+		compostClass: '',
+		utilClass: 'flex overflow-hidden'
+	};
 
 	const dispatch = createEventDispatcher();
 </script>
 
-<Card
-	cubeClass={{
-		blockClass: 'product',
-		utilClass: 'flex overflow-hidden'
-	}}
->
+<Card cubeClass={combineCubeClasses(_cubeClass, cubeClass)}>
 	<div class="[ product__image ]">
-		<Image props={{ src: API_URL + props.thumbnail, alt: `${props.title}'s profile` }} />
+		<Image props={{ src: props.thumbnail, alt: `${props.title}'s profile` }} />
 	</div>
 	<FlexyCustom
 		cubeClass={{ blockClass: 'product__content', utilClass: 'padding-2 width-100 height-100' }}

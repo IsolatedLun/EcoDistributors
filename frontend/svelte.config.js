@@ -10,7 +10,9 @@ const config = {
 			assets: 'build/assets',
 			out: 'build',
 			fallback: 'index.html',
-			precompress: false
+			precompress: false,
+			prerender: { enabled: false },
+			ssr: false
 		})
 	}
 };

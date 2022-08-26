@@ -25,13 +25,13 @@
 		</TypoHeader>
 
 		<div
-			class="[ products cart__products ] [ grid gap-2 margin-block-end-2  ]"
+			class="[ products cart__products ] [ grid gap-2 margin-block-end-2 width-100  ]"
 			data-mode={$mq.state === 2 ? 'mobile' : 'desktop'}
 		>
 			{#if $cart.items.length > 0}
 				{#each $cart.items as productData}
 					<FlexyCustom collapseOnMobile={true} align="start">
-						<Product props={{ ...productData.product }} />
+						<Product props={{ ...productData.product }} cubeClass={{ utilClass: 'width-100' }} />
 						<FlexyCustom
 							useColumn={true}
 							justify="space-between"

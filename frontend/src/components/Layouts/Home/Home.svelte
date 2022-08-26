@@ -3,6 +3,7 @@
 	import TextInput from '../../../components/Interactibles/Inputs/TextInput.svelte';
 	import {
 		HOT_ICON,
+		INFO_ICON,
 		LATEST_ICON,
 		SEARCH_ICON,
 		TIMES_ICON,
@@ -169,5 +170,14 @@
 				</div>
 			</section>
 		</div>
+	</div>
+{:catch}
+	<div class="[ grid place-items-center ]">
+		<Card variant="primary" cubeClass={{ utilClass: 'padding-block-1 padding-inline-2' }}>
+			<FlexyCustom>
+				<Icon ariaLabel="Info icon" cubeClass={{ utilClass: 'clr-primary-400' }}>{INFO_ICON}</Icon>
+				<p class={`[ fs-500 ]`}>Something went wrong.</p>
+			</FlexyCustom>
+		</Card>
 	</div>
 {/await}

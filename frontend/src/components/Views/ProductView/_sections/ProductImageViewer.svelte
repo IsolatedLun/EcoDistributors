@@ -33,10 +33,7 @@
 					utilClass: 'ignore-children border-radius-cubed cursor-pointer'
 				}}
 			>
-				<Image
-					use={(e) => (e.id = `image-${i}`)}
-					props={{ src: API_URL + image, alt: productName + 'image' }}
-				/>
+				<Image use={(e) => (e.id = `image-${i}`)} props={{ src: image, alt: `image ${i + 1}` }} />
 			</Button>
 		{/each}
 	</div>
@@ -46,7 +43,7 @@
 	>
 		<Image
 			cubeClass={{ utilClass: 'object-fit-contain' }}
-			props={{ src: API_URL + images[idx], alt: productName + 'image' }}
+			props={{ src: images[idx], alt: productName + ` image ${idx + 1}` }}
 		/>
 	</div>
 </FlexyCustom>

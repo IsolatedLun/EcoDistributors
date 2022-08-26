@@ -40,7 +40,11 @@ export const iconDict: any = {
 // =============
 // Endpoints
 // =============
-export const API_URL = 'http://localhost:8000/api';
+const DEBUG = false;
+
+export const API_URL = DEBUG
+	? 'http://localhost:8000/api'
+	: 'https://eco-distributors.herokuapp.com/api';
 
 export const GET_PRODUCTS_URL = '/products/';
 export const GET_PRODUCT_VIEW_URL = (id: number) => GET_PRODUCTS_URL + id;
