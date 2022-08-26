@@ -81,7 +81,7 @@ REST_FRAMEWORK = {
 
 # Storage
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = os.environ['GS_BUCKET_NAME']
+GS_BUCKET_NAME = os.environ['GOOGLE_BUCKET_NAME']
 GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
