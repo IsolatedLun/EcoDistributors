@@ -50,7 +50,7 @@ class ProductView(APIView):
             return Response(data=serialized_data, status=OK)
         except Exception as e:
             print(e)
-            return Response(data={'detail': 'Post does not exist'}, status=NOT_FOUND)
+            return Response(data={'detail': 'Product does not exist'}, status=NOT_FOUND)
 
 
 class ProductCountView(APIView):

@@ -1,1 +1,1 @@
-ecoBackend=https://github.com/heroku/heroku-buildpack-python.git
+frotend=https://github.com/heroku/heroku-buildpack-nodejs.git

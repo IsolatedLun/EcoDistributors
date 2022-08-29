@@ -8,11 +8,8 @@ const config = {
 	kit: {
 		adapter: adapter({
 			assets: 'build/assets',
-			out: 'build',
 			fallback: 'index.html',
-			precompress: false,
-			prerender: { enabled: false },
-			ssr: false
+			prerender: { default: true }
 		})
 	}
 };
