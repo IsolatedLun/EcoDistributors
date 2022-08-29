@@ -1,2 +1,2 @@
-django: cd ecobackend && gunicorn ecobackend.wsgi:application --bind 127.0.0.1:$DJANGO_PORT
+django: cd ecoBackend && gunicorn ecobackend.wsgi:application --bind 127.0.0.1:$DJANGO_PORT
 node: cd frontend && node build/index.js
