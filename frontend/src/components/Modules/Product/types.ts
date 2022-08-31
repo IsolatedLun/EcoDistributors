@@ -1,4 +1,4 @@
-import type { Props_DB_Model } from 'src/types';
+import type { Props_DB_Model } from '../../../types';
 
 export interface Props_ProductPreview<ReviewT> extends Props_DB_Model {
 	title: string;

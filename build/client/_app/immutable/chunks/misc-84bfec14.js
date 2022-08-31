@@ -1,1 +1,0 @@
-function t(){let e;return document.querySelector(".state-indicator")?e=document.querySelector(".state-indicator"):(e=document.createElement("span"),e.classList.add("state-indicator"),document.body.appendChild(e)),e}function a(e){return e.charAt(0).toUpperCase()+e.slice(1)}export{a,t as c};

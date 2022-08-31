@@ -1,4 +1,8 @@
-export interface Props_StoreSelected extends SvelteStore<string[]> {
-	add: (x: string) => void;
-	remove: (x: string) => void;
+export interface Store<T> {
+  subscribe: (run: (value: T) => any, invalidate?: any) => any;
+}
+
+export interface Props_StoreSelected extends Store<string[]> {
+  add: (x: string) => void;
+  remove: (x: string) => void;
 }

@@ -1,1 +1,1 @@
-web: bin/runsvdir-dyno
+web: cd ecoBackend && gunicorn ecoBackend.wsgi:application

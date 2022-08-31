@@ -3,7 +3,6 @@
 	import { createCubeCSSClass, createDefaultCubeClass } from '../../utils/cubeCssUtils';
 	import { onMount } from 'svelte';
 	import type { EventFunction } from '../../types';
-	import { mq } from '../../stores/media-queries/mqStore';
 
 	onMount(() => {
 		use(_this);

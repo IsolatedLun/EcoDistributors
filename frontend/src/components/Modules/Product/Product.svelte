@@ -46,7 +46,7 @@
 		>
 			<a
 				rel="external"
-				href={`/products/${props.id}/${props.title}`}
+				href={`#/products/${props.id}/${props.title}`}
 				class="[ text-ellipsis-2 ] [ fs-500 ]">{props.title}</a
 			>
 			<StarRater />

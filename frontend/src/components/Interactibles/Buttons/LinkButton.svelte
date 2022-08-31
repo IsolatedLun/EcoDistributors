@@ -16,7 +16,7 @@
 
 {#if target === '_blank'}
 	<a
-		href={to}
+		href={'#/' + to}
 		target="_blank"
 		on:click
 		class={_class}
@@ -28,7 +28,7 @@
 	</a>
 {:else}
 	<a
-		href={to}
+		href={'#' + to}
 		on:click
 		class={_class}
 		data-variant={variant}

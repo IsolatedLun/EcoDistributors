@@ -13,7 +13,6 @@
 	import Loader from '../../../components/Misc/Loader/Loader.svelte';
 	import { onMount } from 'svelte';
 	import { createDefaultProduct } from '../../../utils/defaultCreates';
-	import { goto } from '$app/navigation';
 	import { handleError } from '../../../services/utils';
 	import { addToCart, cart, isInCart, removeFromCart } from '../../../stores/cart/cart';
 
@@ -24,7 +23,10 @@
 				console.log(data);
 				isProductInCart = isInCart(product.id);
 			})
-			.catch((detail) => goto('/error?detail=' + handleError(detail).detail));
+			.catch((detail) => {
+				//  goto('/error?detail=' + handleError(detail).detail)
+				alert('ERROR')
+			});
 	});
 
 	function handleProductCart(product: any) {

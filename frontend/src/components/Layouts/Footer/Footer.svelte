@@ -34,13 +34,13 @@
 		<div class="[ text-center ]">
 			<div data-desktop>
 				<TypoHeader h={2}>
-					<a href="/">Eco | Distributors</a>
+					<a href="#/">Eco | Distributors</a>
 				</TypoHeader>
 			</div>
 
 			<div data-mobile>
 				<TypoHeader h={2}>
-					<a href="/">
+					<a href="#/">
 						<Icon cubeClass={{ utilClass: 'fs-800' }} ariaLabel="Truck icon">{TRUCK_ICON}</Icon>
 					</a>
 				</TypoHeader>
@@ -52,19 +52,19 @@
 					<li>
 						<LinkButton target={'_blank'} to={FACEBOOK_URL} variant="hoverable">
 							<i class="[ fa-brands fa-facebook ] [ fs-500 ]" aria-hidden="true" />
-							<p class="[ sr-only ]">Facebook link</p>
+							<p class="[ visually-hidden ]">Facebook link</p>
 						</LinkButton>
 					</li>
 					<li>
 						<LinkButton target={'_blank'} to={INSTAGRAM_URL} variant="hoverable">
 							<i class="[ fa-brands fa-instagram ] [ fs-500 ]" aria-hidden="true" />
-							<p class="[ sr-only ]">Instagram link</p>
+							<p class="[ visually-hidden ]">Instagram link</p>
 						</LinkButton>
 					</li>
 					<li>
 						<LinkButton target={'_blank'} to={YOUTUBE_URL} variant="hoverable">
 							<i class="[ fa-brands fa-youtube ] [ fs-500 ]" aria-hidden="true" />
-							<p class="[ sr-only ]">Youtube link</p>
+							<p class="[ visually-hidden ]">Youtube link</p>
 						</LinkButton>
 					</li>
 				</ul>
@@ -77,8 +77,8 @@
 			<TypoHeader h={3}>Miscellaneous</TypoHeader>
 			<!-- svelte-ignore a11y-no-redundant-roles -->
 			<ul class="[ flex-direction-column align-items-center gap-1 ]" role="list">
-				<li><a class="" href="/">Our store</a></li>
-				<li><a href="/">Contact</a></li>
+				<li><a class="" href="#/">Our store</a></li>
+				<li><a href="#/">Contact</a></li>
 			</ul>
 		</div>
 		<div>

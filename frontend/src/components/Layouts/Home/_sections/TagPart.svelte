@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '../../../../components/Modules/Icon/Icon.svelte';
-	import type { Props_StoreSelected } from 'src/stores/types';
+	import type { Props_StoreSelected } from '../../../../stores/types';
 	import FlexyCustom from '../../../../components/Alignment/FlexyCustom.svelte';
 	import Button from '../../../../components/Interactibles/Buttons/Button.svelte';
 	import TypoHeader from '../../../../components/Modules/Typography/TypoHeader.svelte';

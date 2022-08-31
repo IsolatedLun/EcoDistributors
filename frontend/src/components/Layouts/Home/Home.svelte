@@ -19,7 +19,6 @@
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import Icon from '../../../components/Modules/Icon/Icon.svelte';
 	import Card from '../../../components/Modules/Card/Card.svelte';
-	import { attrSetter } from '../../../utils/misc';
 	import TypoHeader from '../../../components/Modules/Typography/TypoHeader.svelte';
 	import type { Props_GridLayouts } from './types';
 	import GridButtons from './_sections/GridButtons.svelte';
