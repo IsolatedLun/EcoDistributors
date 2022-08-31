@@ -1,1 +1,1 @@
-web: cd ecoBackend && gunicorn ecoBackend.wsgi:application
+web: cd ecoBackend && gunicorn ecoBackend.wsgi
