@@ -3,11 +3,14 @@ import type { Props_ProductPreview } from "../components/Modules/Product/types";
 import type { Props_ProductView } from "../components/Views/ProductView/types";
 import type { Props_User } from "../types";
 import type { Store_Cart } from "../stores/cart/types";
+import type { Props_Review } from "../components/Modules/Review/types";
 
 // ===============
 // Component props
 // ===============
-export function createDefaultProductPreview(): Props_ProductPreview<number> {
+export function createDefaultProductPreview(): Props_ProductPreview<
+  number | Props_Review[]
+> {
   return {
     title: "",
     thumbnail: "",

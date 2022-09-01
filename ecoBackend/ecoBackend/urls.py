@@ -8,7 +8,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('Calculus4Subzero9Alienable-admin/', admin.site.urls),
     path('api/products/', include('products.urls')),
 
     re_path('m/', TemplateView.as_view(template_name='index.html')),

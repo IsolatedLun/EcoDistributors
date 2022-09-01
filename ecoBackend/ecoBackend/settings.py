@@ -4,6 +4,7 @@ Django settings for ecoBackend project.
 
 from pathlib import Path
 import os
+import json
 from dotenv import load_dotenv, find_dotenv
 from datetime import timedelta
 import dj_database_url
@@ -70,8 +71,10 @@ GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(BASE_DIR, 'credentials.json')
+GS_CREDENTIALS_JSON = json.loads(os.environ['GS_CREDENTIALS'])
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
+    GS_CREDENTIALS_JSON
 )
 
 MIDDLEWARE = [
