@@ -40,7 +40,7 @@ export const iconDict: any = {
 // =============
 // Endpoints
 // =============
-const DEBUG = true;
+const DEBUG = false;
 
 export const API_URL = DEBUG
   ? "http://localhost:8000/api"
