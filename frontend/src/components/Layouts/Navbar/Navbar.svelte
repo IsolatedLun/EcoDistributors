@@ -25,7 +25,7 @@
 
   <div data-mobile>
     <TypoHeader h={2}>
-      <a href="/"
+      <a href="#/"
         ><Icon cubeClass={{ utilClass: "fs-800" }} ariaLabel="Truck icon"
           >{TRUCK_ICON}</Icon
         ></a

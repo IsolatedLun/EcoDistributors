@@ -5,13 +5,15 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 
 urlpatterns = [
     path('Calculus4Subzero9Alienable-admin/', admin.site.urls),
     path('api/products/', include('products.urls')),
 
     re_path('m/', TemplateView.as_view(template_name='index.html')),
+    re_path(r'^.*$', RedirectView.as_view(url='/m/',
+            permanent=False), name='unknown-path')
 ]
 
 if settings.DEBUG:

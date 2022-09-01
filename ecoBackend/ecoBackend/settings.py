@@ -4,7 +4,7 @@ Django settings for ecoBackend project.
 
 from pathlib import Path
 import os
-import json
+import ast
 from dotenv import load_dotenv, find_dotenv
 from datetime import timedelta
 import dj_database_url
@@ -71,8 +71,7 @@ GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
-GS_CREDENTIALS_JSON = {'type': 'service_account', 'project_id': 'bamboo-medium-360514', 'private_key_id': 'a76c322cc4b495a22f4aedb4885d34839f40d2c0', 'private_key': '-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCXARdViWmUVif5\nmpOn3nWDVwHV2fRqX6kj+tWPkr9qggudA4QDvYQfwq7DwYWJP++86AM1zeONsPeo\nOEVFUSCg34juMKgi3Ob8i6M+CQjn13pcTQEeuPwo7/6pB/tMhptX04T3+qd2BFYb\nPXePrakzxCuWT6oNTQd0pxjwDwa1yWiXQ7K5utlOx7Qlkjf+CZuqf84LrQBbUAAj\nO/kQWaHT1tRrxymoRm1OsSqyXRakysvd/v26bmDUIKJqlgScR0iDfvXmWrQ9ujcQ\nsCw8WZ0HdDD8n4udw3qQDveDv3/R8TLMfhB75vW7FmX9q6sYQGSdeUybBpkvQubk\nambO8/u7AgMBAAECggEAHH78t8wcK/2MQqq8hZfSBkyTkJc2bCKMSTlrNtJjJAbR\niTpiHdCUT+gN0exBtnJl2/jOrkch05nbSpf/3oJeTW2Rqh1thVK5llwFnM3Yq+O6\neBOiC/mtwE31+VEDx9+5DfxhIejf1EIiO7bAStFjVl0FOrLi7Oql5wonhxnW0tQa\nguHa9rutjovz1pOD0VM2aB66Ac2JAkMU37z25cFn6PiP0/cuUCuo7pNGPDOG3Ogd\n/A7bVZYIgjx9Dr4Ww7eXYEbUIkLvCyEceVvxyAUKKJH5H2IxD0QeM7bk5CJ8l8tl\n4n+DuRRNN7xdDianrZCTeozKgUbolcSjXKHwu4Lm0QKBgQDPpBpvx6/EgqcRYaym\nwf6vSARbTYzIuHPYG+GUGWw/BphrPUNmgRfX6/70emqyj20aw4knyJf0VNVL3Dq5\nvdxWMKUtHYr3Kbvd0NhcBxgVq/uKo1wY5KtDIUV/Pqke3xDkBq0ddbzLI9sfUKN5\nMtvK2aehnmvWf633DOpGSIcUcQKBgQC6LDYma3vbIm75oTUjWDwRwCeXnjooV+/E\nKGSIx8SK5if3bXDTsej1fPBQX2zwxLYMrIdsDtm+fg1o5BcuTsGnjLt+GVyiGFj6\nl3HTC2pyooo9hPwGpvqbT5dK0DiXEmbPDJRI/J8si8se4Yge7kx+yn0un41W+7Bc\nZO7vDfO46wKBgHxkBgZi7TRfRPDPv9uiqg2dqiZ8XdO9VIDpqwjK9iMHs3XDHMai\nnYMX+QPC9nqEG8uFynvP2uBflew9Qd0WFZJ4z+soIKETGl23CHaRNWd+QVH7rWeo\nTcUIgJbLFgvNfFPuf/T/HJvhnhqzd0tbIXrzS04yFs5IbRJsZUi3mFyxAoGAbSzA\nFIezei4XJgyDPNbhYwdsMF15fW8UC9QkIJIFj+6oQVDMeVg7ZLp/sqJDIG460/PY\n9mU/C5agBoK7lUxaBAdja+8zg1sD0vA8r6ZiJhdrOehiYwRIsgtajWTNysnfwEuA\nKcz7CwRveQyI5pqYAUJ9ZnnqSLgQFB6cf1OPOUECgYEAnfJjie2sTem4pULDvxpm\n6VsMl1q5oVfm9ngH/3cGy/GWBkJLvXEv5eZDveZsBCfDUJ+HWzrxTcXWIOG4+aG/\nu3TZeLunFORLMyy/a9PHJYB8bUgOaEHHYSayD13Bf/ogzdhljpFYe2DbVWdhw4V4\nL2IomRAW6MBlfnjspn9Kqyg=\n-----END PRIVATE KEY-----\n',
-                       'client_email': 'eco-media-service@bamboo-medium-360514.iam.gserviceaccount.com', 'client_id': '101980303372356620245', 'auth_uri': 'https://accounts.google.com/o/oauth2/auth', 'token_uri': 'https://oauth2.googleapis.com/token', 'auth_provider_x509_cert_url': 'https://www.googleapis.com/oauth2/v1/certs', 'client_x509_cert_url': 'https://www.googleapis.com/robot/v1/metadata/x509/eco-media-service%40bamboo-medium-360514.iam.gserviceaccount.com'}
+GS_CREDENTIALS_JSON = ast.literal_eval(os.environ['GS_CREDENTIALS'])
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
     GS_CREDENTIALS_JSON
