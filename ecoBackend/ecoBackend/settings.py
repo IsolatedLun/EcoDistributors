@@ -71,8 +71,8 @@ GS_PROJECT_ID = os.environ['GS_PROJECT_ID']
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
 
-# .
-GS_CREDENTIALS_JSON = json.loads(str(os.environ['GS_CREDENTIALS']))
+credentials = os.environ['GS_CREDENTIALS']
+GS_CREDENTIALS_JSON = json.loads(f'"{credentials}"')
 
 GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
     GS_CREDENTIALS_JSON
