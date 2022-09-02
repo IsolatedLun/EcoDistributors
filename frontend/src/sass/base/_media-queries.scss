@@ -6,6 +6,11 @@
 			--fs-#{$font}: #{$size};
 		}
 	}
+
+	.product .product__image {
+		width: 100%;
+		max-width: $product-image-mobile-max-width;
+	}
 }
 
 @media screen and(min-width: #{$breakpoint-small}) {

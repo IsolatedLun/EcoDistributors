@@ -78,8 +78,11 @@
 			on:click={handleGetProducts}
 			{isFetching}
 			cubeClass={{ utilClass: 'margin-inline-auto' }}
-			ariaLabel="Search"><Icon>{SEARCH_ICON}</Icon></Button
+			ariaLabel="Search"
 		>
+			<p class="[ visually-hidden ]">Search</p>
+			<Icon>{SEARCH_ICON}</Icon>
+		</Button>
 	</FlexyCustom>
 
 	<div class="[ grid ] [ place-items-center ]">

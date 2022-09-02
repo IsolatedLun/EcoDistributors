@@ -58,20 +58,24 @@ $button-filter-border-radius: 100vmax;
 
 // => Red
 $button-red-font-size: var(--fs-400);
-$button-red-padding: 0.75em;
 $button-red-background-color: var(--clr-error-400);
 $button-red-border: none;
 $button-red-border-radius: $border-radius-cubed;
 $button-red-background-color-on-hov: var(--clr-error-500);
-$button-red-color: var(--clr-text-accent);
+$button-red-color: white;
 $button-red-color-on-hov: var(--clr-text-accent);
 $button-red-border-radius: $border-radius-cubed;
+
+// => Secondary variants
+$button-secondary-block-padding: 0.75em;
 
 // Selects
 $select-box-border: 2px solid hsl(0 0 50% / 0.36);
 $select-box-background-on-hov: var(--clr-select-box-background-on-hov);
 $select-box-background-on-select: var(--clr-primary-400);
 $select-box-border-color-on-hov: var(--clr-primary-400);
+
+$buton-select-list-item-padding: 0.5em 1em;
 
 // Card
 $def-card-background-color: var(--clr-card-400);
@@ -91,6 +95,12 @@ $product-image-desktop-max-height: 16rem;
 $product-image-background: var(--clr-image-background);
 $product-price-color: var(--clr-text-muted);
 $product-background-color: var(--clr-card-primary);
+
+// Product image
+$product-image-desktop-min-width: 12rem;
+$product-image-desktop-max-width: 16rem;
+
+$product-image-mobile-max-width: 26rem;
 
 // Star rater
 $star-color: orange;

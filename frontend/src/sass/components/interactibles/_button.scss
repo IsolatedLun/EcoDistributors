@@ -18,7 +18,6 @@
 
 .button:is([data-variant='red']) {
 	@include createButton(
-		$padding: $button-red-padding,
 		$color: $button-red-color,
 		$color-on-hov: $button-red-color,
 		$background-color: $button-red-background-color,
@@ -43,12 +42,15 @@
 	}
 }
 
+// =============
+// Secondary variants
+// =============
 .button:is([data-secondary-variant='cube']) {
 	border-radius: $border-radius-cubed !important;
 }
 
 .button:is([data-secondary-variant='select-list-item']) {
-	padding: 0.5em 1em;
+	padding: $buton-select-list-item-padding;
 
 	color: var(--clr-accent-400);
 	border-radius: 100vmax;
@@ -66,6 +68,11 @@
 	&:is(:focus-visible, :hover) .item__checkbox {
 		visibility: visible;
 	}
+}
+
+.button:is([data-secondary-variant='block']) {
+	padding: $button-secondary-block-padding;
+	border-radius: $border-radius-cubed;
 }
 
 // ========================

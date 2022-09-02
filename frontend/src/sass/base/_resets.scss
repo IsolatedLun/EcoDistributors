@@ -142,12 +142,12 @@ img[data-small='true'] {
 }
 
 [data-work-condition='false'] {
-	background-color: var(--clr-hover-400) !important;
+	background-color: var(--clr-error-faded) !important;
 	pointer-events: none;
 }
 
 [data-work-condition='false'] > *:not(.button__loader) {
-	opacity: 0.26;
+	opacity: 0.36;
 }
 
 :where(.flow > * + *) {

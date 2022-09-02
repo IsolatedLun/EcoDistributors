@@ -3,10 +3,11 @@
 .products {
 	.product {
 		.product__image {
-			width: clamp(12rem, 50%, 16rem);
+			width: clamp(#{$product-image-desktop-min-width}, 50%, #{$product-image-desktop-max-width});
 
 			aspect-ratio: 1;
 			background-color: $product-image-background;
+			border: 2px solid $product-image-background;
 		}
 
 		.product__price {
@@ -23,6 +24,7 @@
 	grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 
 	.product {
+		margin-inline: auto;
 		flex-direction: column;
 		align-items: center;
 
