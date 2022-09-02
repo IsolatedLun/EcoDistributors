@@ -9,7 +9,7 @@
 
 	function handleAddNewTag() {
 		if (newTag) {
-			tagHook.add(newTag);
+			tagHook.add(newTag.toLowerCase());
 			newTag = '';
 		}
 	}

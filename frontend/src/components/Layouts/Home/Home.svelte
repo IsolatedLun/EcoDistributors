@@ -35,17 +35,19 @@
 	});
 
 	async function handleGetProducts() {
+		isFetching = true;
 		productsData = await getProducts({
 			tags: $selectedTagsHook,
 			filters: $selectedFilterHook,
 			title: title.trim(),
 			sort_by: sortBy,
 			show_upcoming: showUpcoming
-		});
+		}).finally(() => (isFetching = false));
 	}
 
 	let gridLayout: Props_GridLayouts = 'column';
 	let showFilters = false;
+	let isFetching = false;
 
 	let selectedFilterHook: Props_StoreSelected = useSelected();
 	let selectedTagsHook: Props_StoreSelected = useSelected();
@@ -74,6 +76,7 @@
 
 		<Button
 			on:click={handleGetProducts}
+			{isFetching}
 			cubeClass={{ utilClass: 'margin-inline-auto' }}
 			ariaLabel="Search"><Icon>{SEARCH_ICON}</Icon></Button
 		>
@@ -123,6 +126,7 @@
 			>
 				<Button
 					on:click={handleGetProducts}
+					{isFetching}
 					cubeClass={{
 						utilClass: 'flex gap-1 margin-block-end-1 width-100 justify-content-center'
 					}}

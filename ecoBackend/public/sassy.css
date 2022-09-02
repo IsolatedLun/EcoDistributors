@@ -1117,6 +1117,36 @@
   font-weight: 500;
 }
 
+@keyframes smoothBar {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  25% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  75% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 .main-container {
   width: min(100%, calc(100% - 1rem));
   padding-inline: 0.5rem;
@@ -1187,28 +1217,6 @@
   color: var(--clr-text-muted);
 }
 
-@keyframes smoothBar {
-  0% {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  25% {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  50% {
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-  75% {
-    transform: scaleX(1);
-    transform-origin: right;
-  }
-  100% {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-}
 .product-view .image-viewer .viewer__images {
   display: flex;
   max-height: 22.5rem;
@@ -1468,6 +1476,15 @@
   color: white;
   background-color: var(--clr-primary-400);
   border-color: var(--clr-primary-400);
+}
+
+.button:is([data-async-loading]) .button__loader {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1 !important;
+  transform-origin: center;
+  animation: spin 1s linear infinite;
 }
 
 .select:is([data-variant=box-select]) li .box-select-button {
@@ -2445,8 +2462,12 @@ img[data-small=true] {
 }
 
 [data-work-condition=false] {
-  opacity: 0.75;
+  background-color: var(--clr-hover-400) !important;
   pointer-events: none;
+}
+
+[data-work-condition=false] > *:not(.button__loader) {
+  opacity: 0.26;
 }
 
 :where(.flow > * + *) {

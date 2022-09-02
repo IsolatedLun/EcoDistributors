@@ -85,3 +85,14 @@
 	background-color: $select-box-background-on-select;
 	border-color: $select-box-background-on-select;
 }
+
+// ========================
+// Async Loader
+// =========================
+.button:is([data-async-loading]) .button__loader {
+	@include transformCenter();
+
+	opacity: 1 !important;
+	transform-origin: center;
+	animation: spin 1s linear infinite;
+}
