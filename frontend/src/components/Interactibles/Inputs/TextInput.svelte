@@ -15,8 +15,9 @@
 	export let secondaryVariant = 'default';
 	export let placeholder = 'Enter text';
 	export let label: string;
+	export let showLabel = false;
 	export let value = '';
-	export let id = 'window.crypto.randomUUID()';
+	export let id = window.crypto.randomUUID();
 	export let type: 'text' | 'email' | 'password' = 'text';
 
 	const _class = createCubeCSSClass(cubeClass, {
@@ -28,7 +29,11 @@
 </script>
 
 <div class={_class}>
-	<label for={id} class="[ sr-only ]">{label}</label>
+	<label
+		for={id}
+		class={`[ ${!showLabel ? 'sr-only' : ''} ] [ margin-block-end-1 display-inline-block ]`}
+		>{label}</label
+	>
 	<input
 		use:setType
 		bind:value

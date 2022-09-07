@@ -1,0 +1,16 @@
+@use '../../abstracts/' as *;
+
+.constraint-container {
+	.constraint__card {
+		@include transformCenter();
+
+		z-index: 9999999;
+	}
+
+	&:is([data-has-constraints='true']) {
+		.constraint__content {
+			filter: blur(0.88px);
+			pointer-events: none;
+		}
+	}
+}

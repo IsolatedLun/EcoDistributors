@@ -57,7 +57,7 @@ export function createDefaultUser(): Props_User {
 	return {
 		id: 0,
 
-		username: '',
+		username: 'Default user',
 		profile: '',
 		date_created: ''
 	};
@@ -70,8 +70,8 @@ export function createDefaultReview(): Props_Review {
 
 		id: 0,
 
-		title: '',
-		comment: '',
+		title: 'This is an review',
+		comment: 'Nothing out of the ordinary, just a review...',
 		date_created: ''
 	};
 }

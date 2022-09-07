@@ -1338,6 +1338,17 @@
   border-color: none;
 }
 
+.constraint-container .constraint__card {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999999;
+}
+.constraint-container:is([data-has-constraints=true]) .constraint__content {
+  filter: blur(0.88px);
+  pointer-events: none;
+}
+
 .input:where([data-variant="default"]) {
   font-size: var(--fs-350);
   padding: 0.7em 1.5em;

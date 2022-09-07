@@ -17,6 +17,8 @@
 		dispatch('rate', {
 			value: i
 		});
+
+		if (canRate) props = { ...props, rating: i }; // Changes the current rating, if the user can rate
 	}
 
 	export let props: Props_StarRater = createDefaultStarRater();

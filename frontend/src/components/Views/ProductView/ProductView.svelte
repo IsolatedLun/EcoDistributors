@@ -16,6 +16,9 @@
 	import { handleError } from '../../../services/utils';
 	import { push } from 'svelte-spa-router';
 	import { addToCart, cart, isInCart, removeFromCart } from '../../../stores/cart/cart';
+	import ConstrainedComponent from '../../Modules/Constrained/ConstrainedComponent.svelte';
+	import TextInput from '../../Interactibles/Inputs/TextInput.svelte';
+	import ReviewForm from './_sections/ReviewForm.svelte';
 
 	onMount(() => {
 		getProduct(id)
@@ -138,12 +141,13 @@
 			</section>
 			<section>
 				<TypoHeader h={2}>Reviews</TypoHeader>
-				<div class="[ products ] [ grid gap-2 ]" data-mode="mobile">
+				<ReviewForm />
+				<div class="[ reviews ] [ grid gap-2 ]">
 					<ComponentMap
 						_this={Product}
 						items={props.related_products}
 						ignoreByIds={[id]}
-						fallbackText={'No products found!'}
+						fallbackText={'No reviews found!'}
 					/>
 				</div>
 			</section>
