@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import {
 		FACEBOOK_ICON,
 		FACEBOOK_URL,
+		FOOTER_MAX_CATEGORIES,
 		INSTAGRAM_ICON,
 		INSTAGRAM_URL,
 		TRUCK_ICON,
@@ -14,6 +15,11 @@
 	import FlexyCustom from '../../../components/Alignment/FlexyCustom.svelte';
 	import LinkButton from '../../../components/Interactibles/Buttons/LinkButton.svelte';
 	import { mq } from '../../../stores/media-queries/mqStore';
+	import { general } from '../../../stores/general/general';
+
+	function selectCategoryFromFooter(id: string) {
+		(document.getElementById(id) as HTMLButtonElement).click();
+	}
 </script>
 
 <Card
@@ -85,6 +91,13 @@
 			<TypoHeader h={3}>Categories</TypoHeader>
 			<!-- svelte-ignore a11y-no-redundant-roles -->
 			<ul class="[ flex-direction-column align-items-center gap-1 ]" role="list">
+				{#each $general.categories.slice(0, FOOTER_MAX_CATEGORIES) as category}
+					<li>
+						<a href={`#${category}`} on:click={() => selectCategoryFromFooter(category)}
+							>{category}</a
+						>
+					</li>
+				{/each}
 				<li aria-hidden="true">...</li>
 			</ul>
 		</div>

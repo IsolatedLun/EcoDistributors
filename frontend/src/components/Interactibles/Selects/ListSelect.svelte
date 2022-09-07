@@ -40,7 +40,10 @@
 			data-explicit-hide={!(item.category.toLowerCase().indexOf(searchCategory.toLowerCase()) > -1)}
 		>
 			<Button
-				use={(e) => e.setAttribute('data-value', item.category)}
+				use={(e) => {
+					e.setAttribute('data-value', item.category);
+					e.id = item.category;
+				}}
 				on:click={handleSelect}
 				dataSelected={$selected.includes(item.category)}
 				variant="hoverable"

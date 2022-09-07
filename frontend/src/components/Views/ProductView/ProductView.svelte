@@ -124,9 +124,20 @@
 
 		<MoreSection tableDetails={props.details} details={props.key_points} />
 
-		<div class="[ grid-repeater-1 gap-3 ]" data-grid-collapse-center>
+		<div class="[ grid-repeater-2 gap-3 ]" data-grid-collapse-center>
 			<section>
 				<TypoHeader h={2}>Related products</TypoHeader>
+				<div class="[ products ] [ grid gap-2 ]" data-mode="mobile">
+					<ComponentMap
+						_this={Product}
+						items={props.related_products}
+						ignoreByIds={[id]}
+						fallbackText={'No products found!'}
+					/>
+				</div>
+			</section>
+			<section>
+				<TypoHeader h={2}>Reviews</TypoHeader>
 				<div class="[ products ] [ grid gap-2 ]" data-mode="mobile">
 					<ComponentMap
 						_this={Product}

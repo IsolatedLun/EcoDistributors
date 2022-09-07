@@ -5,19 +5,26 @@
 	import Icon from '../Icon/Icon.svelte';
 	import type { Props_StarRater } from './types';
 	import { createDefaultStarRater } from '../../../utils/defaultCreates';
+	import { createEventDispatcher } from 'svelte';
 
-	function handleStarRate(e: Event) {
+	function handleStarRate(e: Event, i: number) {
 		const target = e.target as HTMLButtonElement;
 		const stars = target.parentElement?.querySelectorAll('.button.star');
 
 		stars?.forEach((star) => star.setAttribute('data-star-selected', 'false'));
 		target.setAttribute('data-star-selected', 'true');
+
+		dispatch('rate', {
+			value: i
+		});
 	}
 
 	export let props: Props_StarRater = createDefaultStarRater();
 	export let canRate = false;
 	export let isReview = false;
 	export let size: 'big' | 'small' = 'big';
+
+	let dispatch = createEventDispatcher();
 </script>
 
 <div class="[ star-rater-container ]" data-star-hoverable={canRate}>
@@ -26,7 +33,7 @@
 			{#each { length: 5 } as _, i}
 				<Button
 					use={(e) => e.setAttribute('data-star', String(5 - i))}
-					on:click={canRate ? handleStarRate : () => null}
+					on:click={(e) => (canRate ? handleStarRate(e, 5 - i) : () => null)}
 					cubeClass={{ blockClass: 'star', utilClass: 'ignore-children cursor-pointer padding-1' }}
 					variant="none"
 				>

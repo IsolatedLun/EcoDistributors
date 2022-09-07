@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.db.models import CheckConstraint, Q
 
 from taggit.managers import TaggableManager
 
@@ -14,7 +15,7 @@ class Product(models.Model):
         'The main category of an product (Cake => Dessert)'))
     tags = TaggableManager()
 
-    price = models.PositiveIntegerField(default=0)
+    price = models.FloatField(default=0)
     views = models.PositiveIntegerField(default=0)
 
     thumbnail = models.ImageField(
@@ -27,6 +28,13 @@ class Product(models.Model):
 
     is_upcoming = models.BooleanField(default=False)
     is_out_of_stock = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = (
+            CheckConstraint(
+                check=Q(price__gte=0.0),
+                name='positive_float_field'),
+            )
 
 
 class ProductDetails(models.Model):

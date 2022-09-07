@@ -57,6 +57,7 @@ export const GET_PRODUCT_COUNT = GET_PRODUCTS_URL + 'count';
 // Misc
 // =============
 export const MQ_UPDATE_INTERVAL = 1000;
+export const FOOTER_MAX_CATEGORIES = 10;
 
 // =============
 // SOCIALS

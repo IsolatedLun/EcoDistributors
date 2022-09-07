@@ -29,6 +29,7 @@
 	import type { Return__POST_Get_Products } from '../../../services/types';
 	import Loader from '../../../components/Misc/Loader/Loader.svelte';
 	import { onMount } from 'svelte';
+	import { general } from '../../../stores/general/general';
 
 	onMount(async () => {
 		productCount = (await getProductCount()).count;
@@ -36,13 +37,23 @@
 
 	async function handleGetProducts() {
 		isFetching = true;
-		productsData = await getProducts({
+		await getProducts({
 			tags: $selectedTagsHook,
 			filters: $selectedFilterHook,
 			title: title.trim(),
 			sort_by: sortBy,
 			show_upcoming: showUpcoming
-		}).finally(() => (isFetching = false));
+		})
+			.then((data) => {
+				productsData = data;
+
+				// Adding the categories to the general state to be used by other components
+				general.update((state) => ({
+					...state,
+					categories: data.categories.map((x) => x.category)
+				}));
+			})
+			.finally(() => (isFetching = false));
 	}
 
 	let gridLayout: Props_GridLayouts = 'column';
